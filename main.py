@@ -34,10 +34,10 @@ header = data[1]          # ← 2行目（項目名）
 body = data[2:]           # ← 3行目以降（データ）
 
 # 行番号選択
-row_numbers = list(range(3, len(data) + 1))
+row_numbers = list(range(1, len(data) + 1))
 selected_row = st.selectbox("編集する行を選択", row_numbers)
 
-row_data = body[selected_row - 3]   # データ本体
+row_data = body[selected_row - 1]   # データ本体
 
 # ====== 編集フォーム ======
 with st.form("edit_form"):
