@@ -30,8 +30,8 @@ def load_sheet():
 
 data = load_sheet()
 
-header = data[1]          # ← 1行目（項目名）
-body = data[3:]           # ← 2行目以降（データ）
+header = data[1]          # ← 2行目（項目名）
+body = data[2:]           # ← 3行目以降（データ）
 
 # 行番号選択
 row_numbers = list(range(2, len(data) + 1))
