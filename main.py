@@ -4,7 +4,7 @@ from googleapiclient.discovery import build
 
 # ====== Google Sheets 設定 ======
 SPREADSHEET_ID = "1uL3LADSC9Qf4xmgxBRXzfUaBQ1U1-ZbBxRSslBQg848"
-RANGE_NAME = "CollectList!B:O"  # 必要に応じて変更
+RANGE_NAME = "CollectList!B:Q"  # 必要に応じて変更
 
 # ====== 認証（サービスアカウント） ======
 #@st.cache_resource
@@ -76,7 +76,7 @@ with st.form("edit_form"):
     
 # 保存処理
 if submitted:
-    update_range = f"CollectList!B{selected_row}:O{selected_row}"
+    update_range = f"CollectList!B{selected_row}:Q{selected_row}"
     sheet.values().update(
         spreadsheetId=SPREADSHEET_ID,
         range=update_range,
