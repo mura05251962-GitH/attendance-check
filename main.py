@@ -41,6 +41,7 @@ row_data = body[selected_row - 1]   # データ本体
 # データ行を16列に揃える（足りない分は空文字で埋める）
 while len(row_data) < 16:
     row_data.append("")
+    
 # ====== 編集フォーム（カードで囲む） ======
 with st.container():
     st.markdown("""
@@ -49,62 +50,69 @@ with st.container():
     
     with st.form("edit_form"):
 
-    col1, col2, col3, col4 = st.columns(4)
-    new_values = []
+        col1, col2, col3, col4 = st.columns(4)
+        new_values = []
 
-    # --- 列1：項目1,2,3 ---
-    with col1:
-        for i in [0, 1, 2]:
-            new_values.append(st.text_input(header[i], row_data[i]))
+        # --- 列1：項目1,2,3 ---
+        with col1:
+            for i in [0, 1, 2]:
+                new_values.append(st.text_input(header[i], row_data[i]))
 
-    # --- 列2：項目4,5 / 6,7 / 8,9 ---
-    with col2:
-        cA, cB = st.columns(2)
-        with cA:
-            new_values.append(st.text_input(header[3], row_data[3]))
-        with cB:
-            options = ["〇", "×", ""]
-            new_values.append(st.text_input(header[4], row_data[4]))
-        cA, cB = st.columns(2)
-        with cA:
-            new_values.append(st.text_input(header[5], row_data[5]))
-        with cB:
-            options = ["〇", "×", ""]
-            new_values.append(st.text_input(header[6], row_data[6]))
-        cA, cB = st.columns(2)
-        with cA:
-            new_values.append(st.text_input(header[7], row_data[7]))
-        with cB:
-            options = ["〇", "×", ""]
-            new_values.append(st.text_input(header[8], row_data[8]))
+        # --- 列2：項目4,5 / 6,7 / 8,9 ---
+        with col2:
+            cA, cB = st.columns(2)
+            with cA:
+                new_values.append(st.text_input(header[3], row_data[3]))
+            with cB:
+                new_values.append(st.text_input(header[4], row_data[4]))
 
-    # --- 列3：項目10,11 ---
-    with col3:
-        cA, cB = st.columns(2)
-        with cA:
-            new_values.append(st.text_input(header[9], row_data[9]))
-        with cB:
-            options = ["〇", "×", ""]
-            new_values.append(st.text_input(header[10], row_data[10]))
+            cA, cB = st.columns(2)
+            with cA:
+                new_values.append(st.text_input(header[5], row_data[5]))
+            with cB:
+                new_values.append(st.text_input(header[6], row_data[6]))
 
-    # --- 列4：項目12〜16 ---
-    with col4:
-        options = ["2000","ー",""]
-        new_values.append(st.selectbox(header[11], options, index=options.index(row_data[11]) if row_data[11] in options else 2))
-        options = ["1000","ー","2000","3000"]
-        new_values.append(st.selectbox(header[12], options, index=options.index(row_data[12]) if row_data[12] in options else 4))
-        options = ["7000","ー",""]
-        new_values.append(st.selectbox(header[13], options, index=options.index(row_data[13]) if row_data[13] in options else 2))
-        cA, cB = st.columns(2)
-        with cA:
-            st.text_input("合計金額", value=(row_data[14]), disabled=True)
-        with cB:
-            options = ["〇", "未", "ー",""]
-            new_values.append(st.text_input(header[15], row_data[15]))
+            cA, cB = st.columns(2)
+            with cA:
+                new_values.append(st.text_input(header[7], row_data[7]))
+            with cB:
+                new_values.append(st.text_input(header[8], row_data[8]))
+
+        # --- 列3：項目10,11 ---
+        with col3:
+            cA, cB = st.columns(2)
+            with cA:
+                new_values.append(st.text_input(header[9], row_data[9]))
+            with cB:
+                new_values.append(st.text_input(header[10], row_data[10]))
+
+        # --- 列4：項目12〜16 ---
+        with col4:
+            # 年会費
+            options = ["2000","ー",""]
+            new_values.append(st.selectbox(header[11], options, index=options.index(row_data[11]) if row_data[11] in options else 2))
+
+            # カンパ
+            options = ["1000","2000","3000","ー",""]
+            new_values.append(st.selectbox(header[12], options, index=options.index(row_data[12]) if row_data[12] in options else 4))
+
+            # 懇親会費
+            options = ["7000","ー",""]
+            new_values.append(st.selectbox(header[13], options, index=options.index(row_data[13]) if row_data[13] in options else 2))
+
+            # 合計金額（表示のみ）
+            cA, cB = st.columns(2)
+            with cA:
+                st.text_input("合計金額", value=row_data[14], disabled=True)
+
+            # 集金
+            with cB:
+                options = ["〇", "未", "ー",""]
+                new_values.append(st.selectbox(header[15], options, index=options.index(row_data[15]) if row_data[15] in options else 3))
 
         submitted = st.form_submit_button("保存")
-        
-        st.markdown("</div>", unsafe_allow_html=True)
+
+    st.markdown("</div>", unsafe_allow_html=True)
     
 # 保存処理
 if submitted:
