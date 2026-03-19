@@ -30,13 +30,13 @@ def load_sheet():
 data = load_sheet()
 
 # ====== UI ======
-st.title("名簿編集アプリ（Google Sheets）")
+st.title("2026年芙蓉クラブOGOB会 出欠・集金アプリ")
 
 # 行番号選択
-row_numbers = list(range(2, len(data) + 1))  # 1行目はヘッダー
+row_numbers = list(range(3, len(data) + 1))  # 2行目はヘッダー
 selected_row = st.selectbox("編集する行を選択", row_numbers)
 
-row_data = data[selected_row - 1]
+row_data = data[selected_row - 2]
 
 # 編集フォーム
 with st.form("edit_form"):
