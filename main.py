@@ -35,7 +35,7 @@ body = data[2:]           # ← 3行目以降（データ）
 
 # 行番号選択
 row_numbers = list(range(1, len(body) + 1))
-selected_row = st.selectbox("編集する行を選択", row_numbers)
+selected_row = st.selectbox("対象Noを選択", row_numbers)
 
 row_data = body[selected_row - 1]   # データ本体
 # データ行を16列に揃える（足りない分は空文字で埋める）
@@ -58,9 +58,9 @@ with st.form("edit_form"):
         for pair in [(3,4), (5,6), (7,8)]:
             cA, cB = st.columns(2)
             with cA:
-                new_values.append(st.text_input(header[pair[0]], row_data[pair[0]]))
+                new_values.append(st.text_input(f"{header[pair[0]]}_{pair[0]}", row_data[pair[0]]))
             with cB:
-                new_values.append(st.text_input(header[pair[1]], row_data[pair[1]]))
+                new_values.append(st.text_input(f"{header[pair[1]]}_{pair[1]}", row_data[pair[1]]))
 
     # --- 列3：項目10,11 ---
     with col3:
@@ -72,9 +72,13 @@ with st.form("edit_form"):
 
     # --- 列4：項目12〜16 ---
     with col4:
-        for i in [11, 12, 13, 14, 15]:
+        for i in [11, 12, 13]:
             new_values.append(st.text_input(header[i], row_data[i]))
-
+        cA, cB = st.columns(2)
+        with cA:
+            new_values.append(st.text_input(header[14], row_data[14]))
+        with cB:
+            new_values.append(st.text_input(header[15], row_data[15]))
     submitted = st.form_submit_button("保存")
     
 # 保存処理
