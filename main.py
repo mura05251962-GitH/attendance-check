@@ -25,63 +25,57 @@ def load_sheet():
         spreadsheetId=SPREADSHEET_ID,
         range=RANGE_NAME
     ).execute()
-    return result.get("values", [])
+    values = result.get("values", [])
+    return values
 
 data = load_sheet()
 
-# ====== UI ======
-st.title("2026年芙蓉クラブOGOB会 出欠・集金アプリ")
+header = data[0]          # ← 1行目（項目名）
+body = data[1:]           # ← 2行目以降（データ）
 
 # 行番号選択
-row_numbers = list(range(3, len(data) + 1))  # 2行目はヘッダー
+row_numbers = list(range(2, len(data) + 1))
 selected_row = st.selectbox("編集する行を選択", row_numbers)
 
-row_data = data[selected_row - 2]
+row_data = body[selected_row - 2]   # データ本体
 
-# 編集フォーム
+
+# ====== 編集フォーム ======
 with st.form("edit_form"):
 
-    # 3列レイアウトを作成
-    col1, col2, col3, col4, col5 = st.columns(5)
-    columns = [col1, col2, col3, col4, col5]
-
+    col1, col2, col3, col4 = st.columns(4)
     new_values = []
 
-    # 各項目をどの列に置くかを指定（0=左, 1=中央, 2=右）
-    # 必要に応じて自由に変更できる
-    layout_map = [
-    0,  # 項目1: No
-    0,  # 項目2: 卒年次
-    0,  # 項目3: 氏名（旧姓）
+    # --- 列1：項目1,2,3 ---
+    with col1:
+        for i in [0, 1, 2]:
+            label = header[i]
+            new_values.append(st.text_input(label, row_data[i]))
 
-    1,  # 項目4: 4/11テニス
-    2,  # 項目5: 出欠
-    1,  # 項目6: 4/11総会
-    2,  # 項目7: 出欠
-    1,  # 項目8: 4/11懇親会
-    2,  # 項目9: 出欠
-        
-    3,  # 項目10: 4/12テニス
-    4,  # 項目11: 出欠
+    # --- 列2：項目4,5 / 6,7 / 8,9 ---
+    with col2:
+        for pair in [(3,4), (5,6), (7,8)]:
+            cA, cB = st.columns(2)
+            with cA:
+                new_values.append(st.text_input(header[pair[0]], row_data[pair[0]]))
+            with cB:
+                new_values.append(st.text_input(header[pair[1]], row_data[pair[1]]))
 
-    5,  # 項目12: 年会費
-    5,  # 項目13: 現役支援カンパ
-    5   # 項目14: 4/11懇親会費
-]
+    # --- 列3：項目10,11 ---
+    with col3:
+        cA, cB = st.columns(2)
+        with cA:
+            new_values.append(st.text_input(header[9], row_data[9]))
+        with cB:
+            new_values.append(st.text_input(header[10], row_data[10]))
 
-    # row_data の項目数に合わせて layout_map を自動調整（安全策）
-    if len(layout_map) < len(row_data):
-        # 足りない分は左列に入れる
-        layout_map += [0] * (len(row_data) - len(layout_map))
-
-    # 入力欄を配置
-    for i, value in enumerate(row_data):
-        col_index = layout_map[i]
-        new_value = columns[col_index].text_input(f"項目{i+1}", value)
-        new_values.append(new_value)
+    # --- 列4：項目12〜16 ---
+    with col4:
+        for i in [11, 12, 13, 14, 15]:
+            new_values.append(st.text_input(header[i], row_data[i]))
 
     submitted = st.form_submit_button("保存")
-
+    
 # 保存処理
 if submitted:
     update_range = f"CollectList!B{selected_row}:O{selected_row}"
