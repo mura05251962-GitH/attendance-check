@@ -46,13 +46,7 @@ with st.container():
     st.markdown("""
     <div style="padding:15px; border:1px solid #ddd; border-radius:10px; background:#fafafa;">
     """, unsafe_allow_html=True)
-
-    with st.form("edit_form"):
-
-        col1, col2, col3, col4 = st.columns(4)
-        new_values = []
     
-# ====== 編集フォーム ======
 with st.form("edit_form"):
 
     col1, col2, col3, col4 = st.columns(4)
@@ -96,14 +90,14 @@ with st.form("edit_form"):
     # --- 列4：項目12〜16 ---
     with col4:
         options = ["2000","ー",""]
-        new_values.append(st.text_input(header[11], row_data[11]))
+        new_values.append(st.selectbox(header[11], options, index=options.index(row_data[11]) if row_data[11] in options else 2))
         options = ["1000","ー","2000","3000"]
-        new_values.append(st.text_input(header[12], row_data[12]))
+        new_values.append(st.selectbox(header[12], options, index=options.index(row_data[12]) if row_data[12] in options else 4))
         options = ["7000","ー",""]
-        new_values.append(st.text_input(header[13], row_data[13]))
+        new_values.append(st.selectbox(header[13], options, index=options.index(row_data[13]) if row_data[13] in options else 2))
         cA, cB = st.columns(2)
         with cA:
-            new_values.append(st.text_input(header[14], row_data[14]))
+            st.text_input("合計金額", value=(row_data[14]), disabled=True)
         with cB:
             options = ["〇", "未", "ー",""]
             new_values.append(st.text_input(header[15], row_data[15]))
@@ -123,3 +117,4 @@ if submitted:
     ).execute()
 
     st.success("保存しました！")
+    st.experimental_rerun()
