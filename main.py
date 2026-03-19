@@ -39,7 +39,6 @@ selected_row = st.selectbox("編集する行を選択", row_numbers)
 
 row_data = body[selected_row - 2]   # データ本体
 
-
 # ====== 編集フォーム ======
 with st.form("edit_form"):
 
@@ -49,8 +48,7 @@ with st.form("edit_form"):
     # --- 列1：項目1,2,3 ---
     with col1:
         for i in [0, 1, 2]:
-            label = header[i]
-            new_values.append(st.text_input(label, row_data[i]))
+            new_values.append(st.text_input(header[i], row_data[i]))
 
     # --- 列2：項目4,5 / 6,7 / 8,9 ---
     with col2:
