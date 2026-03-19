@@ -42,19 +42,32 @@ row_data = data[selected_row - 2]
 with st.form("edit_form"):
 
     # 3列レイアウトを作成
-    col1, col2, col3, col4, col5, col6 = st.columns(6)
-    columns = [col1, col2, col3, col4, col5, col6]
+    col1, col2, col3, col4, col5 = st.columns(5)
+    columns = [col1, col2, col3, col4, col5]
 
     new_values = []
 
     # 各項目をどの列に置くかを指定（0=左, 1=中央, 2=右）
     # 必要に応じて自由に変更できる
     layout_map = [
-        0, 1, 2,           # 項目B,C,D
-        0, 1, 2, 3, 4, 5,  # 項目E,F,G,H,I,J
-        0, 1,              # 項目K,L
-        0, 1, 2, 3, 4      # 項目M,N,O,P,Q
-    ]
+    0,  # 項目1: No
+    0,  # 項目2: 卒年次
+    0,  # 項目3: 氏名（旧姓）
+
+    1,  # 項目4: 4/11テニス
+    2,  # 項目5: 出欠
+    1,  # 項目6: 4/11総会
+    2,  # 項目7: 出欠
+    1,  # 項目8: 4/11懇親会
+    2,  # 項目9: 出欠
+        
+    3,  # 項目10: 4/12テニス
+    4,  # 項目11: 出欠
+
+    5,  # 項目12: 年会費
+    5,  # 項目13: 現役支援カンパ
+    5   # 項目14: 4/11懇親会費
+]
 
     # row_data の項目数に合わせて layout_map を自動調整（安全策）
     if len(layout_map) < len(row_data):
