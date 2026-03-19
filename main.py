@@ -116,7 +116,7 @@ with st.container():
     
 # 保存処理
 if submitted:
-    update_range = f"CollectList!B{selected_row}:Q{selected_row}"
+    update_range = f"CollectList!B{selected_row+2}:Q{selected_row+2}"
     sheet.values().update(
         spreadsheetId=SPREADSHEET_ID,
         range=update_range,
