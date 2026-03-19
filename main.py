@@ -64,19 +64,19 @@ with st.container():
             with cA:
                 new_values.append(st.text_input(header[3], row_data[3]))
             with cB:
-                new_values.append(st.text_input(header[4], row_data[4]))
+                new_values.append(st.text_input(f"{header[4]}{1}, row_data[4]))
 
             cA, cB = st.columns(2)
             with cA:
                 new_values.append(st.text_input(header[5], row_data[5]))
             with cB:
-                new_values.append(st.text_input(header[6], row_data[6]))
+                new_values.append(st.text_input(f"{header[6]}{2}, row_data[6]))
 
             cA, cB = st.columns(2)
             with cA:
                 new_values.append(st.text_input(header[7], row_data[7]))
             with cB:
-                new_values.append(st.text_input(header[8], row_data[8]))
+                new_values.append(st.text_input(f"{header[8]}{3}, row_data[8]))
 
         # --- 列3：項目10,11 ---
         with col3:
@@ -84,7 +84,7 @@ with st.container():
             with cA:
                 new_values.append(st.text_input(header[9], row_data[9]))
             with cB:
-                new_values.append(st.text_input(header[10], row_data[10]))
+                new_values.append(st.text_input(f"{header[10]}{4}, row_data[10]))
 
         # --- 列4：項目12〜16 ---
         with col4:
