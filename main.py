@@ -47,7 +47,7 @@ with st.container():
     <div style="padding:15px; border:1px solid #ddd; border-radius:10px; background:#fafafa;">
     """, unsafe_allow_html=True)
     
-with st.form("edit_form"):
+    with st.form("edit_form"):
 
     col1, col2, col3, col4 = st.columns(4)
     new_values = []
@@ -103,8 +103,8 @@ with st.form("edit_form"):
             new_values.append(st.text_input(header[15], row_data[15]))
 
         submitted = st.form_submit_button("保存")
-
-    st.markdown("</div>", unsafe_allow_html=True)
+        
+        st.markdown("</div>", unsafe_allow_html=True)
     
 # 保存処理
 if submitted:
