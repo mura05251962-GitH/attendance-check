@@ -41,7 +41,17 @@ row_data = body[selected_row - 1]   # データ本体
 # データ行を16列に揃える（足りない分は空文字で埋める）
 while len(row_data) < 16:
     row_data.append("")
+# ====== 編集フォーム（カードで囲む） ======
+with st.container():
+    st.markdown("""
+    <div style="padding:15px; border:1px solid #ddd; border-radius:10px; background:#fafafa;">
+    """, unsafe_allow_html=True)
 
+    with st.form("edit_form"):
+
+        col1, col2, col3, col4 = st.columns(4)
+        new_values = []
+    
 # ====== 編集フォーム ======
 with st.form("edit_form"):
 
@@ -55,12 +65,20 @@ with st.form("edit_form"):
 
     # --- 列2：項目4,5 / 6,7 / 8,9 ---
     with col2:
-        for pair in [(3,4), (5,6), (7,8)]:
+        for pair in [(3,4), (5,6)]:
             cA, cB = st.columns(2)
             with cA:
                 new_values.append(st.text_input(f"{header[pair[0]]}_{pair[0]}", row_data[pair[0]]))
             with cB:
+　　            options = ["〇", "×", ""]
                 new_values.append(st.text_input(f"{header[pair[1]]}_{pair[1]}", row_data[pair[1]]))
+
+        cA, cB = st.columns(2)
+        with cA:
+            new_values.append(st.text_input(header[7], row_data[7]))
+        with cB:
+            options = ["〇", "×", ""]
+            new_values.append(st.text_input(header[8], row_data[8]))
 
     # --- 列3：項目10,11 ---
     with col3:
@@ -68,18 +86,27 @@ with st.form("edit_form"):
         with cA:
             new_values.append(st.text_input(header[9], row_data[9]))
         with cB:
+            options = ["〇", "×", ""]
             new_values.append(st.text_input(header[10], row_data[10]))
 
     # --- 列4：項目12〜16 ---
     with col4:
-        for i in [11, 12, 13]:
-            new_values.append(st.text_input(header[i], row_data[i]))
+        options = ["2000","ー",""]
+        new_values.append(st.text_input(header[13], row_data[13]))
+        options = ["1000","ー","2000","3000"]
+        new_values.append(st.text_input(header[13], row_data[13]))
+　　　　 options = ["7000","ー",""]
+        new_values.append(st.text_input(header[13], row_data[13]))
         cA, cB = st.columns(2)
         with cA:
             new_values.append(st.text_input(header[14], row_data[14]))
         with cB:
+            options = ["〇", "未", "ー",""]
             new_values.append(st.text_input(header[15], row_data[15]))
-    submitted = st.form_submit_button("保存")
+
+        submitted = st.form_submit_button("保存")
+
+    st.markdown("</div>", unsafe_allow_html=True)
     
 # 保存処理
 if submitted:
