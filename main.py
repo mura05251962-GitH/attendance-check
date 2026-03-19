@@ -99,7 +99,7 @@ with st.form("edit_form"):
         new_values.append(st.text_input(header[11], row_data[11]))
         options = ["1000","ー","2000","3000"]
         new_values.append(st.text_input(header[12], row_data[12]))
-　　　　 options = ["7000","ー",""]
+        options = ["7000","ー",""]
         new_values.append(st.text_input(header[13], row_data[13]))
         cA, cB = st.columns(2)
         with cA:
