@@ -65,14 +65,18 @@ with st.form("edit_form"):
 
     # --- 列2：項目4,5 / 6,7 / 8,9 ---
     with col2:
-        for pair in [(3,4), (5,6)]:
-            cA, cB = st.columns(2)
-            with cA:
-                new_values.append(st.text_input(f"{header[pair[0]]}_{pair[0]}", row_data[pair[0]]))
-            with cB:
-　　            options = ["〇", "×", ""]
-                new_values.append(st.text_input(f"{header[pair[1]]}_{pair[1]}", row_data[pair[1]]))
-
+        cA, cB = st.columns(2)
+        with cA:
+            new_values.append(st.text_input(header[3], row_data[3]))
+        with cB:
+            options = ["〇", "×", ""]
+            new_values.append(st.text_input(header[4], row_data[4]))
+        cA, cB = st.columns(2)
+        with cA:
+            new_values.append(st.text_input(header[5], row_data[5]))
+        with cB:
+            options = ["〇", "×", ""]
+            new_values.append(st.text_input(header[6], row_data[6]))
         cA, cB = st.columns(2)
         with cA:
             new_values.append(st.text_input(header[7], row_data[7]))
