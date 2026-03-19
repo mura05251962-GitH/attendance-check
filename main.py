@@ -38,6 +38,9 @@ row_numbers = list(range(1, len(body) + 1))
 selected_row = st.selectbox("編集する行を選択", row_numbers)
 
 row_data = body[selected_row - 1]   # データ本体
+# データ行を16列に揃える（足りない分は空文字で埋める）
+while len(row_data) < 16:
+    row_data.append("")
 
 # ====== 編集フォーム ======
 with st.form("edit_form"):
