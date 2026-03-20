@@ -88,7 +88,7 @@ html, body, div, span, label, p, input, select, textarea, button,
     font-weight: bold;
 }
 .big-box .Value {
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
 }
 
