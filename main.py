@@ -5,7 +5,7 @@ from googleapiclient.discovery import build
 # ====== Google Sheets 設定 ======
 SPREADSHEET_ID = "1uL3LADSC9Qf4xmgxBRXzfUaBQ1U1-ZbBxRSslBQg848"
 RANGE_NAME = "CollectList!B:Q"  # 必要に応じて変更
-
+st.title("2026年芙蓉クラブOGOB会 出欠・集金アプリ")
 # ====== 認証（サービスアカウント） ======
 #@st.cache_resource
 def get_service():
@@ -175,21 +175,21 @@ with st.container():
                 st.text_input("4/11(土)総会", value=row_data[5], disabled=True)
             with cB:
                 options = ["✓","ー",""]
-                new_values.append(st.selectbox(header[6], options, index=options.index(row_data[6]) if row_data[4] in options else 2))
+                new_values.append(st.selectbox(header[6], options, index=options.index(row_data[6]) if row_data[6] in options else 2))
 
             cA, cB = st.columns([2,1])
             with cA:
                 st.text_input("4/11(土)懇親会", value=row_data[7], disabled=True)
             with cB:
                 options = ["✓","ー",""]
-                new_values.append(st.selectbox(header[8], options, index=options.index(row_data[8]) if row_data[4] in options else 2))
+                new_values.append(st.selectbox(header[8], options, index=options.index(row_data[8]) if row_data[8] in options else 2))
 
             cA, cB = st.columns([2,1])
             with cA:
                 st.text_input("4/12(日)テニス", value=row_data[9], disabled=True)
             with cB:
                 options = ["✓","ー",""]
-                new_values.append(st.selectbox(header[10], options, index=options.index(row_data[10]) if row_data[4] in options else 2))
+                new_values.append(st.selectbox(header[10], options, index=options.index(row_data[10]) if row_data[10] in options else 2))
 
         # --- 列3：項目12〜16 ---
         with col2:
