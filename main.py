@@ -35,11 +35,6 @@ body = data[2:]           # ← 3行目以降（データ）
 
 # 行番号選択
 row_numbers = list(range(1, len(body) + 1))
-selected_row = st.selectbox("対象Noを選択", row_numbers)
-
-row_data = body[selected_row - 1]
-while len(row_data) < 16:
-    row_data.append("")
 
 # ====== selectbox + #2 + #3 を横並びに配置 ======
 st.markdown("""
@@ -67,9 +62,11 @@ col1, col2, col3 = st.columns([2, 1, 4])
 
 # selectbox は col1 にそのまま置く
 with col1:
-    st.write("")  # 余白
-    st.write("")  # 余白（高さ調整）
-    # selectbox はすでに上で表示済みなので何もしない
+    selected_row = st.selectbox("対象Noを選択", row_numbers)
+
+row_data = body[selected_row - 1]
+while len(row_data) < 16:
+    row_data.append("")
 
 # #2（例：名前）
 with col2:
