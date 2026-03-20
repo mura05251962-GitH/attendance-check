@@ -60,15 +60,17 @@ html, body, div, span, label, p, input, select, textarea, button,
 #    border: 2px solid #4285f4;
 #}
 .big-box {
-    padding: 8px 0 0 0;
+    padding: 0;
+    margin-bottom: -12px;  /* ← これが重要 */
 }
 
 .stTextInput > div > div > input {
     font-size: 1.8rem;
     font-weight: 700;
     text-align: center;
-    background: #f7f7f7;
-    border-radius: 8px;
+    background: #e8f0fe;        /* big-box と同じ色 */
+    border: 2px solid #4285f4;  /* big-box と同じ枠線 */
+    border-radius: 10px;
     height: 60px;
 }
 
