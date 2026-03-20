@@ -75,8 +75,8 @@ input, select, textarea {
 }
 /* selectbox の上下の余白を詰める */
 .stSelectbox {
-    margin-top: -10px !important;
-    margin-bottom: -10px !important;
+    margin-top: -5px !important;
+    margin-bottom: -5px !important;
 }
 
 /* ラベル（例：出欠1）の余白も詰める */
