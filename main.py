@@ -60,7 +60,7 @@ html, body, [class*="css"] {
     font-weight: bold;
 }
 .big-box .value {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: bold;
 }
 
