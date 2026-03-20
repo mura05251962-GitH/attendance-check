@@ -37,10 +37,63 @@ body = data[2:]           # ← 3行目以降（データ）
 row_numbers = list(range(1, len(body) + 1))
 selected_row = st.selectbox("対象Noを選択", row_numbers)
 
-row_data = body[selected_row - 1]   # データ本体
-# データ行を16列に揃える（足りない分は空文字で埋める）
+row_data = body[selected_row - 1]
 while len(row_data) < 16:
     row_data.append("")
+
+# ====== selectbox + #2 + #3 を横並びに配置 ======
+st.markdown("""
+<style>
+.big-box {
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 10px;
+    background: #e8f0fe;
+    border: 2px solid #4285f4;
+}
+.label-small {
+    font-size: 12px;
+    color: #555;
+}
+.value-large {
+    font-size: 20px;
+}
+</style>
+""", unsafe_allow_html=True)
+
+col1, col2, col3 = st.columns([2, 1, 4])
+
+# selectbox は col1 にそのまま置く
+with col1:
+    st.write("")  # 余白
+    st.write("")  # 余白（高さ調整）
+    # selectbox はすでに上で表示済みなので何もしない
+
+# #2（例：名前）
+with col2:
+    st.markdown(
+        f"""
+        <div class="big-box">
+            <div class="label-small">{header[0]}</div>
+            <div class="value-large">{row_data[0]}</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+# #3（例：フリガナ or 会社名）
+with col3:
+    st.markdown(
+        f"""
+        <div class="big-box">
+            <div class="label-small">{header[1]}</div>
+            <div class="value-large">{row_data[1]}</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
     
 # ====== 編集フォーム（カードで囲む） ======
 with st.container():
@@ -50,16 +103,11 @@ with st.container():
     
     with st.form("edit_form"):
 
-        col1, col2, col3, col4 = st.columns(4)
+        col1, col2, col3 = st.columns(3)
         new_values = []
 
-        # --- 列1：項目1,2,3 ---
+        # --- 列1：項目4,5 / 6,7 / 8,9 ---
         with col1:
-            for i in [0, 1, 2]:
-                new_values.append(st.text_input(header[i], row_data[i]))
-
-        # --- 列2：項目4,5 / 6,7 / 8,9 ---
-        with col2:
             cA, cB = st.columns(2)
             with cA:
                 new_values.append(st.text_input(header[3], row_data[3]))
@@ -78,16 +126,16 @@ with st.container():
             with cB:
                 new_values.append(st.text_input(f"{header[8]}{3}", row_data[8]))
 
-        # --- 列3：項目10,11 ---
-        with col3:
+        # --- 列2：項目10,11 ---
+        with col2:
             cA, cB = st.columns(2)
             with cA:
                 new_values.append(st.text_input(header[9], row_data[9]))
             with cB:
                 new_values.append(st.text_input(f"{header[10]}{4}", row_data[10]))
 
-        # --- 列4：項目12〜16 ---
-        with col4:
+        # --- 列3：項目12〜16 ---
+        with col3:
             # 年会費
             options = ["2000","ー",""]
             new_values.append(st.selectbox(header[11], options, index=options.index(row_data[11]) if row_data[11] in options else 2))
@@ -101,14 +149,11 @@ with st.container():
             new_values.append(st.selectbox(header[13], options, index=options.index(row_data[13]) if row_data[13] in options else 2))
 
             # 合計金額（表示のみ）
-            cA, cB = st.columns(2)
-            with cA:
-                st.text_input("合計金額", value=row_data[14], disabled=True)
+            st.text_input("合計金額", value=row_data[14], disabled=True)
 
             # 集金
-            with cB:
-                options = ["〇", "未", "ー",""]
-                new_values.append(st.selectbox(header[15], options, index=options.index(row_data[15]) if row_data[15] in options else 3))
+            options = ["〇", "未", "ー",""]
+            new_values.append(st.selectbox(header[15], options, index=options.index(row_data[15]) if row_data[15] in options else 3))
 
         submitted = st.form_submit_button("保存")
 
