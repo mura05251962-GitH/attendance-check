@@ -110,7 +110,7 @@ with col2:
         f"""
         <div class="big-box">
             <div class="label">{header[1]}</div>
-            <div class="Value">{Value=row_data[1]}</div>
+            <div class="Value">{row_data[1]}</div>
         </div>
         """,
         unsafe_allow_html=True
