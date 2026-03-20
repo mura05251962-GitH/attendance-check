@@ -74,10 +74,15 @@ input, select, textarea {
     font-size: 22px !important;
 }
 
-/* ===== columns の左右の余白を詰める ===== */
-.block-container {
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
+/* ===== columns の横の隙間（gap）を詰める ===== */
+div[data-testid="column"] {
+    padding-left: 0.2rem !important;
+    padding-right: 0.2rem !important;
+}
+
+/* カラム間の gap をゼロに近づける */
+div[data-testid="stHorizontalBlock"] {
+    gap: 0.2rem !important;
 }
 
 </style>
