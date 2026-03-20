@@ -249,7 +249,7 @@ with st.container():
             # 合計金額（表示のみ）
             cA, cB = st.columns([2,1])
             with cA:
-                value=to_comma(row_data[14], disabled=True)
+                st.text_input("合計金額", value=to_comma(row_data[14]), disabled=True)
                 new_values.append(normalize(row_data[14]))
             with cB:
                 options = ["〇", "未", "ー",""]
