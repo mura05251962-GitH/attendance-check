@@ -104,7 +104,7 @@ row_data = body[selected_row - 1]
 while len(row_data) < 16:
     row_data.append("")
 
-# #2（例：名前）
+# #2（卒年度）
 with col2:
     st.markdown(
         f"""
@@ -113,11 +113,11 @@ with col2:
         """,
         unsafe_allow_html=True
     )
-    new_name = st.text_input("", row_data[1], key="name")
+    new_name = st.text_input("", row_data[1], key="year")
 
     st.markdown("</div>", unsafe_allow_html=True)
 
-# #3（例：フリガナ or 会社名）
+# #3（名前）
 with col3:
     st.markdown(
         f"""
