@@ -50,6 +50,10 @@ html, body, div, span, label, p, input, select, textarea, button,
 .stMarkdown, .stTextInput, .stSelectbox, .stRadio, .stCheckbox {
     color: #000 !important;
 }
+/* ===== selectbox の選択肢（参加・不参加）を黒にする ===== */
+div[data-baseweb="select"] * {
+    color: #000 !important;
+}
 
 /* ===== big-box（上部の青枠） ===== */
 .big-box {
