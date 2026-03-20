@@ -125,7 +125,7 @@ with st.container():
     
     with st.form("edit_form"):
 
-        col1, col2, col3 = st.columns(3)
+        col1, col2 = st.columns(2)
         new_values = []
 
         # --- 列1：項目4,5 / 6,7 / 8,9 ---
