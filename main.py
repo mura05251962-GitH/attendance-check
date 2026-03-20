@@ -194,23 +194,38 @@ with st.container():
         # --- 列3：項目12〜16 ---
         with col2:
             # 年会費
-            value = row_data[11].strip() if row_data[11] else ""
+            value = str(row_data[11]).strip() if row_data[11] else ""
             options = ["2000", "ー", ""]
             index = options.index(value) if value in options else 2
             new_values.append(st.selectbox(header[11], options, index=index)
             )
             # カンパ
+            value = str(row_data[12]).strip() if row_data[12] else ""
             options = ["1000","2000","3000","ー",""]
-            new_values.append(st.selectbox(header[12], options, index=options.index(row_data[12]) if row_data[12] in options else 4))
-
+            index = options.index(value) if value in options else 2
+            new_values.append(st.selectbox(header[12], options, index=index)
+            )
             # 懇親会費
+            value = str(row_data[12]).strip() if row_data[13] else ""
             options = ["7000","ー",""]
-            new_values.append(st.selectbox(header[13], options, index=options.index(row_data[13]) if row_data[13] in options else 2))
-
+            index = options.index(value) if value in options else 2
+            new_values.append(st.selectbox(header[13], options, index=index)
+            )
             # 合計金額（表示のみ）
+            def to_int(v):
+                try:
+                    return int(str(v).strip())
+                except:
+                    return 0
+            fee = to_int(new_values[11])   # 年会費
+            kanpa = to_int(new_values[12]) # カンパ
+            party = to_int(new_values[13]) # 懇親会費
+            total = fee + kanpa + party
+
             cA, cB = st.columns([3,1])
             with cA:
-                st.text_input("合計金額", value=row_data[14], disabled=True)
+                st.text_input("合計金額", value=str(total), disabled=True)
+                new_values.append(str(total))
             with cB:
                 options = ["〇", "未", "ー",""]
                 new_values.append(st.selectbox(header[15], options, index=options.index(row_data[15]) if row_data[15] in options else 3))
