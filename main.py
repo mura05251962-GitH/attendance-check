@@ -110,11 +110,12 @@ with col2:
         f"""
         <div class="big-box">
             <div class="label">{header[1]}</div>
-            <div class="value">{row_data[1]}</div>
-        </div>
         """,
         unsafe_allow_html=True
     )
+    new_name = st.text_input("", row_data[1], key="name")
+
+    st.markdown("</div>", unsafe_allow_html=True)
 
 # #3（例：フリガナ or 会社名）
 with col3:
@@ -122,11 +123,12 @@ with col3:
         f"""
         <div class="big-box">
             <div class="label">{header[2]}</div>
-            <div class="value">{row_data[2]}</div>
-        </div>
         """,
         unsafe_allow_html=True
     )
+    new_name = st.text_input("", row_data[2], key="name")
+
+    st.markdown("</div>", unsafe_allow_html=True)
     
 # ====== 編集フォーム（カードで囲む） ======
 with st.container():
@@ -138,6 +140,7 @@ with st.container():
 
         col1, col2 = st.columns(2)
         new_values = []
+        new_values.append(new_name)
 
         # --- 列1：項目4,5 / 6,7 / 8,9 ---
         with col1:
