@@ -55,9 +55,12 @@ html, body, [class*="css"] {
 }
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
-.big-box .label,
-.big-box .value {
+.big-box .label {
     font-size: 22px;
+    font-weight: bold;
+}
+.big-box .value {
+    font-size: 28px;
     font-weight: bold;
 }
 
@@ -121,19 +124,19 @@ with st.container():
 
         # --- 列1：項目4,5 / 6,7 / 8,9 ---
         with col1:
-            cA, cB = st.columns(2)
+            cA, cB = st.columns([2,1])
             with cA:
                 new_values.append(st.text_input(header[3], row_data[3]))
             with cB:
                 new_values.append(st.text_input(f"{header[4]}{1}", row_data[4]))
 
-            cA, cB = st.columns(2)
+            cA, cB = st.columns([2,1])
             with cA:
                 new_values.append(st.text_input(header[5], row_data[5]))
             with cB:
                 new_values.append(st.text_input(f"{header[6]}{2}", row_data[6]))
 
-            cA, cB = st.columns(2)
+            cA, cB = st.columns([2,1])
             with cA:
                 new_values.append(st.text_input(header[7], row_data[7]))
             with cB:
@@ -141,7 +144,7 @@ with st.container():
 
         # --- 列2：項目10,11 ---
         with col2:
-            cA, cB = st.columns(2)
+            cA, cB = st.columns([2,1])
             with cA:
                 new_values.append(st.text_input(header[9], row_data[9]))
             with cB:
