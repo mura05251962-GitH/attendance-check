@@ -159,7 +159,7 @@ with st.container():
             with cA:
                 st.text_input("4/12(日)テニス", value=row_data[9], disabled=True)
             with cB:
-                 options = ["✓","ー",""]
+                options = ["✓","ー",""]
                 new_values.append(st.selectbox(header[10], options, index=options.index(row_data[10]) if row_data[4] in options else 2))
 
         # --- 列3：項目12〜16 ---
