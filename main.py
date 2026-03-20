@@ -192,7 +192,7 @@ with st.container():
             with cA:
                 st.text_input("4/11(土)テニス", value=row_data[3], disabled=True)
                 new_values.append(row_data[3]) 
-        with cB:
+            with cB:
                 options = ["✓","ー",""]
                 new_values.append(st.selectbox(header[4], options, index=options.index(row_data[4]) if row_data[4] in options else 2))
 
