@@ -5,7 +5,7 @@ from googleapiclient.discovery import build
 # ====== Google Sheets 設定 ======
 SPREADSHEET_ID = "1uL3LADSC9Qf4xmgxBRXzfUaBQ1U1-ZbBxRSslBQg848"
 RANGE_NAME = "CollectList!B:Q"  # 必要に応じて変更
-st.title("2026年芙蓉クラブOGOB会 出欠・集金アプリ")
+st.title("2026年OGOB会 出欠・集金アプリ")
 # ====== 認証（サービスアカウント） ======
 #@st.cache_resource
 def get_service():
