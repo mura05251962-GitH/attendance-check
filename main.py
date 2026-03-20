@@ -194,9 +194,11 @@ with st.container():
         # --- 列3：項目12〜16 ---
         with col2:
             # 年会費
-            options = ["2000","ー",""]
-            new_values.append(st.selectbox(header[11], options, index=options.index(row_data[11]) if row_data[11] in options else 2))
-
+            value = row_data[11].strip() if row_data[11] else ""
+            options = ["2000", "ー", ""]
+            index = options.index(value) if value in options else 2
+            new_values.append(st.selectbox(header[11], options, index=index)
+            )
             # カンパ
             options = ["1000","2000","3000","ー",""]
             new_values.append(st.selectbox(header[12], options, index=options.index(row_data[12]) if row_data[12] in options else 4))
