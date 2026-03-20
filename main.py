@@ -59,25 +59,14 @@ html, body, div, span, label, p, input, select, textarea, button,
     background: #e8f0fe;
     border: 2px solid #4285f4;
 }
-input[id^="year_"], input[id^="name_"] {
-    font-size: 32px !important;
-    font-weight: bold !important;
-    text-align: center !important;
-    background: transparent !important;
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-/* 位置調整 */
-div[data-testid="stTextInput"]:has(input[id^="year_"]),
-div[data-testid="stTextInput"]:has(input[id^="name_"]) {
-    margin-top: -35px !important;
-}
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
 .big-box .label {
     font-size: 22px;
+    font-weight: bold;
+}
+.big-box .Value {
+    font-size: 26px;
     font-weight: bold;
 }
 
@@ -121,17 +110,18 @@ with col2:
         f"""
         <div class="big-box">
             <div class="label">{header[1]}</div>
-            <div class="input-wrapper">
-        """,unsafe_allow_html=True)
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     new_year = st.text_input(
-        label="",value=row_data[1],key=f"year_{selected_row}")
-
-    st.markdown( """
-            </div>
-        </div>
-        """,unsafe_allow_html=True)
-
+        label="",
+        value=row_data[1],
+        key=f"year_{selected_row}",
+        label_visibility="collapsed"
+    )
+    
 # #3（名前）
 with col3:
     st.markdown(
