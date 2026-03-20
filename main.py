@@ -52,12 +52,24 @@ html, body, div, span, label, p, input, select, textarea, button,
 }
 
 /* ===== big-box（上部の青枠） ===== */
+#.big-box {
+#    padding: 10px 0;
+#    text-align: center;
+#    border-radius: 10px;
+#    background: #e8f0fe;
+#    border: 2px solid #4285f4;
+#}
 .big-box {
-    padding: 10px 0;
+    padding: 8px 0 0 0;
+}
+
+.stTextInput > div > div > input {
+    font-size: 1.8rem;
+    font-weight: 700;
     text-align: center;
-    border-radius: 10px;
-    background: #e8f0fe;
-    border: 2px solid #4285f4;
+    background: #f7f7f7;
+    border-radius: 8px;
+    height: 60px;
 }
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
@@ -110,10 +122,15 @@ with col2:
         f"""
         <div class="big-box">
             <div class="label">{header[1]}</div>
-            <div class="Value">{row_data[1]}</div>
         </div>
         """,
         unsafe_allow_html=True
+    )
+
+    edited_value = st.text_input(
+        label="",
+        value=row_data[1],
+        key="year"
     )
     
 # #3（名前）
@@ -138,7 +155,7 @@ with st.container():
 
         col1, col2 = st.columns(2)
         new_values = []
- #       new_values.append(new_name)
+        new_values.append(new_name)
 
         # --- 列1：項目4,5 / 6,7 / 8,9 ---
         with col1:
