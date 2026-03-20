@@ -42,7 +42,7 @@ st.markdown("""
 
 /* ===== 共通フォントサイズ（全体を大きく） ===== */
 html, body, [class*="css"] {
-    font-size: 20px !important;
+    font-size: 22px !important;
 }
 
 /* ===== big-box（上部の青枠） ===== */
@@ -92,8 +92,8 @@ with col2:
     st.markdown(
         f"""
         <div class="big-box">
-            <div class="label-small">{header[1]}</div>
-            <div class="value-large">{row_data[1]}</div>
+            <div class="label">{header[1]}</div>
+            <div class="value">{row_data[1]}</div>
         </div>
         """,
         unsafe_allow_html=True
@@ -104,8 +104,8 @@ with col3:
     st.markdown(
         f"""
         <div class="big-box">
-            <div class="label-small">{header[2]}</div>
-            <div class="value-large">{row_data[2]}</div>
+            <div class="label">{header[2]}</div>
+            <div class="value">{row_data[2]}</div>
         </div>
         """,
         unsafe_allow_html=True
