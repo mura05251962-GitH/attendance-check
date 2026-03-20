@@ -52,28 +52,35 @@ html, body, div, span, label, p, input, select, textarea, button,
 }
 
 /* ===== big-box（上部の青枠） ===== */
-#.big-box {
-#    padding: 10px 0;
-#    text-align: center;
-#    border-radius: 10px;
-#    background: #e8f0fe;
-#    border: 2px solid #4285f4;
-#}
-/* ===== big-box を text_input と完全に重ねる ===== */
 .big-box {
-    padding: 0 !important;
-    margin-bottom: -14px !important;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 10px;
+    background: #e8f0fe;
+    border: 2px solid #4285f4;
+}
+/* ===== text_input を　青BOX化 ===== */
+div[data-testid="stTextInput"] {
+    background: #e8f0fe;
+    border: 2px solid #4285f4;
+    border-radius: 10px;
+    padding: 5px;
 }
 
-/* ===== text_input を big-box の中に見せる ===== */
-input[id="year"] {
-    font-size: 1.8rem !important;
-    font-weight: 700 !important;
+/* ラベル中央 */
+div[data-testid="stTextInput"] label {
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
+
+/* 入力欄 */
+input[id^="year_"] {
     text-align: center !important;
-    background: #e8f0fe !important;
-    border: 2px solid #4285f4 !important;
-    border-radius: 10px !important;
-    height: 60px !important;
+    font-size: 1.8rem !important;
+    font-weight: bold !important;
+    background: transparent !important;
+    border: none !important;
 }
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
@@ -122,19 +129,10 @@ while len(row_data) < 16:
 
 # #2（卒年度）
 with col2:
-    st.markdown(
-        f"""
-        <div class="big-box">
-            <div class="label">{header[1]}</div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
     edited_value = st.text_input(
-        label="",
+        label=header[1],
         value=row_data[1],
-        key="year"
+        key=f"year"
     )
     
 # #3（名前）
