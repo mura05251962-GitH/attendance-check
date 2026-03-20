@@ -110,16 +110,10 @@ with col2:
         f"""
         <div class="big-box">
             <div class="label">{header[1]}</div>
+           <div class="Value">{header[2]}</div>
         </div>
         """,
         unsafe_allow_html=True
-    )
-
-    new_year = st.text_input(
-        label="",
-        value=row_data[1],
-        key=f"year_{selected_row}",
-        label_visibility="collapsed"
     )
     
 # #3（名前）
