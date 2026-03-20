@@ -75,7 +75,7 @@ input, select, textarea {
 }
 /* selectbox の上下の余白を詰める */
 .stSelectbox {
-    margin-top: -5px !important;
+#   margin-top: -5px !important;
     margin-bottom: -5px !important;
 }
 
@@ -136,32 +136,34 @@ with st.container():
         with col1:
             cA, cB = st.columns([2,1])
             with cA:
-                new_values.append(st.text_input(header[3], row_data[3]))
+                st.text_input("4/11(土)テニス", value=row_data[3], disabled=True)
             with cB:
-                new_values.append(st.text_input(f"{header[4]}{1}", row_data[4]))
+                options = ["✓","ー",""]
+                new_values.append(st.selectbox(header[4], options, index=options.index(row_data[4]) if row_data[4] in options else 2))
 
             cA, cB = st.columns([2,1])
             with cA:
-                new_values.append(st.text_input(header[5], row_data[5]))
+                st.text_input("4/11(土)総会", value=row_data[5], disabled=True)
             with cB:
-                new_values.append(st.text_input(f"{header[6]}{2}", row_data[6]))
+                options = ["✓","ー",""]
+                new_values.append(st.selectbox(header[6], options, index=options.index(row_data[6]) if row_data[4] in options else 2))
 
             cA, cB = st.columns([2,1])
             with cA:
-                new_values.append(st.text_input(header[7], row_data[7]))
+                st.text_input("4/11(土)懇親会", value=row_data[7], disabled=True)
             with cB:
-                new_values.append(st.text_input(f"{header[8]}{3}", row_data[8]))
+                options = ["✓","ー",""]
+                new_values.append(st.selectbox(header[8], options, index=options.index(row_data[8]) if row_data[4] in options else 2))
 
-        # --- 列2：項目10,11 ---
-        with col2:
             cA, cB = st.columns([2,1])
             with cA:
-                new_values.append(st.text_input(header[9], row_data[9]))
+                st.text_input("4/12(日)テニス", value=row_data[9], disabled=True)
             with cB:
-                new_values.append(st.text_input(f"{header[10]}{4}", row_data[10]))
+                 options = ["✓","ー",""]
+                new_values.append(st.selectbox(header[10], options, index=options.index(row_data[10]) if row_data[4] in options else 2))
 
         # --- 列3：項目12〜16 ---
-        with col3:
+        with col2:
             # 年会費
             options = ["2000","ー",""]
             new_values.append(st.selectbox(header[11], options, index=options.index(row_data[11]) if row_data[11] in options else 2))
@@ -173,13 +175,14 @@ with st.container():
             # 懇親会費
             options = ["7000","ー",""]
             new_values.append(st.selectbox(header[13], options, index=options.index(row_data[13]) if row_data[13] in options else 2))
-
+            
             # 合計金額（表示のみ）
-            st.text_input("合計金額", value=row_data[14], disabled=True)
-
-            # 集金
-            options = ["〇", "未", "ー",""]
-            new_values.append(st.selectbox(header[15], options, index=options.index(row_data[15]) if row_data[15] in options else 3))
+            cA, cB = st.columns([3,1])
+            with cA:
+                st.text_input("合計金額", value=row_data[14], disabled=True)
+            with cB:
+                options = ["〇", "未", "ー",""]
+                new_values.append(st.selectbox(header[15], options, index=options.index(row_data[15]) if row_data[15] in options else 3))
 
         submitted = st.form_submit_button("保存")
 
