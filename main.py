@@ -74,10 +74,6 @@ html, body, div, span, label, p, input, select, textarea, button,
     font-size: 22px;
     font-weight: bold;
 }
-.big-box .value {
-    font-size: 32px;
-    font-weight: bold;
-}
 
 /* ===== フォーム内のラベル（出欠1、参加など） ===== */
 label, .stMarkdown, .stTextInput label, .stSelectbox label {
@@ -119,15 +115,16 @@ with col2:
         f"""
         <div class="big-box">
             <div class="label">{header[1]}</div>
-        """,
-        unsafe_allow_html=True
-    )
-    new_name = st.text_input(
-        label="", 
-        value=row_data[1], 
-        key=f"year_{selected_row}"
-    )
-    st.markdown("</div>", unsafe_allow_html=True)
+            <div class="input-wrapper">
+        """,unsafe_allow_html=True)
+
+    new_year = st.text_input(
+        label="",value=row_data[1],key=f"year_{selected_row}")
+
+    st.markdown( """
+            </div>
+        </div>
+        """,unsafe_allow_html=True)
 
 # #3（名前）
 with col3:
