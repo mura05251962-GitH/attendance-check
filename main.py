@@ -57,6 +57,10 @@ div[data-baseweb="select"] * {
 div[data-baseweb="select"] > div {
     color: #000 !important;
 }
+input:disabled {
+    color: #000 !important;
+    -webkit-text-fill-color: #000 !important;  /* Safari / Chrome 系対策 */
+}
 
 /* ===== big-box（上部の青枠） ===== */
 .big-box {
