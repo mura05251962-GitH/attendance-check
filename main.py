@@ -123,8 +123,18 @@ with col1:
 row_data = body[selected_row - 1]
 while len(row_data) < 16:
     row_data.append("")
-
-st.write("DEBUG row_data:", row_data)
+# ====== 正規化関数 ======
+def normalize(v):
+    if v is None:
+        return ""
+    s = str(v)
+    s = s.replace("　", "")   # 全角スペース
+    s = s.replace(",", "")    # カンマ
+    s = s.replace("\n", "")   # 改行
+    s = s.replace("\r", "")
+    s = s.replace("\t", "")
+    return s.strip()
+row_data = [normalize(v) for v in row_data]
 
 # #2（卒年度）
 with col2:
