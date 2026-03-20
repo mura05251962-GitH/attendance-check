@@ -44,6 +44,11 @@ st.markdown("""
 html, body, [class*="css"] {
     font-size: 22px !important;
 }
+/* すべての文字色を黒にする */
+html, body, div, span, label, p, input, select, textarea, button,
+.stMarkdown, .stTextInput, .stSelectbox, .stRadio, .stCheckbox {
+    color: #000 !important;
+}
 
 /* ===== big-box（上部の青枠） ===== */
 .big-box {
