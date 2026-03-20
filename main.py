@@ -119,6 +119,28 @@ div[data-testid="stHorizontalBlock"] {
     gap: 0.2rem !important;
 }
 
+/* 保存ボタン（primary）を右下に固定 */
+div.stButton > button[kind="primary"] {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+
+    /* 黄色デザイン */
+    background-color: #FFD700 !important;   /* ゴールド系の黄色 */
+    color: black !important;                /* 文字色 */
+    border: 2px solid #DAA520 !important;   /* 濃いめの枠線 */
+    border-radius: 6px !important;          /* 少し角丸 */
+    padding: 0.6em 1.2em !important;        /* ちょうど良いサイズ */
+    font-weight: 600 !important;            /* 見やすい太さ */
+}
+
+/* ホバー時（押す直前） */
+div.stButton > button[kind="primary"]:hover {
+    background-color: #FFEA00 !important;   /* 明るい黄色 */
+    color: black !important;
+    border-color: #C9A000 !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -247,7 +269,7 @@ with st.container():
             new_values.append(normalize(st.selectbox(header[13], options, index=index))
             )
             # 合計金額（表示のみ）
-            cA, cB = st.columns([2,1])
+            cA, cB = st.columns([1,1])
             with cA:
                 st.text_input("合計金額", value=to_comma(row_data[14]), disabled=True)
                 new_values.append(normalize(row_data[14]))
