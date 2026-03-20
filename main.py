@@ -59,20 +59,24 @@ html, body, div, span, label, p, input, select, textarea, button,
     background: #e8f0fe;
     border: 2px solid #4285f4;
 }
-/* ===== text_input を　青BOX化 ===== */
-/* text_input全体を青ボックス化 */
-#div[data-testid="stTextInput"] {
-#    background: #e8f0fe;
-#    border: 2px solid #4285f4;
-#    border-radius: 10px;
-#    padding: 5px;
-#}
-#/* ラベル中央 */
-#div[data-testid="stTextInput"] label {
-#    text-align: center;
-#    width: 100%;
-#    font-weight: bold;
-#}
+
+#/* ===== text_input を　青BOX化 ===== */
+
+/* text_input */
+div[data-testid="stTextInput"] {
+    background: #e8f0fe;
+    border: 2px solid #4285f4;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+/* ラベル中央 */
+div[data-testid="stTextInput"] label {
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
+
 #/* 入力欄 */
 #input[id^="year_"] {
 #    text-align: center !important;
@@ -160,7 +164,7 @@ with st.container():
 
         col1, col2 = st.columns(2)
         new_values = []
-        new_values.append(edited_value)
+        new_values.append(row_data[1])
         new_values.append(row_data[2])
 
         # --- 列1：項目4,5 / 6,7 / 8,9 ---
