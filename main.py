@@ -187,7 +187,7 @@ with st.container():
 
         submitted = st.form_submit_button("保存")
         
-    st.markdown("</div>", unsafe_allow_html=True)
+        st.markdown("</div>", unsafe_allow_html=True)
     
 # 保存処理
 if submitted:
