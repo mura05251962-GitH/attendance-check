@@ -73,15 +73,11 @@ label, .stMarkdown, .stTextInput label, .stSelectbox label {
 input, select, textarea {
     font-size: 22px !important;
 }
-/* selectbox の上下の余白を詰める */
-.stSelectbox {
-#   margin-top: -5px !important;
-    margin-bottom: -5px !important;
-}
 
 /* ラベル（例：出欠1）の余白も詰める */
 .stSelectbox label {
-    margin-bottom: -12px !important;
+　　padding-bottom: 0 !important;
+  　margin-bottom: -6px !important;
 }
 
 </style>
