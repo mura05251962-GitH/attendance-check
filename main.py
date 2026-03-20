@@ -110,7 +110,7 @@ with col2:
         f"""
         <div class="big-box">
             <div class="label">{header[1]}</div>
-            st.text_input("卒年度", value=row_data[3], disabled=True)
+            <div class="Value">{row_data[3]}</div>
         </div>
         """,
         unsafe_allow_html=True
