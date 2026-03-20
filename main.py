@@ -49,7 +49,7 @@ st.markdown("""
     border: 2px solid #4285f4;
 }
 .label-small {
-    font-size: 12px;
+    font-size: 16px;
     color: #555;
 }
 .value-large {
@@ -73,8 +73,8 @@ with col2:
     st.markdown(
         f"""
         <div class="big-box">
-            <div class="label-small">{header[0]}</div>
-            <div class="value-large">{row_data[0]}</div>
+            <div class="label-small">{header[1]}</div>
+            <div class="value-large">{row_data[1]}</div>
         </div>
         """,
         unsafe_allow_html=True
@@ -85,8 +85,8 @@ with col3:
     st.markdown(
         f"""
         <div class="big-box">
-            <div class="label-small">{header[1]}</div>
-            <div class="value-large">{row_data[1]}</div>
+            <div class="label-small">{header[2]}</div>
+            <div class="value-large">{row_data[2]}</div>
         </div>
         """,
         unsafe_allow_html=True
