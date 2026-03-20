@@ -74,10 +74,10 @@ input, select, textarea {
     font-size: 22px !important;
 }
 
-/* ラベル（例：出欠1）の余白も詰める */
-.stSelectbox label {
-　　padding-bottom: 0 !important;
-  　margin-bottom: -6px !important;
+/* ===== columns の左右の余白を詰める ===== */
+.block-container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
 }
 
 </style>
