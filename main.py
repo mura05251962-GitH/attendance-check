@@ -229,9 +229,9 @@ with st.container():
                     return int(str(v).strip())
                 except:
                     return 0
-            fee = to_int(new_values[6])   # 年会費
-            kanpa = to_int(new_values[7]) # カンパ
-            party = to_int(new_values[8]) # 懇親会費
+            fee = to_int(new_values[11])   # 年会費
+            kanpa = to_int(new_values[12]) # カンパ
+            party = to_int(new_values[13]) # 懇親会費
             total = fee + kanpa + party
 
             cA, cB = st.columns([3,1])
