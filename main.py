@@ -72,7 +72,7 @@ html, body, div, span, label, p, input, select, textarea, button,
 #    text-align: center;
 #    width: 100%;
 #    font-weight: bold;
-3}
+#}
 #/* 入力欄 */
 #input[id^="year_"] {
 #    text-align: center !important;
