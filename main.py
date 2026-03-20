@@ -124,6 +124,8 @@ row_data = body[selected_row - 1]
 while len(row_data) < 16:
     row_data.append("")
 
+st.write("DEBUG row_data:", row_data)
+
 # #2（卒年度）
 with col2:
     st.markdown(
