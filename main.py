@@ -43,6 +43,7 @@ st.markdown("""
 /* ===== 共通フォントサイズ（全体を大きく） ===== */
 html, body, [class*="css"] {
     font-size: 22px !important;
+    font-family: "メイリオ", Meiryo, sans-serif !important;
 }
 /* すべての文字色を黒にする */
 html, body, div, span, label, p, input, select, textarea, button,
