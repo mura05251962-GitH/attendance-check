@@ -206,7 +206,7 @@ with st.container():
             new_values.append(st.selectbox(header[12], options, index=index)
             )
             # 懇親会費
-            value = str(row_data[12]).strip() if row_data[13] else ""
+            value = str(row_data[13]).strip() if row_data[13] else ""
             options = ["7000","ー",""]
             index = options.index(value) if value in options else 2
             new_values.append(st.selectbox(header[13], options, index=index)
@@ -217,9 +217,9 @@ with st.container():
                     return int(str(v).strip())
                 except:
                     return 0
-            fee = to_int(new_values[11])   # 年会費
-            kanpa = to_int(new_values[12]) # カンパ
-            party = to_int(new_values[13]) # 懇親会費
+            fee = to_int(new_values[6])   # 年会費
+            kanpa = to_int(new_values[7]) # カンパ
+            party = to_int(new_values[8]) # 懇親会費
             total = fee + kanpa + party
 
             cA, cB = st.columns([3,1])
