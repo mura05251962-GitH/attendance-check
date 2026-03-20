@@ -60,23 +60,6 @@ html, body, div, span, label, p, input, select, textarea, button,
     border: 2px solid #4285f4;
 }
 
-#/* ===== text_input を　青BOX化 ===== */
-
-/* text_input */
-div[data-testid="stTextInput"] {
-    background: #e8f0fe;
-    border: 2px solid #4285f4;
-    border-radius: 10px;
-    padding: 5px;
-}
-
-/* ラベル中央 */
-div[data-testid="stTextInput"] label {
-    text-align: center;
-    width: 100%;
-    font-weight: bold;
-}
-
 #/* 入力欄 */
 #input[id^="year_"] {
 #    text-align: center !important;
