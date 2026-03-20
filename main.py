@@ -39,22 +39,38 @@ row_numbers = list(range(1, len(body) + 1))
 # ====== selectbox + #2 + #3 を横並びに配置 ======
 st.markdown("""
 <style>
+
+/* ===== 共通フォントサイズ（全体を大きく） ===== */
+html, body, [class*="css"] {
+    font-size: 20px !important;
+}
+
+/* ===== big-box（上部の青枠） ===== */
 .big-box {
-    font-size: 22px;
-    font-weight: bold;
     padding: 10px 0;
     text-align: center;
     border-radius: 10px;
     background: #e8f0fe;
     border: 2px solid #4285f4;
 }
-.label-small {
-    font-size: 16px;
-    color: #555;
+
+/* ===== big-box 内のラベルと値（共通化） ===== */
+.big-box .label,
+.big-box .value {
+    font-size: 22px;
+    font-weight: bold;
 }
-.value-large {
-    font-size: 20px;
+
+/* ===== フォーム内のラベル（出欠1、参加など） ===== */
+label, .stMarkdown, .stTextInput label, .stSelectbox label {
+    font-size: 20px !important;
 }
+
+/* ===== 入力欄の文字（text_input, selectbox の中身） ===== */
+input, select, textarea {
+    font-size: 20px !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
