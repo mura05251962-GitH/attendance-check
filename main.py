@@ -186,7 +186,7 @@ with st.container():
                 new_values.append(st.selectbox(header[15], options, index=options.index(row_data[15]) if row_data[15] in options else 3))
 
         submitted = st.form_submit_button("保存")
-
+        
     st.markdown("</div>", unsafe_allow_html=True)
     
 # 保存処理
