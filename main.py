@@ -66,7 +66,7 @@ html, body, div, span, label, p, input, select, textarea, button,
 }
 
 /* ===== text_input を big-box の中に見せる ===== */
-.stTextInput > div > div > input {
+input[id="year"] {
     font-size: 1.8rem !important;
     font-weight: 700 !important;
     text-align: center !important;
