@@ -5,7 +5,6 @@ from googleapiclient.discovery import build
 # ====== Google Sheets 設定 ======
 SPREADSHEET_ID = "1uL3LADSC9Qf4xmgxBRXzfUaBQ1U1-ZbBxRSslBQg848"
 RANGE_NAME = "CollectList!B:Q"  # 必要に応じて変更
-st.title("2026年OGOB会 出欠・集金アプリ")
 # ====== 認証（サービスアカウント） ======
 #@st.cache_resource
 def get_service():
@@ -39,6 +38,15 @@ row_numbers = list(range(1, len(body) + 1))
 # ====== selectbox + #2 + #3 を横並びに配置 ======
 st.markdown("""
 <style>
+
+/* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
+.app-title {
+    font-size: clamp(32px, 3vw, 80px) !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    margin-bottom: 20px !important;
+    color: #000 !important;
+}
 
 /* ===== 共通フォントサイズ（全体を大きく） ===== */
 html, body, [class*="css"] {
@@ -108,11 +116,13 @@ div[data-testid="column"] {
 
 /* カラム間の gap をゼロに近づける */
 div[data-testid="stHorizontalBlock"] {
-    gap: 0.2rem !important;
+    gap: 1rem !important;
 }
 
 </style>
 """, unsafe_allow_html=True)
+
+st.markdown('<h1 class="app-title">2026年OGOB会 出欠・集金アプリ</h1>', unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns([2, 1, 4])
 
@@ -173,23 +183,23 @@ with st.container():
         new_values.append(row_data[0])
         new_values.append(row_data[1])
         new_values.append(row_data[2])
-        new_values.append(row_data[3]) 
-        new_values.append(row_data[5])
-        new_values.append(row_data[7])
-        new_values.append(row_data[9])
+
+ 
         
         # --- 列1：項目4,5 / 6,7 / 8,9 ---
         with col1:
             cA, cB = st.columns([2,1])
             with cA:
                 st.text_input("4/11(土)テニス", value=row_data[3], disabled=True)
-            with cB:
+                new_values.append(row_data[3]) 
+        with cB:
                 options = ["✓","ー",""]
                 new_values.append(st.selectbox(header[4], options, index=options.index(row_data[4]) if row_data[4] in options else 2))
 
             cA, cB = st.columns([2,1])
             with cA:
                 st.text_input("4/11(土)総会", value=row_data[5], disabled=True)
+                new_values.append(row_data[5])
             with cB:
                 options = ["✓","ー",""]
                 new_values.append(st.selectbox(header[6], options, index=options.index(row_data[6]) if row_data[6] in options else 2))
@@ -197,6 +207,7 @@ with st.container():
             cA, cB = st.columns([2,1])
             with cA:
                 st.text_input("4/11(土)懇親会", value=row_data[7], disabled=True)
+                new_values.append(row_data[7])
             with cB:
                 options = ["✓","ー",""]
                 new_values.append(st.selectbox(header[8], options, index=options.index(row_data[8]) if row_data[8] in options else 2))
@@ -204,6 +215,7 @@ with st.container():
             cA, cB = st.columns([2,1])
             with cA:
                 st.text_input("4/12(日)テニス", value=row_data[9], disabled=True)
+                new_values.append(row_data[9])
             with cB:
                 options = ["✓","ー",""]
                 new_values.append(st.selectbox(header[10], options, index=options.index(row_data[10]) if row_data[10] in options else 2))
@@ -212,37 +224,27 @@ with st.container():
         with col2:
             # 年会費
             value = str(row_data[11]).replace("　","").replace("\n","").strip() 
-            options = ["2000", "ー", ""]
+            options = ["2,000", "ー", ""]
             index = options.index(value) if value in options else 2
             new_values.append(st.selectbox(header[11], options, index=index)
             )
             # カンパ
             value = str(row_data[12]).replace("　","").replace("\n","").strip()
-            options = ["1000","2000","3000","ー",""]
+            options = ["1,000","2,000","3,000","ー",""]
             index = options.index(value) if value in options else 2
             new_values.append(st.selectbox(header[12], options, index=index)
             )
             # 懇親会費
             value = str(row_data[13]).replace("　","").replace("\n","").strip()
-            options = ["7000","ー",""]
+            options = ["7,000","ー",""]
             index = options.index(value) if value in options else 2
             new_values.append(st.selectbox(header[13], options, index=index)
             )
             # 合計金額（表示のみ）
-            def to_int(v):
-                try:
-                    return int(str(v).strip())
-                except:
-                    return 0
-            fee = to_int(new_values[6])   # 年会費
-            kanpa = to_int(new_values[7]) # カンパ
-            party = to_int(new_values[8]) # 懇親会費
-            total = fee + kanpa + party
-
-            cA, cB = st.columns([3,1])
+            cA, cB = st.columns([2,1])
             with cA:
-                st.text_input("合計金額", value=str(total), disabled=True)
-                new_values.append(str(total))
+                st.text_input("合計金額", value=row_data[14], disabled=True)
+                new_values.append(row_data[14])
             with cB:
                 options = ["〇", "未", "ー",""]
                 new_values.append(st.selectbox(header[15], options, index=options.index(row_data[15]) if row_data[15] in options else 3))
