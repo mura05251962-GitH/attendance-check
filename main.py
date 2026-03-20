@@ -66,12 +66,12 @@ html, body, [class*="css"] {
 
 /* ===== フォーム内のラベル（出欠1、参加など） ===== */
 label, .stMarkdown, .stTextInput label, .stSelectbox label {
-    font-size: 20px !important;
+    font-size: 22px !important;
 }
 
 /* ===== 入力欄の文字（text_input, selectbox の中身） ===== */
 input, select, textarea {
-    font-size: 20px !important;
+    font-size: 26px !important;
 }
 
 </style>
