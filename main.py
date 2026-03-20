@@ -146,6 +146,12 @@ def normalize(v):
     return s.strip()
 row_data = [normalize(v) for v in row_data]
 
+def to_comma(v):
+    try:
+        return f"{int(v):,}"
+    except:
+        return v
+
 # #2（卒年度）
 with col2:
     st.markdown(
@@ -223,10 +229,10 @@ with st.container():
         # --- 列3：項目12〜16 ---
         with col2:
             # 年会費
-            value = row_data[11]
+            value = to_comma(row_data[11])
             options = ["2000", "ー", ""]
             index = options.index(value) if value in options else 2
-            new_values.append(st.selectbox(header[11], options, index=index)
+            new_values.append(normalize(st.selectbox(header[11], options, index=index))
             )
             # カンパ
             value = str(row_data[12]).replace("　","").replace("\n","").strip()
