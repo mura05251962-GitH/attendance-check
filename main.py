@@ -155,7 +155,8 @@ with st.container():
 
         col1, col2 = st.columns(2)
         new_values = []
-        new_values.append(new_name)
+        new_values.append(edited_value)
+        new_values.append(row_data[2])
 
         # --- 列1：項目4,5 / 6,7 / 8,9 ---
         with col1:
