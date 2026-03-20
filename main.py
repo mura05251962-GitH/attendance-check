@@ -176,8 +176,8 @@ with st.container():
         new_values.append(row_data[3]) 
         new_values.append(row_data[5])
         new_values.append(row_data[7])
-      　new_values.append(row_data[9])
- 
+        new_values.append(row_data[9])
+        
         # --- 列1：項目4,5 / 6,7 / 8,9 ---
         with col1:
             cA, cB = st.columns([2,1])
