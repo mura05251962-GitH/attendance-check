@@ -66,7 +66,7 @@ html, body, div, span, label, p, input, select, textarea, button,
     font-weight: bold;
 }
 .big-box .Value {
-    font-size: 26px;
+    font-size: 28px;
     font-weight: bold;
 }
 
@@ -122,15 +122,11 @@ with col3:
         f"""
         <div class="big-box">
             <div class="label">{header[2]}</div>
+            <div class="Value">{row_data[2]}</div>
+        </div>
         """,
         unsafe_allow_html=True
     )
-    new_name = st.text_input(
-        label="", 
-        value=row_data[2], 
-        key=f"name_{selected_row}"
-    )
-    st.markdown("</div>", unsafe_allow_html=True)
     
 # ====== 編集フォーム（カードで囲む） ======
 with st.container():
