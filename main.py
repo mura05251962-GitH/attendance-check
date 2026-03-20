@@ -69,12 +69,9 @@ input[id^="year_"], input[id^="name_"] {
     box-shadow: none !important;
 }
 
-/* 外側の枠も消す（重要） */
-div[data-testid="stTextInput"]:has(input[id^="year_"]),
-div[data-testid="stTextInput"]:has(input[id^="name_"]) {
-    border: none !important;
-    background: transparent !important;
-    box-shadow: none !important;
+/* 位置調整 */
+div[data-testid="stTextInput"] {
+    margin-top: -35px !important;
 }
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
