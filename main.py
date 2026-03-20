@@ -59,6 +59,15 @@ html, body, div, span, label, p, input, select, textarea, button,
     background: #e8f0fe;
     border: 2px solid #4285f4;
 }
+.big-box input {
+    font-size: 32px !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
 .big-box .label {
