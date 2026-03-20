@@ -60,29 +60,28 @@ html, body, div, span, label, p, input, select, textarea, button,
     border: 2px solid #4285f4;
 }
 /* ===== text_input を　青BOX化 ===== */
-div[data-testid="stTextInput"] {
-    background: #e8f0fe;
-    border: 2px solid #4285f4;
-    border-radius: 10px;
-    padding: 5px;
-}
-
-/* ラベル中央 */
-div[data-testid="stTextInput"] label {
-    text-align: center;
-    width: 100%;
-    font-weight: bold;
-}
-
-/* 入力欄 */
-input[id^="year_"] {
-    text-align: center !important;
-    font-size: 1.8rem !important;
-    font-weight: bold !important;
-    background: transparent !important;
-    border: none !important;
-}
-
+/* text_input全体を青ボックス化 */
+#div[data-testid="stTextInput"] {
+#    background: #e8f0fe;
+#    border: 2px solid #4285f4;
+#    border-radius: 10px;
+#    padding: 5px;
+#}
+#/* ラベル中央 */
+#div[data-testid="stTextInput"] label {
+#    text-align: center;
+#    width: 100%;
+#    font-weight: bold;
+3}
+#/* 入力欄 */
+#input[id^="year_"] {
+#    text-align: center !important;
+#    font-size: 1.8rem !important;
+#    font-weight: bold !important;
+#    background: transparent !important;
+#
+#border: none !important;
+#}
 /* ===== big-box 内のラベルと値（共通化） ===== */
 .big-box .label {
     font-size: 22px;
@@ -95,12 +94,12 @@ input[id^="year_"] {
 
 /* ===== フォーム内のラベル（出欠1、参加など） ===== */
 label, .stMarkdown, .stTextInput label, .stSelectbox label {
-    font-size: 22px !important;
+    font-size: 24px !important;
 }
 
 /* ===== 入力欄の文字（text_input, selectbox の中身） ===== */
 input, select, textarea {
-    font-size: 22px !important;
+    font-size: 24px !important;
 }
 
 /* ===== columns の横の隙間（gap）を詰める ===== */
@@ -129,10 +128,14 @@ while len(row_data) < 16:
 
 # #2（卒年度）
 with col2:
-    edited_value = st.text_input(
-        label=header[1],
-        value=row_data[1],
-        key=f"year"
+    st.markdown(
+        f"""
+        <div class="big-box">
+            <div class="label">{header[1]}</div>
+            <div class="Value">{row_data[1]}</div>
+        </div>
+        """,
+        unsafe_allow_html=True
     )
     
 # #3（名前）
