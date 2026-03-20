@@ -110,13 +110,13 @@ input, select, textarea {
 
 /* ===== columns の横の隙間（gap）を詰める ===== */
 div[data-testid="column"] {
-    padding-left: 0.2rem !important;
+    padding-left: 1rem !important;
     padding-right: 0.2rem !important;
 }
 
 /* カラム間の gap をゼロに近づける */
 div[data-testid="stHorizontalBlock"] {
-    gap: 1rem !important;
+    gap: 0.2rem !important;
 }
 
 </style>
@@ -223,6 +223,7 @@ with st.container():
         # --- 列3：項目12〜16 ---
         with col2:
             # 年会費
+            st.text_input("年会費", value=row_data[11])
             value = str(row_data[11]).replace("　","").replace("\n","").strip() 
             options = ["2,000", "ー", ""]
             index = options.index(value) if value in options else 2
