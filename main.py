@@ -223,8 +223,7 @@ with st.container():
         # --- 列3：項目12〜16 ---
         with col2:
             # 年会費
-            st.text_input("年会費", value=row_data[11])
-            value = str(row_data[11]).replace("　","").replace("\n","").strip() 
+            value = row_data[11]
             options = ["2,000", "ー", ""]
             index = options.index(value) if value in options else 2
             new_values.append(st.selectbox(header[11], options, index=index)
