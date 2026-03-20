@@ -59,19 +59,21 @@ html, body, div, span, label, p, input, select, textarea, button,
 #    background: #e8f0fe;
 #    border: 2px solid #4285f4;
 #}
+/* ===== big-box を text_input と完全に重ねる ===== */
 .big-box {
-    padding: 0;
-    margin-bottom: -12px;  /* ← これが重要 */
+    padding: 0 !important;
+    margin-bottom: -14px !important;
 }
 
+/* ===== text_input を big-box の中に見せる ===== */
 .stTextInput > div > div > input {
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-align: center;
-    background: #e8f0fe;        /* big-box と同じ色 */
-    border: 2px solid #4285f4;  /* big-box と同じ枠線 */
-    border-radius: 10px;
-    height: 60px;
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    background: #e8f0fe !important;
+    border: 2px solid #4285f4 !important;
+    border-radius: 10px !important;
+    height: 60px !important;
 }
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
