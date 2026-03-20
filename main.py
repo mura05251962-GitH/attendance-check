@@ -113,8 +113,11 @@ with col2:
         """,
         unsafe_allow_html=True
     )
-    new_name = st.text_input("", row_data[1], key="year")
-
+    new_name = st.text_input(
+        label="", 
+        value=row_data[1], 
+        key=f"year_{selected_row}"
+    )
     st.markdown("</div>", unsafe_allow_html=True)
 
 # #3（名前）
@@ -126,8 +129,11 @@ with col3:
         """,
         unsafe_allow_html=True
     )
-    new_name = st.text_input("", row_data[2], key="name")
-
+    new_name = st.text_input(
+        label="", 
+        value=row_data[2], 
+        key=f"name_{selected_row}"
+    )
     st.markdown("</div>", unsafe_allow_html=True)
     
 # ====== 編集フォーム（カードで囲む） ======
