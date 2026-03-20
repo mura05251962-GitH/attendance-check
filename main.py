@@ -70,7 +70,8 @@ input[id^="year_"], input[id^="name_"] {
 }
 
 /* 位置調整 */
-div[data-testid="stTextInput"] {
+div[data-testid="stTextInput"]:has(input[id^="year_"]),
+div[data-testid="stTextInput"]:has(input[id^="name_"]) {
     margin-top: -35px !important;
 }
 
