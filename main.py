@@ -81,7 +81,7 @@ input, select, textarea {
 
 /* ラベル（例：出欠1）の余白も詰める */
 .stSelectbox label {
-    margin-bottom: -6px !important;
+    margin-bottom: -12px !important;
 }
 
 </style>
