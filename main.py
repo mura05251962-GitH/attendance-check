@@ -276,7 +276,7 @@ with st.container():
             cA, cB = st.columns([1,1])
             with cA:
                 options = ["〇", "未", "ー",""]
-                new_values.append(normalize(row_data[14]))
+                new_values.append(st.selectbox(header[14], options, index=options.index(row_data[14]) if row_data[14] in options else 2))
             with cB:
                 st.text_input("合計金額", value=to_comma(row_data[15]), disabled=True)
   
