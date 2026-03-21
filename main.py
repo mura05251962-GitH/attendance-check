@@ -107,7 +107,11 @@ label, .stMarkdown, .stTextInput label, .stSelectbox label {
 input, select, textarea {
     font-size: 24px !important;
 }
-
+/* markdown上下の余白をゼロにする */
+hr {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
 /* ===== columns の横の隙間（gap）を詰める ===== */
 div[data-testid="column"] {
     padding-left: 1rem !important;
