@@ -189,30 +189,7 @@ with col3:
 # ====== 編集フォーム（カードで囲む） ======
 #with st.container():
 st.markdown("---") 
-st.markdown("""
-<div style="padding:15px; border:1px solid #ddd;
-            border-radius:10px; background:#fafafa;">
-""",unsafe_allow_html=True)
-
 with st.form("edit_form"): 
-# ====== 編集フォームへ保存ボタン用にID付与） ======
-    st.markdown("""
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // この iframe の中の form を取得
-        const iframe = window.frameElement;
-        if (!iframe) return;
-    
-        const forms = iframe.contentDocument.getElementsByTagName("form");
-        for (let f of forms) {
-            // Streamlit が生成する form の name 属性をチェック
-            if (f.getAttribute("name") === "edit_form") {
-                f.id = "edit_form";
-            }
-        }
-    });
-    </script>
-    """, unsafe_allow_html=True)
 
     col1, col2 = st.columns(2)
     new_values = []
@@ -286,19 +263,21 @@ with st.form("edit_form"):
         # 合計金額（表示のみ）
         cA, cB = st.columns([1,1])
         with cA:
-            options = ["〇", "未", "ー",""]
-            new_values.append(
-                st.selectbox(header[14], options, index=options.index(row_data[14])
-                             if row_data[14] in options else 2))
+            st.text_input("集金", value=row_data[14], disabled=True)
+ #           options = ["〇", "未", "ー",""]
+ #           new_values.append(
+ #               st.selectbox(header[14], options, index=options.index(row_data[14])
+ #                            if row_data[14] in options else 2))
         with cB:
             st.text_input("合計金額", value=to_comma(row_data[15]), disabled=True)
 
-    submitted = st.form_submit_button("保存")
+    submitted = st.form_submit_button("確認・集金完了")
     
     st.markdown("</div>", unsafe_allow_html=True)
     
 # 保存処理
 if submitted:
+    new_values[14] = "〇"
     update_range = f"CollectList!B{selected_row+2}:P{selected_row+2}"
     sheet.values().update(
         spreadsheetId=SPREADSHEET_ID,
