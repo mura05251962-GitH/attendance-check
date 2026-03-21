@@ -204,96 +204,95 @@ with col3:
 # ====== 編集フォーム（カードで囲む） ======
 #with st.container():
 st.markdown("---")
-    st.markdown("""
-    <div style="padding:15px; border:1px solid #ddd;
-    border-radius:10px; background:#fafafa;">
-    """, unsafe_allow_html=True)
+st.markdown("""
+<div style="padding:15px; border:1px solid #ddd;
+border-radius:10px; background:#fafafa;">
+""", unsafe_allow_html=True)
+
+with st.form("edit_form"):
+
+    col1, col2 = st.columns(2)
+    new_values = []
+    new_values.append(row_data[0])
+    new_values.append(row_data[1])
+    new_values.append(row_data[2])
+
+
+    # --- 列1：項目4,5 / 6,7 / 8,9 ---
+    with col1:
+        cA, cB = st.columns([2,1])
+        with cA:
+            st.text_input("4/11(土)テニス", value=row_data[3], disabled=True)
+            new_values.append(row_data[3]) 
+        with cB:
+            options = ["✓","ー",""]
+            new_values.append(
+                st.selectbox(header[4], options, index=options.index(row_data[4])
+                             if row_data[4] in options else 2))
+
+        cA, cB = st.columns([2,1])
+        with cA:
+            st.text_input("4/11(土)総会", value=row_data[5], disabled=True)
+            new_values.append(row_data[5])
+        with cB:
+            options = ["✓","ー",""]
+            new_values.append(
+                st.selectbox(header[6], options, index=options.index(row_data[6])
+                             if row_data[6] in options else 2))
+
+        cA, cB = st.columns([2,1])
+        with cA:
+            st.text_input("4/11(土)懇親会", value=row_data[7], disabled=True)
+            new_values.append(row_data[7])
+        with cB:
+            options = ["✓","ー",""]
+            new_values.append(
+                st.selectbox(header[8], options, index=options.index(row_data[8])
+                             if row_data[8] in options else 2))
+
+        cA, cB = st.columns([2,1])
+        with cA:
+            st.text_input("4/12(日)テニス", value=row_data[9], disabled=True)
+            new_values.append(row_data[9])
+        with cB:
+            options = ["✓","ー",""]
+            new_values.append(
+                st.selectbox(header[10], options, index=options.index(row_data[10])
+                             if row_data[10] in options else 2))
+
+    # --- 列3：項目12〜16 ---
+    with col2:
+        # 年会費
+        value = to_comma(row_data[11])
+        options = ["2,000", "ー", ""]
+        index = options.index(value) if value in options else 2
+        new_values.append(normalize(st.selectbox(header[11], options, index=index))
+        )
+        # カンパ
+        value = to_comma(row_data[12])
+        options = ["1,000","2,000","3,000","ー",""]
+        index = options.index(value) if value in options else 2
+        new_values.append(normalize(st.selectbox(header[12], options, index=index))
+        )
+        # 懇親会費
+        value = to_comma(row_data[13])
+        options = ["7,000","ー",""]
+        index = options.index(value) if value in options else 2
+        new_values.append(normalize(st.selectbox(header[13], options, index=index))
+        )
+        # 合計金額（表示のみ）
+        cA, cB = st.columns([1,1])
+        with cA:
+            options = ["〇", "未", "ー",""]
+            new_values.append(
+                st.selectbox(header[14], options, index=options.index(row_data[14])
+                             if row_data[14] in options else 2))
+        with cB:
+            st.text_input("合計金額", value=to_comma(row_data[15]), disabled=True)
+
+    submitted = st.form_submit_button("保存")
     
-    with st.form("edit_form"):
-
-        col1, col2 = st.columns(2)
-        new_values = []
-        new_values.append(row_data[0])
-        new_values.append(row_data[1])
-        new_values.append(row_data[2])
-
- 
-        
-        # --- 列1：項目4,5 / 6,7 / 8,9 ---
-        with col1:
-            cA, cB = st.columns([2,1])
-            with cA:
-                st.text_input("4/11(土)テニス", value=row_data[3], disabled=True)
-                new_values.append(row_data[3]) 
-            with cB:
-                options = ["✓","ー",""]
-                new_values.append(
-                    st.selectbox(header[4], options, index=options.index(row_data[4])
-                                 if row_data[4] in options else 2))
-
-            cA, cB = st.columns([2,1])
-            with cA:
-                st.text_input("4/11(土)総会", value=row_data[5], disabled=True)
-                new_values.append(row_data[5])
-            with cB:
-                options = ["✓","ー",""]
-                new_values.append(
-                    st.selectbox(header[6], options, index=options.index(row_data[6])
-                                 if row_data[6] in options else 2))
-
-            cA, cB = st.columns([2,1])
-            with cA:
-                st.text_input("4/11(土)懇親会", value=row_data[7], disabled=True)
-                new_values.append(row_data[7])
-            with cB:
-                options = ["✓","ー",""]
-                new_values.append(
-                    st.selectbox(header[8], options, index=options.index(row_data[8])
-                                 if row_data[8] in options else 2))
-
-            cA, cB = st.columns([2,1])
-            with cA:
-                st.text_input("4/12(日)テニス", value=row_data[9], disabled=True)
-                new_values.append(row_data[9])
-            with cB:
-                options = ["✓","ー",""]
-                new_values.append(
-                    st.selectbox(header[10], options, index=options.index(row_data[10])
-                                 if row_data[10] in options else 2))
-
-        # --- 列3：項目12〜16 ---
-        with col2:
-            # 年会費
-            value = to_comma(row_data[11])
-            options = ["2,000", "ー", ""]
-            index = options.index(value) if value in options else 2
-            new_values.append(normalize(st.selectbox(header[11], options, index=index))
-            )
-            # カンパ
-            value = to_comma(row_data[12])
-            options = ["1,000","2,000","3,000","ー",""]
-            index = options.index(value) if value in options else 2
-            new_values.append(normalize(st.selectbox(header[12], options, index=index))
-            )
-            # 懇親会費
-            value = to_comma(row_data[13])
-            options = ["7,000","ー",""]
-            index = options.index(value) if value in options else 2
-            new_values.append(normalize(st.selectbox(header[13], options, index=index))
-            )
-            # 合計金額（表示のみ）
-            cA, cB = st.columns([1,1])
-            with cA:
-                options = ["〇", "未", "ー",""]
-                new_values.append(
-                    st.selectbox(header[14], options, index=options.index(row_data[14])
-                                 if row_data[14] in options else 2))
-            with cB:
-                st.text_input("合計金額", value=to_comma(row_data[15]), disabled=True)
-  
-        submitted = st.form_submit_button("保存")
-        
-        st.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
     
 # 保存処理
 if submitted:
