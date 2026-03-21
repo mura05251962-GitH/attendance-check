@@ -124,13 +124,12 @@ form {
     position: relative;
 }
 
-/* 保存ボタンをフォーム右下に固定 */
-div.stButton > button[kind="primary"] {
+/* フォーム内のボタン全部を右下＋黄色に */
+form div.stButton > button {
     position: absolute;
     right: 20px;
     bottom: 20px;
 
-    /* 黄色デザイン */
     background-color: #FFD700 !important;
     color: black !important;
     border: 2px solid #DAA520 !important;
@@ -140,7 +139,7 @@ div.stButton > button[kind="primary"] {
 }
 
 /* ホバー時 */
-div.stButton > button[kind="primary"]:hover {
+form div.stButton > button:hover {
     background-color: #FFEA00 !important;
     border-color: #C9A000 !important;
 }
@@ -148,7 +147,8 @@ div.stButton > button[kind="primary"]:hover {
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<h1 class="app-title">2026年OGOB会 出欠・集金アプリ</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="app-title">2026年OGOB会 出欠・集金アプリ</h1>',
+            unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns([2, 1, 4])
 
@@ -205,7 +205,8 @@ with col3:
 # ====== 編集フォーム（カードで囲む） ======
 with st.container():
     st.markdown("""
-    <div style="padding:15px; border:1px solid #ddd; border-radius:10px; background:#fafafa;">
+    <div style="padding:15px; border:1px solid #ddd;
+    border-radius:10px; background:#fafafa;">
     """, unsafe_allow_html=True)
     
     with st.form("edit_form"):
@@ -226,7 +227,9 @@ with st.container():
                 new_values.append(row_data[3]) 
             with cB:
                 options = ["✓","ー",""]
-                new_values.append(st.selectbox(header[4], options, index=options.index(row_data[4]) if row_data[4] in options else 2))
+                new_values.append(
+                    st.selectbox(header[4], options, index=options.index(row_data[4])
+                                 if row_data[4] in options else 2))
 
             cA, cB = st.columns([2,1])
             with cA:
@@ -234,7 +237,9 @@ with st.container():
                 new_values.append(row_data[5])
             with cB:
                 options = ["✓","ー",""]
-                new_values.append(st.selectbox(header[6], options, index=options.index(row_data[6]) if row_data[6] in options else 2))
+                new_values.append(
+                    st.selectbox(header[6], options, index=options.index(row_data[6])
+                                 if row_data[6] in options else 2))
 
             cA, cB = st.columns([2,1])
             with cA:
@@ -242,7 +247,9 @@ with st.container():
                 new_values.append(row_data[7])
             with cB:
                 options = ["✓","ー",""]
-                new_values.append(st.selectbox(header[8], options, index=options.index(row_data[8]) if row_data[8] in options else 2))
+                new_values.append(
+                    st.selectbox(header[8], options, index=options.index(row_data[8])
+                                 if row_data[8] in options else 2))
 
             cA, cB = st.columns([2,1])
             with cA:
@@ -250,7 +257,9 @@ with st.container():
                 new_values.append(row_data[9])
             with cB:
                 options = ["✓","ー",""]
-                new_values.append(st.selectbox(header[10], options, index=options.index(row_data[10]) if row_data[10] in options else 2))
+                new_values.append(
+                    st.selectbox(header[10], options, index=options.index(row_data[10])
+                                 if row_data[10] in options else 2))
 
         # --- 列3：項目12〜16 ---
         with col2:
@@ -276,7 +285,9 @@ with st.container():
             cA, cB = st.columns([1,1])
             with cA:
                 options = ["〇", "未", "ー",""]
-                new_values.append(st.selectbox(header[14], options, index=options.index(row_data[14]) if row_data[14] in options else 2))
+                new_values.append(
+                    st.selectbox(header[14], options, index=options.index(row_data[14])
+                                 if row_data[14] in options else 2))
             with cB:
                 st.text_input("合計金額", value=to_comma(row_data[15]), disabled=True)
   
@@ -295,4 +306,4 @@ if submitted:
     ).execute()
 
     st.success("保存しました！")
-    st.experimental_rerun()
+    st.rerun()
