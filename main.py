@@ -91,7 +91,7 @@ input:disabled {
 
 /* ===== フォーム内のラベル（出欠1、参加など） ===== */
 label, .stMarkdown, .stTextInput label, .stSelectbox label {
-    font-size: 24px !important;
+    font-size: 30px !important;
 }
 
 /* ===== 入力欄の文字（text_input, selectbox の中身） ===== */
