@@ -123,16 +123,16 @@ div[data-testid="stHorizontalBlock"] {
     gap: 0.2rem !important;
 }
 
-/* フォーム全体を絶対配置の基準にする */
-#form {
-#   position: relative;
-#}
+/* フォームを絶対配置の基準にする */
+form {
+    position: relative !important;
+}
 
-/* フォーム内のボタン全部を右下＋黄色に */
-form div.stButton > button {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
+/* 保存ボタンを右下且つ黄色に */
+div[data-testid="stFormSubmitButton"] button {
+    position: absolute !important;
+    right: 20px !important;
+    bottom: 20px !important;
 
     background-color: #FFD700 !important;
     color: black !important;
@@ -142,7 +142,8 @@ form div.stButton > button {
     font-weight: 600 !important;
 }
 
-form div.stButton > button:hover {
+/* hover */
+div[data-testid="stFormSubmitButton"] button:hover {
     background-color: #FFEA00 !important;
     border-color: #C9A000 !important;
 }
