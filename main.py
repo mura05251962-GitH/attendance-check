@@ -85,7 +85,7 @@ input:disabled {
     font-weight: bold;
 }
 .big-box .Value {
-    font-size: 26px;
+    font-size: 30px;
     font-weight: bold;
 }
 
@@ -96,7 +96,7 @@ label, .stMarkdown, .stTextInput label, .stSelectbox label {
 
 /* ===== 入力欄の文字（text_input, selectbox の中身） ===== */
 input, select, textarea {
-    font-size: 30px !important;
+    font-size: 26px !important;
     font-weight: bold;
     }
 
