@@ -202,7 +202,8 @@ with col3:
     )
     
 # ====== 編集フォーム（カードで囲む） ======
-with st.container():
+#with st.container():
+st.markdown("---")
     st.markdown("""
     <div style="padding:15px; border:1px solid #ddd;
     border-radius:10px; background:#fafafa;">
