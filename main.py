@@ -208,8 +208,13 @@ with col3:
     
 # ====== 編集フォーム（カードで囲む） ======
 #with st.container():
-st.markdown("---")
+st.markdown("---") 
+st.markdown("""
+<div style="padding:15px; border:1px solid #ddd;
+            border-radius:10px; background:#fafafa;">
+""",unsafe_allow_html=True)
 
+with st.form("edit_form"): 
 # ====== 編集フォームへ保存ボタン用にID付与） ======
     st.markdown("""
     <script>
