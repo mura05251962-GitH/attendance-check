@@ -322,7 +322,7 @@ st.markdown("""
 <style>
 #fixed-save-btn {
     position: relative;
-    right: 20px;
+    left: 300px;
     bottom: 20px;
     background-color: #FFD700;
     color: black;
