@@ -275,19 +275,18 @@ with st.container():
             # 合計金額（表示のみ）
             cA, cB = st.columns([1,1])
             with cA:
-                st.text_input("合計金額", value=to_comma(row_data[14]), disabled=True)
+                options = ["〇", "未", "ー",""]
                 new_values.append(normalize(row_data[14]))
             with cB:
-                options = ["〇", "未", "ー",""]
-                new_values.append(st.selectbox(header[15], options, index=options.index(row_data[15]) if row_data[15] in options else 3))
-
+                st.text_input("合計金額", value=to_comma(row_data[15]), disabled=True)
+  
         submitted = st.form_submit_button("保存")
         
         st.markdown("</div>", unsafe_allow_html=True)
     
 # 保存処理
 if submitted:
-    update_range = f"CollectList!B{selected_row+2}:Q{selected_row+2}"
+    update_range = f"CollectList!B{selected_row+2}:P{selected_row+2}"
     sheet.values().update(
         spreadsheetId=SPREADSHEET_ID,
         range=update_range,
