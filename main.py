@@ -321,7 +321,7 @@ with st.form("edit_form"):
 st.markdown("""
 <style>
 #fixed-save-btn {
-    position: fixed;
+    position: relative;
     right: 20px;
     bottom: 20px;
     background-color: #FFD700;
