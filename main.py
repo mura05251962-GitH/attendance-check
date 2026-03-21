@@ -128,26 +128,6 @@ form {
     position: relative !important;
 }
 
-/* 保存ボタンを右下且つ黄色に */
-div[data-testid="stFormSubmitButton"] button {
-    position: absolute !important;
-    right: 20px !important;
-    bottom: 20px !important;
-
-    background-color: #FFD700 !important;
-    color: black !important;
-    border: 2px solid #DAA520 !important;
-    border-radius: 6px !important;
-    padding: 0.6em 1.2em !important;
-    font-weight: 600 !important;
-}
-
-/* hover */
-div[data-testid="stFormSubmitButton"] button:hover {
-    background-color: #FFEA00 !important;
-    border-color: #C9A000 !important;
-}
-
 </style>
 """, unsafe_allow_html=True)
 
@@ -317,41 +297,6 @@ with st.form("edit_form"):
     
     st.markdown("</div>", unsafe_allow_html=True)
     
-# HTML＋JS の右下固定ボタンをここに置く
-st.markdown("""
-<style>
-#fixed-save-btn {
-    position: relative;
-    left: 500px;
-    bottom: 20px;
-    background-color: #FFD700;
-    color: black;
-    border: 2px solid #DAA520;
-    border-radius: 6px;
-    padding: 0.6em 1.2em;
-    font-weight: 600;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 9999;
-}
-#fixed-save-btn:hover {
-    background-color: #FFEA00;
-    border-color: #C9A000;
-}
-</style>
-
-<button id="fixed-save-btn">保存</button>
-
-<script>
-document.getElementById("fixed-save-btn").addEventListener("click", function() {
-    const form = parent.document.getElementById("edit_form");
-    if (form) {
-        form.requestSubmit();
-    }
-});
-</script>
-""", unsafe_allow_html=True)
-
 # 保存処理
 if submitted:
     update_range = f"CollectList!B{selected_row+2}:P{selected_row+2}"
