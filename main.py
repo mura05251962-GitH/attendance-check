@@ -50,7 +50,7 @@ st.markdown("""
 
 /* ===== 共通フォントサイズ（全体を大きく） ===== */
 html, body, [class*="css"] {
-    font-size: 24px !important;
+    font-size: 26px !important;
     font-family: "メイリオ", Meiryo, sans-serif !important;
 }
 /* すべての文字色を黒にする */
@@ -79,15 +79,6 @@ input:disabled {
     border: 2px solid #4285f4;
 }
 
-#/* 入力欄 */
-#input[id^="year_"] {
-#    text-align: center !important;
-#    font-size: 1.8rem !important;
-#    font-weight: bold !important;
-#    background: transparent !important;
-#
-#border: none !important;
-#}
 /* ===== big-box 内のラベルと値（共通化） ===== */
 .big-box .label {
     font-size: 22px;
@@ -108,6 +99,7 @@ input, select, textarea {
     font-size: 30px !important;
     font-weight: bold;
     }
+
 /* markdown上下の余白をゼロにする */
 hr {
     margin-top: 0 !important;
