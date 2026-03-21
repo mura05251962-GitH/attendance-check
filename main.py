@@ -85,7 +85,7 @@ input:disabled {
     font-weight: bold;
 }
 .big-box .Value {
-    font-size: 30px;
+    font-size: 26px;
     font-weight: bold;
 }
 
