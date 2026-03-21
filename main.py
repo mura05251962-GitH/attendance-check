@@ -138,7 +138,6 @@ form div.stButton > button {
     font-weight: 600 !important;
 }
 
-/* ホバー時 */
 form div.stButton > button:hover {
     background-color: #FFEA00 !important;
     border-color: #C9A000 !important;
