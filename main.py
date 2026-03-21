@@ -120,9 +120,9 @@ div[data-testid="stHorizontalBlock"] {
 }
 
 /* フォーム全体を絶対配置の基準にする */
-form {
-    position: relative;
-}
+#form {
+#   position: relative;
+#}
 
 /* フォーム内のボタン全部を右下＋黄色に */
 form div.stButton > button {
