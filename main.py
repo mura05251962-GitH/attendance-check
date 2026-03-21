@@ -41,11 +41,11 @@ st.markdown("""
 
 /* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
 .app-title {
-    font-size: clamp(32px, 3vw, 80px) !important;
+    font-size: clamp(32px, 3vw, 40px) !important;
     font-weight: bold !important;
     text-align: center !important;
     margin-bottom: 20px !important;
-    color: #000 !important;
+    color: #00053A !important;
 }
 
 /* ===== 共通フォントサイズ（全体を大きく） ===== */
