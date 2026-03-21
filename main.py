@@ -45,7 +45,7 @@ st.markdown("""
     font-weight: bold !important;
     text-align: center !important;
     margin-bottom: 20px !important;
-    color: #00053A !important;
+    color: #53A !important;
 }
 
 /* ===== 共通フォントサイズ（全体を大きく） ===== */
