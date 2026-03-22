@@ -203,11 +203,7 @@ with st.form("edit_form"):
             options = ["✓","ー",""]
             index=options.index(row_data[4]) if row_data[4] in options else 2
             new_values.append(
-                st.selectbox(
-                    header[4],
-                    options,
-                    index=index,
-                    key=key_for(4, selected_row))
+                st.selectbox(header[4], options, index=index, key=key_for(4, selected_row))
             )
 
         cA, cB = st.columns([2,1])
@@ -257,14 +253,14 @@ with st.form("edit_form"):
         options = ["1,000","2,000","3,000","ー",""]
         index = options.index(value) if value in options else 2
         new_values.append(normalize(st.selectbox(header[12], options, index=index,
-                                                key_for(12, selected_row))))
+                                                key_for(12, selected_row)))
         )
         # 懇親会費
         value = to_comma(row_data[13])
         options = ["7,000","ー",""]
         index = options.index(value) if value in options else 2
         new_values.append(normalize(st.selectbox(header[13], options, index=index,
-                                                key_for(13, selected_row))))
+                                                key_for(13, selected_row)))
         )
         # 合計金額（表示のみ）
         cA, cB = st.columns([1,1])
