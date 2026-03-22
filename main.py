@@ -282,6 +282,7 @@ with st.form("edit_form"):
         with cB:
             total = to_int(new_values[11]) + to_int(new_values[12]) + to_int(new_values[13])
             st.text_input("合計金額", value=to_comma(total), disabled=True)
+            st.write("DEBUG new_values:", new_values)
 
     submitted = st.form_submit_button("確認・集金完了")
     
