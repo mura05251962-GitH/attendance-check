@@ -280,24 +280,11 @@ with st.form("edit_form"):
  #                            key_for(14, selected_row)))
  #                            if row_data[14] in options else 2))
         with cB:
-            total = to_int(new_values[11]) + to_int(new_values[12]) + to_int(new_values[13])
-            st.text_input("合計金額", value=to_comma(total), disabled=True)
+            st.text_input("合計金額", value=to_comma(row_data[14]), disabled=True)
 
     submitted = st.form_submit_button("確認・集金完了")
     
     st.markdown("</div>", unsafe_allow_html=True)
-
-new_values.append(
-    normalize(st.selectbox(header[11], options, index=index, key="A"))
-)
-new_values.append(
-    normalize(st.selectbox(header[12], options, index=index, key="B"))
-)
-new_values.append(
-    normalize(st.selectbox(header[13], options, index=index, key="C"))
-)
-total = to_int(new_values[11]) + to_int(new_values[12]) + to_int(new_values[13])
-st.text_input("合計金額", value=to_comma(total), disabled=True)
 
 # 保存処理
 if submitted:
