@@ -150,12 +150,18 @@ def normalize(v):
     s = s.replace("\t", "")
     return s.strip()
 row_data = [normalize(v) for v in row_data]
-
+# ====== 数値表示に,をいれる ======
 def to_comma(v):
     try:
         return f"{int(v):,}"
     except:
         return v
+# ====== テキストの数値変換 ======        
+def to_int(v):
+    try:
+        return int(v.replace(",", ""))
+    except:
+        return 0
 
 # #2（卒年度）
 with col2:
@@ -206,7 +212,7 @@ with st.form("edit_form"):
                 st.selectbox(header[4], options, index=index, key=key_for(4, selected_row))
             )
 
-        cA, cB = st.columns([2,1])
+        cA, cB = st.columns(2)
         with cA:
             st.text_input("4/11(土)総会", value=row_data[5], disabled=True)
             new_values.append(row_data[5])
@@ -228,7 +234,7 @@ with st.form("edit_form"):
                 st.selectbox(header[8], options, index=index, key=key_for(8, selected_row))
             )
  
-        cA, cB = st.columns([2,1])
+        cA, cB = st.columns(2)
         with cA:
             st.text_input("4/12(日)テニス", value=row_data[9], disabled=True)
             new_values.append(row_data[9])
@@ -265,7 +271,8 @@ with st.form("edit_form"):
         # 合計金額（表示のみ）
         cA, cB = st.columns([1,1])
         with cA:
-            st.text_input("集金", value=row_data[14], disabled=True)
+             # 合計金額を計算
+            st.text_input("集金", value=(row_data[14]), disabled=True)
             new_values.append(row_data[14])
  #           options = ["〇", "未", "ー",""]
  #           new_values.append(
@@ -273,6 +280,7 @@ with st.form("edit_form"):
  #                            key_for(14, selected_row)))
  #                            if row_data[14] in options else 2))
         with cB:
+            total = to_int(new_values[11]) + to_int(new_values[12]) + to_int(new_values[13])
             st.text_input("合計金額", value=to_comma(row_data[15]), disabled=True)
 
     submitted = st.form_submit_button("確認・集金完了")
