@@ -280,7 +280,7 @@ with st.form("edit_form"):
  #                            key_for(14, selected_row)))
  #                            if row_data[14] in options else 2))
         with cB:
-            st.text_input("合計金額", value=to_comma(row_data[14]), disabled=True)
+            st.text_input("合計金額", value=to_comma(row_data[15]), disabled=True)
 
     submitted = st.form_submit_button("確認・集金完了")
     
