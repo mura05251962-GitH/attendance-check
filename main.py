@@ -288,13 +288,13 @@ with st.form("edit_form"):
     st.markdown("</div>", unsafe_allow_html=True)
 
 new_values.append(
-    normalize(st.selectbox(header[11], options, index=index, key=key_for(11, selected_row)))
+    normalize(st.selectbox(header[11], options, index=index, key="A"))
 )
 new_values.append(
-    normalize(st.selectbox(header[12], options, index=index, key=key_for(12, selected_row)))
+    normalize(st.selectbox(header[12], options, index=index, key="B"))
 )
 new_values.append(
-    normalize(st.selectbox(header[13], options, index=index, key=key_for(13, selected_row)))
+    normalize(st.selectbox(header[13], options, index=index, key="C"))
 )
 total = to_int(new_values[11]) + to_int(new_values[12]) + to_int(new_values[13])
 st.text_input("合計金額", value=to_comma(total), disabled=True)
