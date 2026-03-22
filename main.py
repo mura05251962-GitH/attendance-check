@@ -300,12 +300,6 @@ if submitted:
         valueInputOption="USER_ENTERED",
         body={"values": [new_values]}
     ).execute()
-# 音を鳴らす
-    st.markdown("""
-        <audio autoplay>
-            <source src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg" type="audio/ogg">
-        </audio>
-    """, unsafe_allow_html=True)
 
     st.success("保存しました！")
     st.rerun()
