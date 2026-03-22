@@ -201,10 +201,9 @@ with st.form("edit_form"):
             new_values.append(row_data[3]) 
         with cB:
             options = ["✓","ー",""]
-            new_values.append(
-                st.selectbox(header[4], options, index=options.index(row_data[4]),
-                             key=key_for(4, selected_row))
-                             if row_data[4] in options else 2))
+            index=options.index(row_data[4]),if row_data[4] in options else 2
+            new_values.append(st.selectbox(header[4],options, index=index,
+                                           key=key_for(4, selected_row))
 
         cA, cB = st.columns([2,1])
         with cA:
@@ -212,42 +211,39 @@ with st.form("edit_form"):
             new_values.append(row_data[5])
         with cB:
             options = ["✓","ー",""]
-            new_values.append(
-                st.selectbox(header[6], options, index=options.index(row_data[6]),
-                             key=key_for(6, selected_row))
-                             if row_data[6] in options else 2))
-
-        cA, cB = st.columns([2,1])
+            index=options.index(row_data[6]),if row_data[6] in options else 2
+            new_values.append(st.selectbox(header[6],options, index=index,
+                                           key=key_for(6, selected_row))
+                              
+        cA, cB = st.columns(2)
         with cA:
             st.text_input("4/11(土)懇親会", value=row_data[7], disabled=True)
             new_values.append(row_data[7])
         with cB:
             options = ["✓","ー",""]
-            new_values.append(
-                st.selectbox(header[8], options, index=options.index(row_data[8]),
-                             key_for(8, selected_row))
-                             if row_data[8] in options else 2))
-
+            index=options.index(row_data[8]),if row_data[8] in options else 2
+            new_values.append(st.selectbox(header[8],options, index=index,
+                                           key=key_for(8, selected_row))
+ 
         cA, cB = st.columns([2,1])
         with cA:
             st.text_input("4/12(日)テニス", value=row_data[9], disabled=True)
             new_values.append(row_data[9])
         with cB:
             options = ["✓","ー",""]
-            new_values.append(
-                st.selectbox(header[10], options, index=options.index(row_data[10]),
-                             key=key_for(10, selected_row))
-                             if row_data[10] in options else 2))
-
+            index=options.index(row_data[10]),if row_data[8] in options else 2
+            new_values.append(st.selectbox(header[10],options, index=index,
+                                           key=key_for(10, selected_row))
+ 
     # --- 列3：項目12〜16 ---
     with col2:
         # 年会費
         value = to_comma(row_data[11])
         options = ["2,000", "ー", ""]
-        index = options.index(value) if value in options else 2
-        new_values.append(normalize(st.selectbox(header[11], options, index=index,
-                                                key_for(11, selected_row))))
-        )
+        index=options.index(row_data[11]),if row_data[11] in options else 2
+        new_values.append(normalize(st.selectbox(header[11],options, index=index,
+                                                 key=key_for(11, selected_row)))
+         )
         # カンパ
         value = to_comma(row_data[12])
         options = ["1,000","2,000","3,000","ー",""]
