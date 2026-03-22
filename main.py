@@ -244,21 +244,21 @@ with st.form("edit_form"):
         # 年会費
         value = to_comma(row_data[11])
         options = ["2,000", "ー", ""]
-        index = options.index(row_data[11]) if row_data[11] in options else 2
+        index = options.index(value) if value in options else 2
         new_values.append(normalize(st.selectbox(header[11], options, index=index,
                                                  key=key_for(11, selected_row)))
          )
         # カンパ
         value = to_comma(row_data[12])
         options = ["1,000","2,000","3,000","ー",""]
-        index = options.index(row_data[12]) if row_data[12] in options else 2
+        index = options.index(value) if value in options else 2
         new_values.append(normalize(st.selectbox(header[12], options, index=index,
                                                  key=key_for(12, selected_row)))
         )
         # 懇親会費
         value = to_comma(row_data[13])
         options = ["7,000","ー",""]
-        index = options.index(row_data[13]) if row_data[13] in options else 2
+        index = options.index(value) if value in options else 2
         new_values.append(normalize(st.selectbox(header[13], options, index=index,
                                                  key=key_for(13, selected_row)))
         )
