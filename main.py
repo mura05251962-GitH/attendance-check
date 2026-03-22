@@ -132,14 +132,8 @@ col1, col2, col3 = st.columns([2, 1, 4])
 # selectbox は col1 にそのまま置く
 with col1:
     selected_row = st.selectbox("対象Noを選択", row_numbers)
-# 対象No が変わったら state を全部クリア
-if "last_selected_row" not in st.session_state:
-    st.session_state.last_selected_row = selected_row
-
-if selected_row != st.session_state.last_selected_row:
-    st.session_state.clear()
-    st.session_state.last_selected_row = selected_row
-
+    
+key=f"{header[col_index]}_row_{selected_row}"
 row_data = body[selected_row - 1]
 while len(row_data) < 16:
     row_data.append("")
