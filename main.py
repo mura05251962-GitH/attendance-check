@@ -47,7 +47,7 @@ st.markdown("""
     font-weight: bold !important;
     text-align: center !important;
     margin-bottom: 20px !important;
-    color: #53A !important;
+    color: #000080 !important;
 }
 
 /* ===== 共通フォントサイズ（全体を大きく） ===== */
@@ -190,6 +190,11 @@ with col3:
 # ====== 編集フォーム（カードで囲む） ======
 #with st.container():
 st.markdown("---") 
+<style>
+body {background-color: #ffffe0;}
+</style>
+""", unsafe_allow_html=True)
+
 with st.form("edit_form"): 
 
     col1, col2 = st.columns(2)
