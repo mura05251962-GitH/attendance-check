@@ -250,7 +250,7 @@ with st.form("edit_form"):
         value = to_comma(row_data[12])
         options = ["1,000","2,000","3,000","ー",""]
         index = options.index(value) if value in options else 2
-        new_values.append(normalize(st.selectbox(header[12], options, index=index
+        new_values.append(normalize(st.selectbox(header[12], options, index=index,
                                                 key=f"annual_fee_row_{selected_row}"))
         )
         # 懇親会費
