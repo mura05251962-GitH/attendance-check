@@ -282,12 +282,14 @@ with st.form("edit_form"):
         with cB:
             total = to_int(new_values[11]) + to_int(new_values[12]) + to_int(new_values[13])
             st.text_input("合計金額", value=to_comma(total), disabled=True)
-            st.write("DEBUG new_values:", new_values[11], new_values[12], new_values[13], new_values[14])
 
     submitted = st.form_submit_button("確認・集金完了")
     
     st.markdown("</div>", unsafe_allow_html=True)
-    
+
+total = to_int(new_values[11]) + to_int(new_values[12]) + to_int(new_values[13])
+st.text_input("合計金額", value=to_comma(total), disabled=True)
+
 # 保存処理
 if submitted:
     new_values[14] = "〇"
@@ -298,6 +300,13 @@ if submitted:
         valueInputOption="USER_ENTERED",
         body={"values": [new_values]}
     ).execute()
+    
+    # 音を鳴らす
+    st.markdown("""
+        <audio autoplay>
+            <source src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg" type="audio/ogg">
+        </audio>
+    """, unsafe_allow_html=True)
 
     st.success("保存しました！")
     st.rerun()
