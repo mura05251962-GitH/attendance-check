@@ -201,7 +201,7 @@ with st.form("edit_form"):
             new_values.append(row_data[3]) 
         with cB:
             options = ["✓","ー",""]
-            index=options.index(row_data[4]),if row_data[4] in options else 2
+            index=options.index(row_data[4]) if row_data[4] in options else 2
             new_values.append(st.selectbox(header[4],options, index=index,
                                            key=key_for(4, selected_row))
 
@@ -211,7 +211,7 @@ with st.form("edit_form"):
             new_values.append(row_data[5])
         with cB:
             options = ["✓","ー",""]
-            index=options.index(row_data[6]),if row_data[6] in options else 2
+            index=options.index(row_data[6]) if row_data[6] in options else 2
             new_values.append(st.selectbox(header[6],options, index=index,
                                            key=key_for(6, selected_row))
                               
@@ -221,7 +221,7 @@ with st.form("edit_form"):
             new_values.append(row_data[7])
         with cB:
             options = ["✓","ー",""]
-            index=options.index(row_data[8]),if row_data[8] in options else 2
+            index=options.index(row_data[8]) if row_data[8] in options else 2
             new_values.append(st.selectbox(header[8],options, index=index,
                                            key=key_for(8, selected_row))
  
@@ -231,7 +231,7 @@ with st.form("edit_form"):
             new_values.append(row_data[9])
         with cB:
             options = ["✓","ー",""]
-            index=options.index(row_data[10]),if row_data[8] in options else 2
+            index=options.index(row_data[10]) if row_data[8] in options else 2
             new_values.append(st.selectbox(header[10],options, index=index,
                                            key=key_for(10, selected_row))
  
@@ -240,7 +240,7 @@ with st.form("edit_form"):
         # 年会費
         value = to_comma(row_data[11])
         options = ["2,000", "ー", ""]
-        index=options.index(row_data[11]),if row_data[11] in options else 2
+        index=options.index(row_data[11]) if row_data[11] in options else 2
         new_values.append(normalize(st.selectbox(header[11],options, index=index,
                                                  key=key_for(11, selected_row)))
          )
