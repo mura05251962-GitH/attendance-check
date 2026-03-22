@@ -193,14 +193,15 @@ with st.form("edit_form"):
 
     # --- 列1：項目4,5 / 6,7 / 8,9 ---
     with col1:
-        cA, cB = st.columns([2,1])
+        cA, cB = st.columns(2)
         with cA:
             st.text_input("4/11(土)テニス", value=row_data[3], disabled=True)
             new_values.append(row_data[3]) 
         with cB:
             options = ["✓","ー",""]
             new_values.append(
-                st.selectbox(header[4], options, index=options.index(row_data[4])
+                st.selectbox(header[4], options, index=options.index(row_data[4]),
+                             key=f"annual_fee_row_{selected_row}"
                              if row_data[4] in options else 2))
 
         cA, cB = st.columns([2,1])
@@ -210,7 +211,8 @@ with st.form("edit_form"):
         with cB:
             options = ["✓","ー",""]
             new_values.append(
-                st.selectbox(header[6], options, index=options.index(row_data[6])
+                st.selectbox(header[6], options, index=options.index(row_data[6]),
+                             key=f"annual_fee_row_{selected_row}"
                              if row_data[6] in options else 2))
 
         cA, cB = st.columns([2,1])
@@ -220,7 +222,8 @@ with st.form("edit_form"):
         with cB:
             options = ["✓","ー",""]
             new_values.append(
-                st.selectbox(header[8], options, index=options.index(row_data[8])
+                st.selectbox(header[8], options, index=options.index(row_data[8]),
+                             key=f"annual_fee_row_{selected_row}"
                              if row_data[8] in options else 2))
 
         cA, cB = st.columns([2,1])
@@ -230,7 +233,8 @@ with st.form("edit_form"):
         with cB:
             options = ["✓","ー",""]
             new_values.append(
-                st.selectbox(header[10], options, index=options.index(row_data[10])
+                st.selectbox(header[10], options, index=options.index(row_data[10]),
+                             key=f"annual_fee_row_{selected_row}"
                              if row_data[10] in options else 2))
 
     # --- 列3：項目12〜16 ---
@@ -239,19 +243,22 @@ with st.form("edit_form"):
         value = to_comma(row_data[11])
         options = ["2,000", "ー", ""]
         index = options.index(value) if value in options else 2
-        new_values.append(normalize(st.selectbox(header[11], options, index=index))
+        new_values.append(normalize(st.selectbox(header[11], options, index=index,
+                                                key=f"annual_fee_row_{selected_row}"))
         )
         # カンパ
         value = to_comma(row_data[12])
         options = ["1,000","2,000","3,000","ー",""]
         index = options.index(value) if value in options else 2
-        new_values.append(normalize(st.selectbox(header[12], options, index=index))
+        new_values.append(normalize(st.selectbox(header[12], options, index=index
+                                                key=f"annual_fee_row_{selected_row}"))
         )
         # 懇親会費
         value = to_comma(row_data[13])
         options = ["7,000","ー",""]
         index = options.index(value) if value in options else 2
-        new_values.append(normalize(st.selectbox(header[13], options, index=index))
+        new_values.append(normalize(st.selectbox(header[13], options, index=index,
+                                                key=f"annual_fee_row_{selected_row}"))
         )
         # 合計金額（表示のみ）
         cA, cB = st.columns([1,1])
@@ -260,7 +267,8 @@ with st.form("edit_form"):
             new_values.append(row_data[14])
  #           options = ["〇", "未", "ー",""]
  #           new_values.append(
- #               st.selectbox(header[14], options, index=options.index(row_data[14])
+ #               st.selectbox(header[14], options, index=options.index(row_data[14],
+ #                            key=f"annual_fee_row_{selected_row}")
  #                            if row_data[14] in options else 2))
         with cB:
             st.text_input("合計金額", value=to_comma(row_data[15]), disabled=True)
