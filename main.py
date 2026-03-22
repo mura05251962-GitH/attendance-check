@@ -190,9 +190,11 @@ with col3:
 # ====== 編集フォーム（カードで囲む） ======
 #with st.container():
 st.markdown("---") 
+st.markdown("""
 <style>
 body {background-color: #ffffe0;}
 </style>
+""", unsafe_allow_html=True)
 
 with st.form("edit_form"): 
 
