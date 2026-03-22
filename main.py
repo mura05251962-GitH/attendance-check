@@ -290,10 +290,10 @@ with st.form("edit_form"):
 new_values.append(
     normalize(st.selectbox(header[11], options, index=index, key=key_for(11, selected_row)))
 )
-    new_values.append(
+new_values.append(
     normalize(st.selectbox(header[12], options, index=index, key=key_for(12, selected_row)))
 )
-    new_values.append(
+new_values.append(
     normalize(st.selectbox(header[13], options, index=index, key=key_for(13, selected_row)))
 )
 total = to_int(new_values[11]) + to_int(new_values[12]) + to_int(new_values[13])
