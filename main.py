@@ -193,7 +193,6 @@ st.markdown("---")
 <style>
 body {background-color: #ffffe0;}
 </style>
-""", unsafe_allow_html=True)
 
 with st.form("edit_form"): 
 
@@ -301,6 +300,12 @@ if submitted:
         valueInputOption="USER_ENTERED",
         body={"values": [new_values]}
     ).execute()
-    
+# 音を鳴らす
+    st.markdown("""
+        <audio autoplay>
+            <source src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg" type="audio/ogg">
+        </audio>
+    """, unsafe_allow_html=True)
+
     st.success("保存しました！")
     st.rerun()
