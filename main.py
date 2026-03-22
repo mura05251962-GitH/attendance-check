@@ -202,8 +202,13 @@ with st.form("edit_form"):
         with cB:
             options = ["✓","ー",""]
             index=options.index(row_data[4]) if row_data[4] in options else 2
-            new_values.append(st.selectbox(header[4], options, index=index,
-                                           key=key_for(4, selected_row))
+            new_values.append(
+                st.selectbox(
+                    header[4],
+                    options,
+                    index=index,
+                    key=key_for(4, selected_row))
+            )
 
         cA, cB = st.columns([2,1])
         with cA:
@@ -212,8 +217,9 @@ with st.form("edit_form"):
         with cB:
             options = ["✓","ー",""]
             index=options.index(row_data[6]) if row_data[6] in options else 2
-            new_values.append(st.selectbox(header[6], options, index=index,
-                                           key=key_for(6, selected_row))
+            new_values.append(
+                st.selectbox(header[6], options, index=index, key=key_for(6, selected_row))
+            )
                               
         cA, cB = st.columns(2)
         with cA:
@@ -222,8 +228,9 @@ with st.form("edit_form"):
         with cB:
             options = ["✓","ー",""]
             index=options.index(row_data[8]) if row_data[8] in options else 2
-            new_values.append(st.selectbox(header[8], options, index=index,
-                                           key=key_for(8, selected_row))
+            new_values.append(
+                st.selectbox(header[8], options, index=index, key=key_for(8, selected_row))
+            )
  
         cA, cB = st.columns([2,1])
         with cA:
@@ -232,8 +239,9 @@ with st.form("edit_form"):
         with cB:
             options = ["✓","ー",""]
             index=options.index(row_data[10]) if row_data[8] in options else 2
-            new_values.append(st.selectbox(header[10], options, index=index,
-                                           key=key_for(10, selected_row))
+            new_values.append(
+                st.selectbox(header[10], options, index=index, key=key_for(10, selected_row))
+            )
  
     # --- 列3：項目12〜16 ---
     with col2:
