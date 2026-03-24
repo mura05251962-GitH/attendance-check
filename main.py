@@ -188,12 +188,10 @@ with col3:
     )
     
 # ====== 編集フォーム（カードで囲む） ======
-#with st.container():
+# with st.container():
 st.markdown("---") 
-st.markdown("""
-#<div style="background-color: #ffffe0">
-#</div>
-""",unsafe_allow_html=True)
+/* \st.markdown(""" */
+/* """,unsafe_allow_html=True) */
 with st.form("edit_form"): 
 
     col1, col2 = st.columns(2)
