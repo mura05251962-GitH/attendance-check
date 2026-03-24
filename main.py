@@ -192,8 +192,6 @@ with col3:
 st.markdown("---") 
 st.markdown("""
 <DIV style="background-color: #ffffe0">
-</DIV>
-""", unsafe_allow_html=True)
 
 with st.form("edit_form"): 
 
