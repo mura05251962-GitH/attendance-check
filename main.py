@@ -41,7 +41,7 @@ def key_for(col, row):
 st.markdown("""
 <style>
 .main {
-    max-width: 420px;
+    max-width: 210px;
     margin: auto;
 }
 /* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
