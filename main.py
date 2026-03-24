@@ -191,8 +191,9 @@ with col3:
 #with st.container():
 st.markdown("---") 
 st.markdown("""
-<div style="background-color: #ffffe0">
-
+#<div style="background-color: #ffffe0">
+#</div>
+""",unsafe_allow_html=True)
 with st.form("edit_form"): 
 
     col1, col2 = st.columns(2)
@@ -303,5 +304,3 @@ if submitted:
     st.success("保存しました！")
     st.rerun()
 
-</div>
-""",unsafe_allow_html=True)
