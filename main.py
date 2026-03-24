@@ -191,9 +191,8 @@ with col3:
 #with st.container():
 st.markdown("---") 
 st.markdown("""
-<style>
-body {background-color: #ffffe0;}
-</style>
+<DIV style="background-color: #ffffe0">
+</DIV>
 """, unsafe_allow_html=True)
 
 with st.form("edit_form"): 
