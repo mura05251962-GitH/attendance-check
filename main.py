@@ -52,7 +52,7 @@ st.markdown("""
 
 /* ===== 共通フォントサイズ（全体を大きく） ===== */
 html, body, [class*="css"] {
-    font-size: 12px !important;
+    font-size: 22px !important;
     font-family: "メイリオ", Meiryo, sans-serif !important;
 }
 /* すべての文字色を黒にする */
@@ -83,11 +83,11 @@ input:disabled {
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
 .big-box .label {
-    font-size: 10px;
+    font-size: 20px;
     font-weight: bold;
 }
 .big-box .Value {
-    font-size: 12px;
+    font-size: 24px;
     font-weight: bold;
 }
 
