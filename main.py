@@ -52,7 +52,7 @@ div[data-testid="stHorizontalBlock"] {
 /* ===== カラムを絶対に縮ませない ===== */
 div[data-testid="column"] {
     flex: 0 0 auto !important;
-    min-width: 180px !important;
+    max-width: 80px !important;
 }
 
 /* ===== 折り返し禁止 ===== */
