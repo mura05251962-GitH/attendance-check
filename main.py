@@ -41,29 +41,34 @@ def key_for(col, row):
 st.markdown("""
 <style>
 
-/* ===== columnsをスマホでも横並びに強制 ===== */
-@media (max-width: 768px) {
-
-    div[data-testid="stHorizontalBlock"] {
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 0.3rem !important;
-    }
-
-    div[data-testid="column"] {
-        flex: 1 1 0 !important;
-        min-width: 0 !important;
-    }
+/* ===== ページ全体を横スクロール可能に ===== */
+section.main > div {
+    overflow-x: auto !important;
 }
 
-/* ===== 折り返し防止 ===== */
+/* ===== columnsを絶対横並び固定 ===== */
+div[data-testid="stHorizontalBlock"] {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+}
+
+/* ===== カラムを絶対に縮ませない ===== */
+div[data-testid="column"] {
+    flex: 0 0 auto !important;
+    min-width: 180px !important;
+}
+
+/* ===== 折り返し禁止 ===== */
 div[data-testid="column"] * {
-    white-space: nowrap;
+    white-space: nowrap !important;
 }
 
-/* ===== 横スクロール許可（これが重要） ===== */
-.block-container {
-    overflow-x: auto;
+/* ===== フォント暴走防止 ===== */
+html, body {
+    font-size: clamp(14px, 2vw, 20px) !important;
+}
+
 }/* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
 .app-title {
     font-size: clamp(32px, 3vw, 40px) !important;
