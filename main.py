@@ -42,12 +42,6 @@ st.markdown("""
 <style>
 .main { max-width: 210px; margin: auto; }
 
-/* ===== カラムを絶対に縮ませない ===== */
-div[data-testid="column"] {
-    flex: 0 0 auto !important;
-    min-width: 80px !important;
-}
-
 }/* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
 .app-title {
     font-size: clamp(32px, 3vw, 40px) !important;
