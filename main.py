@@ -75,7 +75,7 @@ input:disabled {
 
 /* ===== big-box（上部の青枠） ===== */
 .big-box {
-    padding: 10px 0;
+    padding: 5px 0;
     text-align: center;
     border-radius: 3vw;
     background: #e8f0fe;
@@ -112,6 +112,7 @@ hr {
 div[data-testid="column"] {
     padding-left: 1rem !important;
     padding-right: 0.2rem !important;
+    min-width: 4rem;
 }
 
 /* カラム間の gap をゼロに近づける */
