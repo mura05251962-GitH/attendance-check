@@ -48,11 +48,6 @@ div[data-testid="column"] {
     min-width: 80px !important;
 }
 
-/* ===== 折り返し禁止 ===== */
-div[data-testid="column"] * {
-    white-space: nowrap !important;
-}
-
 }/* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
 .app-title {
     font-size: clamp(32px, 3vw, 40px) !important;
