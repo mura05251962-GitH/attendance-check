@@ -39,10 +39,12 @@ def key_for(col, row):
     
 # ====== selectbox + #2 + #3 を横並びに配置 ======
 st.markdown("""
-<style>
-.main {
-    max-width: 210px;
-    margin: auto;
+
+@media (min-width: 769px) {
+    .main {
+        max-width: 800px;
+        margin: auto;
+    }
 }
 /* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
 .app-title {
@@ -55,7 +57,7 @@ st.markdown("""
 
 /* ===== 共通フォントサイズ（全体を大きく） ===== */
 html, body, [class*="css"] {
-    font-size: 22px !important;
+    font-size: 2vw !important;
     font-family: "メイリオ", Meiryo, sans-serif !important;
 }
 /* すべての文字色を黒にする */
@@ -79,29 +81,29 @@ input:disabled {
 .big-box {
     padding: 10px 0;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 3vw;
     background: #e8f0fe;
     border: 2px solid #4285f4;
 }
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
 .big-box .label {
-    font-size: 20px;
+    font-size: 2vw;
     font-weight: bold;
 }
 .big-box .Value {
-    font-size: 24px;
+    font-size: 3vw;
     font-weight: bold;
 }
 
 /* ===== フォーム内のラベル（出欠1、参加など） ===== */
 label, .stMarkdown, .stTextInput label, .stSelectbox label {
-    font-size: 30px !important;
+    font-size: 2vw !important;
 }
 
 /* ===== 入力欄の文字（text_input, selectbox の中身） ===== */
 input, select, textarea {
-    font-size: 26px !important;
+    font-size: 2vw !important;
     font-weight: bold;
     }
 
