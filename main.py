@@ -40,11 +40,7 @@ def key_for(col, row):
 # ====== selectbox + #2 + #3 を横並びに配置 ======
 st.markdown("""
 <style>
-
-/* ===== ページ全体を横スクロール可能に ===== */
-section.main > div {
-    overflow-x: auto !important;
-}
+.main { max-width: 210px; margin: auto; }
 
 /* ===== columnsを絶対横並び固定 ===== */
 div[data-testid="stHorizontalBlock"] {
