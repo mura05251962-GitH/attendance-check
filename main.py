@@ -42,17 +42,10 @@ st.markdown("""
 <style>
 .main { max-width: 210px; margin: auto; }
 
-/* ===== columnsを絶対横並び固定 ===== */
-div[data-testid="stHorizontalBlock"] {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-}
-
 /* ===== カラムを絶対に縮ませない ===== */
 div[data-testid="column"] {
     flex: 0 0 auto !important;
-    max-width: 80px !important;
+    min-width: 80px !important;
 }
 
 /* ===== 折り返し禁止 ===== */
