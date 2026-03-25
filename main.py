@@ -40,13 +40,31 @@ def key_for(col, row):
 # ====== selectbox + #2 + #3 を横並びに配置 ======
 st.markdown("""
 <style>
-@media (min-width: 240px) {
-    .main {
-        max-width: 800px;
-        margin: auto;
+
+/* ===== columnsをスマホでも横並びに強制 ===== */
+@media (max-width: 768px) {
+
+    div[data-testid="stHorizontalBlock"] {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 0.3rem !important;
+    }
+
+    div[data-testid="column"] {
+        flex: 1 1 0 !important;
+        min-width: 0 !important;
     }
 }
-/* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
+
+/* ===== 折り返し防止 ===== */
+div[data-testid="column"] * {
+    white-space: nowrap;
+}
+
+/* ===== 横スクロール許可（これが重要） ===== */
+.block-container {
+    overflow-x: auto;
+}/* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
 .app-title {
     font-size: clamp(32px, 3vw, 40px) !important;
     font-weight: bold !important;
