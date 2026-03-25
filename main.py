@@ -53,11 +53,6 @@ div[data-testid="column"] * {
     white-space: nowrap !important;
 }
 
-/* ===== フォント暴走防止 ===== */
-html, body {
-    font-size: clamp(14px, 2vw, 20px) !important;
-}
-
 }/* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
 .app-title {
     font-size: clamp(32px, 3vw, 40px) !important;
