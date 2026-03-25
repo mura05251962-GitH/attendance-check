@@ -40,7 +40,7 @@ def key_for(col, row):
 # ====== selectbox + #2 + #3 を横並びに配置 ======
 st.markdown("""
 <style>
-@media (min-width: 769px) {
+@media (min-width: 240px) {
     .main {
         max-width: 800px;
         margin: auto;
