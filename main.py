@@ -76,29 +76,29 @@ input:disabled {
 .big-box {
     padding: 5px 0;
     text-align: center;
-    border-radius: 3vw;
+    border-radius: 2vw;
     background: #e8f0fe;
     border: 2px solid #4285f4;
 }
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
 .big-box .label {
-    font-size: 2vw;
+    font-size: 3vw;
     font-weight: bold;
 }
 .big-box .Value {
-    font-size: 3vw;
+    font-size: 5vw;
     font-weight: bold;
 }
 
 /* ===== フォーム内のラベル（出欠1、参加など） ===== */
 label, .stMarkdown, .stTextInput label, .stSelectbox label {
-    font-size: 1.5vw !important;
+    font-size: 3vw !important;
 }
 
 /* ===== 入力欄の文字（text_input, selectbox の中身） ===== */
 input, select, textarea {
-    font-size: 1.5vw !important;
+    font-size: 3vw !important;
     font-weight: bold;
     }
 
