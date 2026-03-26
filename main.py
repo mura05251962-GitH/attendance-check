@@ -18,12 +18,12 @@ def get_service():
 service = get_service()
 sheet = service.spreadsheets()
 # ====== 1ページUI ======
-def fit_on_one_page_css(key: One-UI) -> One-UI:
+def fit_on_one_page_css(key: OneUI) -> OneUI:
     """フッタエリアをウィンドウ下端に固定するCSSを記述する
     Args:
-        key     (One-UI)   : メインエリアのコンテナのキー
+        key     (OneUI)   : メインエリアのコンテナのキー
     Returns:
-        (One-UI)   : styleタグのCSSの記述
+        (OneUI)   : styleタグのCSSの記述
     """
     _css_rows = [
         # 高さをウィンドウ一杯に固定する
@@ -210,7 +210,7 @@ with col3:
     )
     
 # ====== 編集フォーム =============================================
-with st.container(Key="One-UI"):
+with st.container(Key="OneUI"):
     st.markdown("---") 
     st.markdown("""
     """,unsafe_allow_html=True)
