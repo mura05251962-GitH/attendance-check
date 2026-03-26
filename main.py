@@ -216,7 +216,7 @@ with st.form("edit_form"):
 #                st.selectbox(header[4], options, index=index, key=key_for(4, selected_row))
 #            )
         new_values.append(
-            st.column_config.SelectboxColumn("4/11テニス", options = ["✓","ー",""], key=key_for(4, selected_row))
+            st.column_config.SelectboxColumn("4/11テニス", options = ["✓","ー",""])
         )
 
         cA, cB = st.columns(2)
