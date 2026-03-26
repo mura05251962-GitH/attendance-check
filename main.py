@@ -52,7 +52,7 @@ st.markdown("""
 
 /* ===== 共通フォントサイズ（全体を大きく） ===== */
 html, body, [class*="css"] {
-    font-size: 2vw !important;
+    font-size: 5vw !important;
     font-family: "メイリオ", Meiryo, sans-serif !important;
 }
 /* すべての文字色を黒にする */
