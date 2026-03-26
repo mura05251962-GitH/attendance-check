@@ -40,9 +40,8 @@ def key_for(col, row):
 # ====== selectbox + #2 + #3 を横並びに配置 ======
 st.markdown("""
 <style>
-.main { max-width: 768px; margin: auto; }
 
-}/* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
+/* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
 .app-title {
     font-size: clamp(32px, 2vw, 40px) !important;
     font-weight: bold !important;
