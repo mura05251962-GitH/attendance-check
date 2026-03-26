@@ -130,7 +130,7 @@ form {
 st.markdown('<h1 class="app-title">2026年OGOB会 出欠・集金アプリ</h1>',
             unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns([1, 1, 2])
+col1, col2, col3 = st.columns([1, 1, 3])
 
 # selectbox は col1 にそのまま置く
 with col1:
@@ -207,7 +207,7 @@ with st.form("edit_form"):
     with col1:
         cA, cB = st.columns(2)
         with cA:
-            st.text_input("4/11(土)テニス", value=row_data[3], disabled=True)
+            st.text_input("4/11テニス", value=row_data[3], disabled=True)
             new_values.append(row_data[3]) 
         with cB:
             options = ["✓","ー",""]
@@ -218,7 +218,7 @@ with st.form("edit_form"):
 
         cA, cB = st.columns(2)
         with cA:
-            st.text_input("4/11(土)総会", value=row_data[5], disabled=True)
+            st.text_input("4/11総会", value=row_data[5], disabled=True)
             new_values.append(row_data[5])
         with cB:
             options = ["✓","ー",""]
@@ -229,7 +229,7 @@ with st.form("edit_form"):
                               
         cA, cB = st.columns(2)
         with cA:
-            st.text_input("4/11(土)懇親会", value=row_data[7], disabled=True)
+            st.text_input("4/11懇親会", value=row_data[7], disabled=True)
             new_values.append(row_data[7])
         with cB:
             options = ["✓","ー",""]
@@ -240,7 +240,7 @@ with st.form("edit_form"):
  
         cA, cB = st.columns(2)
         with cA:
-            st.text_input("4/12(日)テニス", value=row_data[9], disabled=True)
+            st.text_input("4/12テニス", value=row_data[9], disabled=True)
             new_values.append(row_data[9])
         with cB:
             options = ["✓","ー",""]
