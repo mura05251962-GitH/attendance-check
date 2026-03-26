@@ -205,16 +205,19 @@ with st.form("edit_form"):
 
     # --- 列1：項目4,5 / 6,7 / 8,9 ---
     with col1:
-        cA, cB = st.columns(2)
-        with cA:
-            st.text_input("4/11(土)テニス", value=row_data[3], disabled=True)
-            new_values.append(row_data[3]) 
-        with cB:
-            options = ["✓","ー",""]
-            index=options.index(row_data[4]) if row_data[4] in options else 2
-            new_values.append(
-                st.selectbox(header[4], options, index=index, key=key_for(4, selected_row))
-            )
+#        cA, cB = st.columns(2)
+#        with cA:
+#            st.text_input("4/11(土)テニス", value=row_data[3], disabled=True)
+#            new_values.append(row_data[3]) 
+#        with cB:
+#            options = ["✓","ー",""]
+#            index=options.index(row_data[4]) if row_data[4] in options else 2
+#            new_values.append(
+#                st.selectbox(header[4], options, index=index, key=key_for(4, selected_row))
+#            )
+        new_values.append(
+            st.column_config.SelectboxColumn("4/11テニス", options = ["✓","ー",""], key=key_for(4, selected_row))
+        )
 
         cA, cB = st.columns(2)
         with cA:
