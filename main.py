@@ -210,7 +210,7 @@ with col3:
     )
     
 # ====== 編集フォーム =============================================
-with st.container(Key=OneUI):
+#with st.container(Key=OneUI):
     st.markdown("---") 
     st.markdown("""
     """,unsafe_allow_html=True)
