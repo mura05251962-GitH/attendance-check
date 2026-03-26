@@ -134,7 +134,7 @@ col1, col2, col3 = st.columns([1, 1, 3])
 
 # selectbox は col1 にそのまま置く
 with col1:
-    selected_row = st.selectbox("対象Noを選択", row_numbers)
+    selected_row = st.selectbox("Noを選択", row_numbers)
     
 row_data = body[selected_row - 1]
 while len(row_data) < 16:
