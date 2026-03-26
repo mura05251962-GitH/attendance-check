@@ -44,7 +44,7 @@ st.markdown("""
 
 }/* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
 .app-title {
-    font-size: clamp(32px, 3vw, 40px) !important;
+    font-size: clamp(32px, 2vw, 40px) !important;
     font-weight: bold !important;
     text-align: center !important;
     margin-bottom: 20px !important;
@@ -94,12 +94,12 @@ input:disabled {
 
 /* ===== フォーム内のラベル（出欠1、参加など） ===== */
 label, .stMarkdown, .stTextInput label, .stSelectbox label {
-    font-size: 2vw !important;
+    font-size: 1.5vw !important;
 }
 
 /* ===== 入力欄の文字（text_input, selectbox の中身） ===== */
 input, select, textarea {
-    font-size: 2vw !important;
+    font-size: 1.5vw !important;
     font-weight: bold;
     }
 
