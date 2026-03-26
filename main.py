@@ -17,7 +17,28 @@ def get_service():
 
 service = get_service()
 sheet = service.spreadsheets()
-
+# ====== 1ページUI ======
+def fit_on_one_page_css(key: str) -> str:
+    """フッタエリアをウィンドウ下端に固定するCSSを記述する
+    Args:
+        key     (str)   : メインエリアのコンテナのキー
+    Returns:
+        (str)   : styleタグのCSSの記述
+    """
+    _css_rows = [
+        # 高さをウィンドウ一杯に固定する
+        '[data-testid="stMainBlockContainer"] { min-height: 100%; & > div { height: 100% } }',
+        # メインコンテンツが溢れたら垂直スクロールにする
+        f":has(> .st-key-{key}) " + "{ flex: 1; overflow-y: scroll; }",
+        # ヘッダのテキストがメインメニューを開くボタンと重ならないようにst.headerの右側を2文字分開ける
+        '[data-testid="stHeadingWithActionElements"] { padding-right: 2rem }',
+        # サイドバーが隠蔽されている場合に限り、サイドバーを表示するボタンとの重なりを回避するために、コンテンツ冒頭のst.headerの左側を2文字分開ける
+        'header:has([data-testid="stExpandSidebarButton"]) + section '
+        '[data-testid="stMainBlockContainer"] > div > :first-child '
+        '[data-testid="stHeadingWithActionElements"] { padding-left: 2rem }',
+    ]
+    return "\n".join(_css_rows)
+    
 # ====== データ読み込み ======
 def load_sheet():
     result = sheet.values().get(
