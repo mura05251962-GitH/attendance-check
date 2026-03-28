@@ -19,7 +19,11 @@ st.markdown("""
         [data-testid="column"] {
             flex: 1 1 auto !important;
             min-width: 0px !important;
+            max-width: 24rem !important;
+            padding-left: 1rem !important;
+            padding-right: 0.2rem !important;
         }
+
         [data-testid="stHorizontalBlock"] {
             display: flex !important;
             flex-direction: row !important;
@@ -133,13 +137,6 @@ input, select, textarea {
 hr {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
-}
-/* ===== columns の横の隙間（gap）を詰める ===== */
-div[data-testid="column"] {
-    padding-left: 1rem !important;
-    padding-right: 0.2rem !important;
-    min-width: 4rem;
-    max-width: 24rem;
 }
 
 /* カラム間の gap をゼロに近づける */
