@@ -218,7 +218,7 @@ with st.container():
     st.markdown("---") 
     st.markdown("""
     <style>
-    .stApp {background-color: #e8f0fe;}
+    .stApp {background-color: #fff8dc;}
     </style>
     """,unsafe_allow_html=True)
     
