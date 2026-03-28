@@ -28,6 +28,8 @@ st.markdown("""
             display: flex !important;
             flex-direction: row !important;
             flex-wrap: nowrap !important;
+            gap: 0.2rem !important;
+            overflow-x:hidden;
         }
     }
     </style>
@@ -94,13 +96,16 @@ html, body, div, span, label, p, input, select, textarea, button,
 /* ===== selectbox の選択肢（参加・不参加）を黒にする ===== */
 div[data-baseweb="select"] * {
     color: #000 !important;
+    width:80px !important;
 }
 div[data-baseweb="select"] > div {
     color: #000 !important;
+    width:80px !important;
 }
 input:disabled {
-    color: #000 !important;
-    -webkit-text-fill-color: #000 !important;  /* Safari / Chrome 系対策 */
+    color: #888 !important;
+    -webkit-text-fill-color: #ff0 !important;  /* Safari / Chrome 系対策 */
+    width:80px !important;
 }
 
 /* ===== big-box（上部の青枠） ===== */
@@ -137,11 +142,6 @@ input, select, textarea {
 hr {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
-}
-
-/* カラム間の gap をゼロに近づける */
-div[data-testid="stHorizontalBlock"] {
-    gap: 0.2rem !important;
 }
 
 /* フォームを絶対配置の基準にする */
