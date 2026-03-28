@@ -216,8 +216,9 @@ with st.container():
 # ====== 編集フォーム =============================================
 with st.container():
     st.markdown("---") 
-    st.markdown("""
-    background: #e8f0fe
+    <style>
+    .stApp {background-color: #e8f0fe;}
+    </style>
     """,unsafe_allow_html=True)
     
     with st.form("edit_form"): 
