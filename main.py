@@ -216,6 +216,7 @@ with st.container():
 # ====== 編集フォーム =============================================
 with st.container():
     st.markdown("---") 
+    st.markdown("""
     <style>
     .stApp {background-color: #e8f0fe;}
     </style>
