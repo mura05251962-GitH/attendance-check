@@ -57,7 +57,7 @@ input:disabled {
 
 /* ===== フォーム内のラベル（出欠1、参加など） ===== */
 label, .stMarkdown, .stTextInput label, .stSelectbox label {
-    font-size: 3vw !important;
+    font-size: 4vw !important;
 }
 
 /* ===== 入力欄の文字（text_input, selectbox の中身） ===== */
@@ -197,7 +197,7 @@ with st.container():
     st.markdown("---") 
     st.markdown("""
     <style>
-    .stApp {background-color: #fff8dc;}
+    .stApp {background-color: #fffff0;}
     </style>
     """,unsafe_allow_html=True)
     
