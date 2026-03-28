@@ -4,37 +4,69 @@ from googleapiclient.discovery import build
 
 # カスタムCSSの注入
 st.markdown("""
-    <style>
-    /* スマホサイズ（画面幅が600px以下）のときのみ適用 */
-    @media screen and (max-width: 600px) {
-        
-        /* 1. コンテナの幅を「タブレット縦表示」相当（約768px）に強制固定し、全体を縮小表示 */
-        .block-container {
-            min-width: 800px !important;
-            /* スマホの幅に合わせて縮小（0.5 = 50%）。環境に応じて0.45〜0.6などで微調整してください */
-            zoom: 0.5; 
-        }
+<style>
 
-        /* 2. カラムが縦に落ちるのを防ぐ（横並びの強制） */
-        [data-testid="column"] {
-            flex: 1 1 auto !important;
-            min-width: 0px !important;
-            padding-left: 1rem !important;
-            padding-right: 0.2rem !important;
-        }
+/* ===== スマホ専用：PCレイアウト縮小 ===== */
+@media screen and (max-width: 600px) {
 
-        [data-testid="stHorizontalBlock"] {
-            display: flex !important;
-            flex-direction: row !important;
-            flex-wrap: nowrap !important;
-            gap: 0.2rem !important;
-            overflow-x:hidden;
-        }
+    .block-container {
+        min-width: 800px !important;
+        zoom: 0.55;
     }
-    </style>
-    """, unsafe_allow_html=True)
 
+    /* columns崩壊防止 */
+    div[data-testid="column"] {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        padding-left: 0.3rem !important;
+        padding-right: 0.3rem !important;
+    }
+
+    div[data-testid="stHorizontalBlock"] {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        gap: 0.2rem !important;
+        overflow-x: hidden;
+    }
+}
+
+/* ===== タイトル ===== */
+.app-title {
+    font-size: clamp(20px, 3vw, 40px) !important;
+    font-weight: bold;
+    text-align: center;
+    color: #000080;
+}
+
+/* ===== フォント（vwは使わない） ===== */
+html, body {
+    font-size: 16px !important;
+    font-family: "游ゴシック", Arial, sans-serif;
+}
+
+/* ===== selectbox ===== */
+div[data-baseweb="select"] {
+    width: 120px !important;
+    min-width: 0 !important;
+}
+
+/* ===== input ===== */
+input {
+    width: 100px !important;
+}
+
+/* ===== big-box ===== */
+.big-box {
+    padding: 8px 0;
+    border-radius: 10px;
+    background: #e8f0fe;
+    border: 2px solid #4285f4;
+}
+
+</style>
+""", unsafe_allow_html=True)
 # ====== Google Sheets 設定 ======
+
 SPREADSHEET_ID = "1uL3LADSC9Qf4xmgxBRXzfUaBQ1U1-ZbBxRSslBQg848"
 RANGE_NAME = "CollectList!B:Q"  # 必要に応じて変更
 # ====== 認証（サービスアカウント） ======
@@ -69,91 +101,12 @@ row_numbers = list(range(1, len(body) + 1))
 def key_for(col, row):
     return f"col{col}_row{row}"
     
-# ====== selectbox + #2 + #3 を横並びに配置 ======
-st.markdown("""
-<style>
-
-/* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
-.app-title {
-    font-size: clamp(32px, 3vw, 60px) !important;
-    font-weight: bold !important;
-    text-align: center !important;
-    margin-bottom: 20px !important;
-    color: #000080 !important;
-}
-
-/* ===== 共通フォントサイズ（全体を大きく） ===== */
-html, body, [class*="css"] {
-    font-size: 3vw !important;
-    font-family: "游ゴシック", Arial, sans-serif !important;
-}
-/* すべての文字色を黒にする */
-html, body, div, span, label, p, input, select, textarea, button,
-.stMarkdown, .stTextInput, .stSelectbox, .stRadio, .stCheckbox {
-    color: #000 !important;
-}
-/* ===== selectbox の選択肢（参加・不参加）を黒にする ===== */
-div[data-baseweb="select"] * {
-    color: #000 !important;
-    width:10rem !important;
-}
-div[data-baseweb="select"] > div {
-    color: #F00 !important;
-    width:5rem !important;
-}
-input{
-    color: #0F0 !important;
-    -webkit-text-fill-color: #345 !important;  /* Safari / Chrome 系対策 */
-    width:10rem !important;
-}
-
-/* ===== big-box（上部の青枠） ===== */
-.big-box {
-    padding: 5px 0;
-    text-align: center;
-    border-radius: 2vw;
-    background: #e8f0fe;
-    border: 2px solid #4285f4;
-}
-
-/* ===== big-box 内のラベルと値（共通化） ===== */
-.big-box .label {
-    font-size: 3vw;
-    font-weight: bold;
-}
-.big-box .Value {
-    font-size: 5vw;
-    font-weight: bold;
-}
-
-/* ===== フォーム内のラベル（出欠1、参加など） ===== */
-label, .stMarkdown, .stTextInput label, .stSelectbox label {
-    font-size: 3.5vw !important;
-}
-
-/* ===== 入力欄の文字（text_input, selectbox の中身） ===== */
-input, select, textarea {
-    font-size: 3vw !important;
-    font-weight: bold;
-    }
-
-/* markdown上下の余白をゼロにする */
-hr {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-}
-
-/* フォームを絶対配置の基準にする */
-form {
-    position: relative !important;
-}
-</style>
-""", unsafe_allow_html=True)
-
+# ======　表題　======
 with st.container():
     st.markdown('<h1 class="app-title">2026年OGOB会 出欠・集金アプリ</h1>',
             unsafe_allow_html=True)
 
+    # ======　No、卒年次、名前　======
 
     col1, col2, col3 = st.columns([1, 1, 3])
     
