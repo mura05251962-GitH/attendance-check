@@ -73,6 +73,8 @@ hr {
 }
 /* ===== columns の横の隙間（gap）を詰める ===== */
 div[data-testid="column"] {
+    padding-top:0.2rem;
+    padding-bottom:0.2rem;
     padding-left: 1rem !important;
     padding-right: 0.2rem !important;
     min-width: 4rem;
