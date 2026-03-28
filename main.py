@@ -95,16 +95,16 @@ html, body, div, span, label, p, input, select, textarea, button,
 /* ===== selectbox の選択肢（参加・不参加）を黒にする ===== */
 div[data-baseweb="select"] * {
     color: #000 !important;
-    width:20rem !important;
+    width:10rem !important;
 }
 div[data-baseweb="select"] > div {
     color: #F00 !important;
-    width:20rem !important;
+    width:5rem !important;
 }
 input{
     color: #0F0 !important;
     -webkit-text-fill-color: #345 !important;  /* Safari / Chrome 系対策 */
-    width:20rem !important;
+    width:10rem !important;
 }
 
 /* ===== big-box（上部の青枠） ===== */
