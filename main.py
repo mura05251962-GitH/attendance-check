@@ -95,16 +95,16 @@ html, body, div, span, label, p, input, select, textarea, button,
 /* ===== selectbox の選択肢（参加・不参加）を黒にする ===== */
 div[data-baseweb="select"] * {
     color: #000 !important;
-    width:180px !important;
+    width:20rem !important;
 }
 div[data-baseweb="select"] > div {
     color: #F00 !important;
-    width:180px !important;
+    width:20rem !important;
 }
 input{
     color: #0F0 !important;
     -webkit-text-fill-color: #345 !important;  /* Safari / Chrome 系対策 */
-    width:180px !important;
+    width:20rem !important;
 }
 
 /* ===== big-box（上部の青枠） ===== */
@@ -128,7 +128,7 @@ input{
 
 /* ===== フォーム内のラベル（出欠1、参加など） ===== */
 label, .stMarkdown, .stTextInput label, .stSelectbox label {
-    font-size: 3vw !important;
+    font-size: 3.5vw !important;
 }
 
 /* ===== 入力欄の文字（text_input, selectbox の中身） ===== */
