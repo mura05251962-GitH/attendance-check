@@ -2,6 +2,33 @@ import streamlit as st
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 
+# カスタムCSSの注入
+st.markdown("""
+    <style>
+    /* スマホサイズ（画面幅が600px以下）のときのみ適用 */
+    @media screen and (max-width: 600px) {
+        
+        /* 1. コンテナの幅を「タブレット縦表示」相当（約768px）に強制固定し、全体を縮小表示 */
+        .block-container {
+            min-width: 768px !important;
+            /* スマホの幅に合わせて縮小（0.5 = 50%）。環境に応じて0.45〜0.6などで微調整してください */
+            zoom: 0.5; 
+        }
+
+        /* 2. カラムが縦に落ちるのを防ぐ（横並びの強制） */
+        [data-testid="column"] {
+            flex: 1 1 auto !important;
+            min-width: 0px !important;
+        }
+        [data-testid="stHorizontalBlock"] {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+        }
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 # ====== Google Sheets 設定 ======
 SPREADSHEET_ID = "1uL3LADSC9Qf4xmgxBRXzfUaBQ1U1-ZbBxRSslBQg848"
 RANGE_NAME = "CollectList!B:Q"  # 必要に応じて変更
