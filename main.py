@@ -19,7 +19,6 @@ st.markdown("""
         [data-testid="column"] {
             flex: 1 1 auto !important;
             min-width: 0px !important;
-            max-width: 24rem !important;
             padding-left: 1rem !important;
             padding-right: 0.2rem !important;
         }
