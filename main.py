@@ -10,7 +10,7 @@ st.markdown("""
         
         /* 1. コンテナの幅を「タブレット縦表示」相当（約768px）に強制固定し、全体を縮小表示 */
         .block-container {
-            min-width: 768px !important;
+            min-width: 800px !important;
             /* スマホの幅に合わせて縮小（0.5 = 50%）。環境に応じて0.45〜0.6などで微調整してください */
             zoom: 0.5; 
         }
@@ -96,16 +96,16 @@ html, body, div, span, label, p, input, select, textarea, button,
 /* ===== selectbox の選択肢（参加・不参加）を黒にする ===== */
 div[data-baseweb="select"] * {
     color: #000 !important;
-    width:150px !important;
+    width:180px !important;
 }
 div[data-baseweb="select"] > div {
     color: #F00 !important;
-    width:150px !important;
+    width:180px !important;
 }
 input{
     color: #0F0 !important;
-    -webkit-text-fill-color: #ff0 !important;  /* Safari / Chrome 系対策 */
-    width:150px !important;
+    -webkit-text-fill-color: #345 !important;  /* Safari / Chrome 系対策 */
+    width:180px !important;
 }
 
 /* ===== big-box（上部の青枠） ===== */
@@ -218,6 +218,7 @@ with st.container():
 with st.container():
     st.markdown("---") 
     st.markdown("""
+    background: #e8f0fe
     """,unsafe_allow_html=True)
     
     with st.form("edit_form"): 
