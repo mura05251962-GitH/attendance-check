@@ -157,63 +157,64 @@ form {
 st.markdown('<h1 class="app-title">2026年OGOB会 出欠・集金アプリ</h1>',
             unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns([1, 1, 3])
-
-# selectbox は col1 にそのまま置く
-with col1:
-    selected_row = st.selectbox("Noを選択", row_numbers)
+@container()
+    col1, col2, col3 = st.columns([1, 1, 3])
     
-row_data = body[selected_row - 1]
-while len(row_data) < 16:
-    row_data.append("")
-# ====== 正規化関数 ======
-def normalize(v):
-    if v is None:
-        return ""
-    s = str(v)
-    s = s.replace("　", "")   # 全角スペース
-    s = s.replace(",", "")    # カンマ
-    s = s.replace("\n", "")   # 改行
-    s = s.replace("\r", "")
-    s = s.replace("\t", "")
-    return s.strip()
-row_data = [normalize(v) for v in row_data]
-# ====== 数値表示に,をいれる ======
-def to_comma(v):
-    try:
-        return f"{int(v):,}"
-    except:
-        return v
-# ====== テキストの数値変換 ======        
-def to_int(v):
-    try:
-        return int(v.replace(",", ""))
-    except:
-        return 0
-
-# #2（卒年度）
-with col2:
-    st.markdown(
-        f"""
-        <div class="big-box">
-            <div class="label">{header[1]}</div>
-            <div class="Value">{row_data[1]}</div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    # selectbox は col1 にそのまま置く
+    with col1:
+        selected_row = st.selectbox("Noを選択", row_numbers)
+        
+    row_data = body[selected_row - 1]
+    while len(row_data) < 16:
+        row_data.append("")
+    # ====== 正規化関数 ======
+    def normalize(v):
+        if v is None:
+            return ""
+        s = str(v)
+        s = s.replace("　", "")   # 全角スペース
+        s = s.replace(",", "")    # カンマ
+        s = s.replace("\n", "")   # 改行
+        s = s.replace("\r", "")
+        s = s.replace("\t", "")
+        return s.strip()
+    row_data = [normalize(v) for v in row_data]
+    # ====== 数値表示に,をいれる ======
+    def to_comma(v):
+        try:
+            return f"{int(v):,}"
+        except:
+            return v
+    # ====== テキストの数値変換 ======        
+    def to_int(v):
+        try:
+            return int(v.replace(",", ""))
+        except:
+            return 0
     
-# #3（名前）
-with col3:
-    st.markdown(
-        f"""
-        <div class="big-box">
-            <div class="label">{header[2]}</div>
-            <div class="Value">{row_data[2]}</div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    # #2（卒年度）
+    with col2:
+        st.markdown(
+            f"""
+            <div class="big-box">
+                <div class="label">{header[1]}</div>
+                <div class="Value">{row_data[1]}</div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+        
+    # #3（名前）
+    with col3:
+        st.markdown(
+            f"""
+            <div class="big-box">
+                <div class="label">{header[2]}</div>
+                <div class="Value">{row_data[2]}</div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
     
 # ====== 編集フォーム =============================================
 st.markdown("---") 
