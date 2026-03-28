@@ -139,7 +139,7 @@ div[data-testid="column"] {
     padding-left: 1rem !important;
     padding-right: 0.2rem !important;
     min-width: 4rem;
-    max-width: 195px;
+    max-width: 24rem;
 }
 
 /* カラム間の gap をゼロに近づける */
@@ -154,10 +154,11 @@ form {
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<h1 class="app-title">2026年OGOB会 出欠・集金アプリ</h1>',
+with st.container():
+    st.markdown('<h1 class="app-title">2026年OGOB会 出欠・集金アプリ</h1>',
             unsafe_allow_html=True)
 
-with st.container():
+
     col1, col2, col3 = st.columns([1, 1, 3])
     
     # selectbox は col1 にそのまま置く
