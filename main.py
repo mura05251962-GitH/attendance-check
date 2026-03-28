@@ -157,7 +157,7 @@ form {
 st.markdown('<h1 class="app-title">2026年OGOB会 出欠・集金アプリ</h1>',
             unsafe_allow_html=True)
 
-    with st.container()
+with st.container()
     col1, col2, col3 = st.columns([1, 1, 3])
     
     # selectbox は col1 にそのまま置く
