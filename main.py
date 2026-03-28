@@ -2,73 +2,99 @@ import streamlit as st
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 
-# カスタムCSSの注入
 st.markdown("""
 <style>
 
-/* ===== スマホ専用：PCレイアウト縮小 ===== */
-@media screen and (max-width: 600px) {
-
-    .block-container {
-        min-width: 800px !important;
-        zoom: 0.55;
-    }
-
-    /* columns崩壊防止 */
-    div[data-testid="column"] {
-        flex: 1 1 auto !important;
-        min-width: 0 !important;
-        padding-left: 0.3rem !important;
-        padding-right: 0.3rem !important;
-    }
-
-    div[data-testid="stHorizontalBlock"] {
-        display: flex !important;
-        flex-wrap: nowrap !important;
-        gap: 0.2rem !important;
-        overflow-x: hidden;
-    }
-}
-
-/* ===== タイトル ===== */
+/* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
 .app-title {
-    font-size: clamp(20px, 3vw, 40px) !important;
-    font-weight: bold;
-    text-align: center;
-    color: #000080;
+    font-size: clamp(32px, 3vw, 60px) !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    margin-bottom: 20px !important;
+    color: #000080 !important;
 }
 
-/* ===== フォント（vwは使わない） ===== */
-html, body {
-    font-size: 16px !important;
-    font-family: "游ゴシック", Arial, sans-serif;
+/* ===== 共通フォントサイズ（全体を大きく） ===== */
+html, body, [class*="css"] {
+    font-size: 3vw !important;
+    font-family: "游ゴシック", Arial, sans-serif !important;
+}
+/* すべての文字色を黒にする */
+html, body, div, span, label, p, input, select, textarea, button,
+.stMarkdown, .stTextInput, .stSelectbox, .stRadio, .stCheckbox {
+    color: #000 !important;
+}
+/* ===== selectbox の選択肢（参加・不参加）を黒にする ===== */
+div[data-baseweb="select"] * {
+    color: #000 !important;
+}
+div[data-baseweb="select"] > div {
+    color: #000 !important;
+}
+input:disabled {
+    color: #000 !important;
+    -webkit-text-fill-color: #000 !important;  /* Safari / Chrome 系対策 */
 }
 
-/* ===== selectbox ===== */
-div[data-baseweb="select"] {
-    width: 120px !important;
-    min-width: 0 !important;
-}
-
-/* ===== input ===== */
-input {
-    width: 100px !important;
-}
-
-/* ===== big-box ===== */
+/* ===== big-box（上部の青枠） ===== */
 .big-box {
-    padding: 8px 0;
-    border-radius: 10px;
+    padding: 5px 0;
+    text-align: center;
+    border-radius: 2vw;
     background: #e8f0fe;
     border: 2px solid #4285f4;
 }
 
+/* ===== big-box 内のラベルと値（共通化） ===== */
+.big-box .label {
+    font-size: 3vw;
+    font-weight: bold;
+}
+.big-box .Value {
+    font-size: 5vw;
+    font-weight: bold;
+}
+
+/* ===== フォーム内のラベル（出欠1、参加など） ===== */
+label, .stMarkdown, .stTextInput label, .stSelectbox label {
+    font-size: 3vw !important;
+}
+
+/* ===== 入力欄の文字（text_input, selectbox の中身） ===== */
+input, select, textarea {
+    font-size: 3vw !important;
+    font-weight: bold;
+    }
+
+/* markdown上下の余白をゼロにする */
+hr {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+/* ===== columns の横の隙間（gap）を詰める ===== */
+div[data-testid="column"] {
+    padding-left: 1rem !important;
+    padding-right: 0.2rem !important;
+    min-width: 4rem;
+}
+
+/* カラム間の gap をゼロに近づける */
+div[data-testid="stHorizontalBlock"] {
+    gap: 0.2rem !important;
+}
+
+/* フォームを絶対配置の基準にする */
+form {
+    position: relative !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
-# ====== Google Sheets 設定 ======
 
+# ====== Google Sheets 設定 ======
 SPREADSHEET_ID = "1uL3LADSC9Qf4xmgxBRXzfUaBQ1U1-ZbBxRSslBQg848"
 RANGE_NAME = "CollectList!B:Q"  # 必要に応じて変更
+
 # ====== 認証（サービスアカウント） ======
 #@st.cache_resource
 def get_service():
@@ -81,7 +107,7 @@ def get_service():
 
 service = get_service()
 sheet = service.spreadsheets()
-    
+
 # ====== データ読み込み ======
 def load_sheet():
     result = sheet.values().get(
