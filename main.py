@@ -230,7 +230,7 @@ with st.container():
     
     with st.form("edit_form"): 
     
-        col1, col2, col3 = st.columns([2,1,2)
+        col1, col2, col3 = st.columns([2,1,2])
         new_values = []
         new_values.append(row_data[0])
         new_values.append(row_data[1])
