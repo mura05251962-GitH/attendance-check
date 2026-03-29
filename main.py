@@ -95,7 +95,7 @@ input:disabled {
 /* ===== big-box 内のラベルと値（共通化） ===== */
 .big-box .label {
     font-size: 18px;
-    min-width: 86px;
+    min-width: 60px;
     gap: 10px;
     font-weight: bold;
     white-space: nowrap;
