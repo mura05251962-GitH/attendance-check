@@ -15,49 +15,6 @@ st.markdown("""
     padding-left: 8px !important;
     padding-right: 8px !important;
 }
-
-/* =========================
-   ② columns：横並び強制
-========================= */
-div[data-testid="stHorizontalBlock"] {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    gap: 4px !important;
-    overflow: hidden !important;
-}
-
-/* =========================
-   ③ column：縮められるようにする
-========================= */
-div[data-testid="column"] {
-    flex: 1 1 0 !important;
-    min-width: 0 !important;
-    padding-top:0.2rem;
-    padding-bottom:0.2rem;
-    padding-left: 0.5rem !important;
-    padding-right: 0.2rem !important;
-}
-
-/* =========================
-   ④ selectbox：完全制御
-========================= */
-/* select本体を強制的に潰す */
-div[data-baseweb="select"] > div {
-    min-width: 0 !important;
-    width: 70px !important;
-    max-width: 70px !important;
-}
-
-/* ▼ボタンも圧縮 */
-div[data-baseweb="select"] svg {
-    width: 10px !important;
-}
-
-/* 内部すべての最小幅を解除（保険） */
-div[data-baseweb="select"] * {
-    min-width: 0 !important;
-}
 /* =========================
    ⑤ input系
 ========================= */
@@ -94,27 +51,20 @@ label {
 
 /* ===== big-box（上部の青枠） ===== */
 .big-box {
-    padding: 2px 4px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 4px;
-    border-radius: 5px;
+    padding: 5px 0;
+    text-align: center;
+    border-radius: 2vw;
     background: #e8f0fe;
     border: 2px solid #4285f4;
 }
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
 .big-box .label {
-    white-space: nowrap;
-    font-size: 14px;
+    font-size: 3vw;
     font-weight: bold;
-    min-width: 3rem;
 }
-.big-box .value {
-    flex: 1 1 0;
-    min-width: 0;
-    font-size: 16px;
+.big-box .Value {
+    font-size: 5vw;
     font-weight: bold;
 }
 
@@ -194,26 +144,30 @@ while len(row_data) < 16:
     row_data.append("")
 row_data = [normalize(v) for v in row_data]
 
-st.markdown(
-     f"""
-     <div class="big-box">
-         <div class="label">{header[1]}</div>
-         <div class="Value">{row_data[1]}</div>
-     </div>
-     """,
-     unsafe_allow_html=True
- )
+col1, col2 = st.columns(2)
 
-#（名前）
-st.markdown(
-    f"""
-    <div class="big-box">
-        <div class="label">{header[2]}</div>
-        <div class="Value">{row_data[2]}</div>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+with col1:
+   #（年次）
+   st.markdown(
+        f"""
+        <div class="big-box">
+            <div class="label">{header[1]}</div>
+            <div class="Value">{row_data[1]}</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+with col2:
+   #（名前）
+   st.markdown(
+       f"""
+       <div class="big-box">
+           <div class="label">{header[2]}</div>
+           <div class="Value">{row_data[2]}</div>
+       </div>
+       """,
+       unsafe_allow_html=True
+   )
     
 # ====== 編集フォーム =============================================
 #    st.markdown("---") 
@@ -225,7 +179,7 @@ st.markdown("""
 
 with st.form("edit_form"): 
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
     new_values = []
     new_values.append(row_data[0])
     new_values.append(row_data[1])
@@ -264,9 +218,9 @@ with st.form("edit_form"):
         new_values.append(
             st.selectbox(header[10], options, index=index, key=key_for(10, selected_row))
         )
-       
+   
     # --- 列3：項目12〜16 ---
-    with col3:
+
         # 年会費
         value = to_comma(row_data[11])
         options = ["2,000", "ー", ""]
