@@ -33,7 +33,10 @@ div[data-testid="stHorizontalBlock"] {
 div[data-testid="column"] {
     flex: 1 1 0 !important;
     min-width: 0 !important;
-    padding: 2px !important;
+    padding-top:0.2rem;
+    padding-bottom:0.2rem;
+    padding-left: 0.5rem !important;
+    padding-right: 0.2rem !important;
 }
 
 /* =========================
@@ -111,15 +114,6 @@ label {
     font-weight: bold;
 }
 
-/* ===== columns の横の隙間（gap）を詰める ===== */
-div[data-testid="column"] {
-    padding-top:0.2rem;
-    padding-bottom:0.2rem;
-    padding-left: 1rem !important;
-    padding-right: 0.2rem !important;
-    min-width: 4rem;
-}
-
 </style>
 """, unsafe_allow_html=True)
 
@@ -184,43 +178,43 @@ def to_int(v):
       return 0
   
 # ======　表題　======
- st.markdown('<h1 class="app-title">2026年OGOB会 出欠・集金アプリ</h1>',
+st.markdown('<h1 class="app-title">2026年OGOB会 出欠・集金アプリ</h1>',
          unsafe_allow_html=True)
 
  # ======　No、卒年次、名前　======
 
- col1, col2 = st.columns(2)
+col1, col2 = st.columns(2)
  
- # selectbox は col1 にそのまま置く
- with col1:
-     selected_row = st.selectbox("Noを選択", row_numbers)
-     
- row_data = body[selected_row - 1]
- while len(row_data) < 16:
-     row_data.append("")
+# selectbox は col1 にそのまま置く
+with col1:
+    selected_row = st.selectbox("Noを選択", row_numbers)
+    
+row_data = body[selected_row - 1]
+while len(row_data) < 16:
+    row_data.append("")
  
- # #2（卒年度）
- with col2:
-     st.markdown(
-         f"""
-         <div class="big-box">
-             <div class="label">{header[1]}</div>
-             <div class="Value">{row_data[1]}</div>
-         </div>
-         """,
-         unsafe_allow_html=True
-     )
+# #2（卒年度）
+with col2:
+    st.markdown(
+        f"""
+        <div class="big-box">
+            <div class="label">{header[1]}</div>
+            <div class="Value">{row_data[1]}</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
- #（名前）
- st.markdown(
-     f"""
-     <div class="big-box">
-         <div class="label">{header[2]}</div>
-         <div class="Value">{row_data[2]}</div>
-     </div>
-     """,
-     unsafe_allow_html=True
- )
+#（名前）
+st.markdown(
+    f"""
+    <div class="big-box">
+        <div class="label">{header[2]}</div>
+        <div class="Value">{row_data[2]}</div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
     
 # ====== 編集フォーム =============================================
 #    st.markdown("---") 
