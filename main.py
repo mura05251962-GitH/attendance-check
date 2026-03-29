@@ -92,8 +92,8 @@ input:disabled {
     border-radius: 3vw;
     background: #e8f0fe;
     border: 2px solid #4285f4;  
-    margin-top: 10px !important;
-    margin-bottom: 10px !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
 }
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
