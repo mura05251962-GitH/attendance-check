@@ -52,8 +52,8 @@ st.markdown("""
 
 /* ===== 共通フォントサイズ（全体を大きく） ===== */
 html, body, [class*="css"] {
-    font-size: 3vw !important;
-    font-family: "游ゴシック", Arial, sans-serif !important;
+    font-size: 16px !important;
+    font-family: "メイリオ", Arial, sans-serif !important;
 }
 /* すべての文字色を黒にする */
 html, body, div, span, label, p, input, select, textarea, button,
