@@ -9,11 +9,11 @@ st.markdown("""
    ① 全体：360px設計の基準
 ========================= */
 .block-container {
-    min-width: 360px !important;
-    max-width: 360px !important;
+    min-width: 350px !important;
+    max-width: 350px !important;
     margin: 0 auto !important;
-    padding-left: 8px !important;
-    padding-right: 8px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
 }
 /* =========================
    ⑤ input系
@@ -24,7 +24,7 @@ input, textarea {
 }
 /* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
 .app-title {
-    font-size:16px !important;
+    font-size:20px !important;
     font-weight: bold !important;
     text-align: center !important;
     margin-bottom: 20px !important;
@@ -35,7 +35,7 @@ input, textarea {
    ⑥ フォント（固定px推奨）
 ========================= */
 html, body {
-    font-size: 16px !important;
+    font-size: 20px !important;
 }
 
 /* =========================
