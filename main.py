@@ -62,7 +62,7 @@ st.markdown("""
 
 /* ===== 共通フォントサイズ（全体を大きく） ===== */
 html, body, [class*="css"] {
-    font-size: 20px !important;
+    font-size: 16px !important;
     font-family: "メイリオ", Arial, sans-serif !important;
 }
 /* すべての文字色を黒にする */
@@ -93,11 +93,11 @@ input:disabled {
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
 .big-box .label {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
 }
 .big-box .Value {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
 }
 
@@ -108,7 +108,7 @@ label, .stMarkdown, .stTextInput label, .stSelectbox label {
 
 /* ===== 入力欄の文字（text_input, selectbox の中身） ===== */
 input, select, textarea {
-    font-size: 12px !important;
+    font-size: 16px !important;
     font-weight: bold;
     }
 
