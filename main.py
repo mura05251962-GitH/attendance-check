@@ -53,16 +53,16 @@ st.markdown("""
 }
 /* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
 .app-title {
-    font-size: clamp(32px, 3vw, 40px) !important;
+    font-size:32px !important;
     font-weight: bold !important;
     text-align: center !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 10px !important;
     color: #000080 !important;
 }
 
 /* ===== 共通フォントサイズ（全体を大きく） ===== */
 html, body, [class*="css"] {
-    font-size: 16px !important;
+    font-size: 20px !important;
     font-family: "メイリオ", Arial, sans-serif !important;
 }
 /* すべての文字色を黒にする */
