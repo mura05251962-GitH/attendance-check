@@ -42,10 +42,22 @@ div[data-testid="column"] {
 /* =========================
    ④ selectbox：完全制御
 ========================= */
-div[data-baseweb="select"] * {
-    outline: 1px solid red;
+/* select本体を強制的に潰す */
+div[data-baseweb="select"] > div {
+    min-width: 0 !important;
+    width: 70px !important;
+    max-width: 70px !important;
 }
 
+/* ▼ボタンも圧縮 */
+div[data-baseweb="select"] svg {
+    width: 10px !important;
+}
+
+/* 内部すべての最小幅を解除（保険） */
+div[data-baseweb="select"] * {
+    min-width: 0 !important;
+}
 /* =========================
    ⑤ input系
 ========================= */
