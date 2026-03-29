@@ -181,11 +181,9 @@ def to_int(v):
 st.markdown('<h1 class="app-title">2026年OGOB会 出欠・集金アプリ</h1>',
          unsafe_allow_html=True)
 
- # ======　No、卒年次、名前　======
+# ======　No、卒年次、名前　======
 
-
-# selectbox は col1 にそのまま置く
-    selected_row = st.selectbox("Noを選択", row_numbers)
+selected_row = st.selectbox("Noを選択", row_numbers)
     
 row_data = body[selected_row - 1]
 while len(row_data) < 16:
