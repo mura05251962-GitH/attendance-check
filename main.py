@@ -87,19 +87,23 @@ input:disabled {
 .big-box {
     padding: 5px 0;
     text-align: center;
-    border-radius: 0.5vw;
+    border-radius: 5vw;
     background: #e8f0fe;
     border: 2px solid #4285f4;
 }
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
 .big-box .label {
-    font-size: 16px;
+    font-size: 18px;
+    min-width: 80px;
     font-weight: bold;
+    white-space: nowrap;
 }
-.big-box .Value {
+.big-box .value {
     font-size: 18px;
     font-weight: bold;
+    flex: 1;
+    min-width: 0;
 }
 
 /* ===== フォーム内のラベル（出欠1、参加など） ===== */
