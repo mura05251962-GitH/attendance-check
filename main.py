@@ -52,7 +52,7 @@ st.markdown("""
 
 /* ===== 共通フォントサイズ（全体を大きく） ===== */
 html, body, [class*="css"] {
-    font-size: 3vw !important;
+    font-size: 2vw !important;
     font-family: "メイリオ", Arial, sans-serif !important;
 }
 /* すべての文字色を黒にする */
@@ -93,7 +93,7 @@ input:disabled {
 
 /* ===== フォーム内のラベル（出欠1、参加など） ===== */
 label, .stMarkdown, .stTextInput label, .stSelectbox label {
-    font-size: 5vw !important;
+    font-size: 2vw !important;
 }
 
 /* ===== 入力欄の文字（text_input, selectbox の中身） ===== */
