@@ -97,7 +97,7 @@ input:disabled {
 /* ===== big-box 内のラベルと値（共通化） ===== */
 .big-box .label {
     font-size: 18px;
-    min-width: 60px;
+    min-width: 100px;
     font-weight: bold;
     white-space: nowrap;
 }
@@ -187,7 +187,7 @@ with col2:
         f"""
         <div class="big-box">
             <div class="label">{header[1]}</div>
-            <div class="Value">{row_data[1]}</div>
+            <div class="value">{row_data[1]}</div>
         </div>
         """,
         unsafe_allow_html=True
@@ -199,7 +199,7 @@ with col3:
         f"""
         <div class="big-box">
             <div class="label">{header[2]}</div>
-            <div class="Value">{row_data[2]}</div>
+            <div class="value">{row_data[2]}</div>
         </div>
         """,
         unsafe_allow_html=True
