@@ -29,8 +29,8 @@ def load_sheet():
 
 data = load_sheet()
 
-header = data[1]          # ← 2行目（項目名）
-body = data[2:]           # ← 3行目以降（データ）
+header = data[8]          # ← 2行目（項目名）
+body = data[9:]           # ← 3行目以降（データ）
 
 # ======　行番号選択　======
 row_numbers = list(range(1, len(body) + 1))
