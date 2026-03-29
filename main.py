@@ -54,6 +54,19 @@ div[data-baseweb="select"] span {
     text-overflow: ellipsis !important;
 }
 
+div[data-baseweb="select"] {
+    width: 80px !important;
+    min-width: 0 !important;
+}
+
+div[data-baseweb="select"] > div {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}
+
+div[data-baseweb="select"] span {
+    font-size: 14px !important;
+}
 /* =========================
    ⑤ input系
 ========================= */
