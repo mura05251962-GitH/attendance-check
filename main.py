@@ -97,11 +97,11 @@ label {
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
 .big-box .label {
-    font-size: 3vw;
+    font-size: 14px;
     font-weight: bold;
 }
 .big-box .Value {
-    font-size: 5vw;
+    font-size: 16px;
     font-weight: bold;
 }
 
@@ -230,7 +230,7 @@ with st.container():
     
     with st.form("edit_form"): 
     
-        col1, col2, col3 = st.columns([2,1,2])
+        col1, col2, col3 = st.columns(3)
         new_values = []
         new_values.append(row_data[0])
         new_values.append(row_data[1])
