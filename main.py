@@ -92,6 +92,7 @@ input:disabled {
     border-radius: 5vw;
     background: #e8f0fe;
     border: 2px solid #4285f4;
+    
 }
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
@@ -119,11 +120,11 @@ input, select, textarea {
     font-weight: bold;
     }
 
-/* markdown上下の余白をゼロにする */
-hr {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-}
+#/* markdown上下の余白をゼロにする */
+#hr {
+#    margin-top: 0 !important;
+#    margin-bottom: 0 !important;
+#}
 /* ===== columns の横の隙間（gap）を詰める ===== */
 div[data-testid="column"] {
     padding-left: 1rem !important;
