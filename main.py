@@ -5,42 +5,92 @@ from googleapiclient.discovery import build
 st.markdown("""
 <style>
 
+
+/* =========================
+   ① 全体：360px設計の基準
+========================= */
+.block-container {
+    min-width: 360px !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+/* =========================
+   ② columns：横並び強制
+========================= */
+div[data-testid="stHorizontalBlock"] {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 4px !important;
+    overflow: hidden !important;
+}
+
+/* =========================
+   ③ column：縮められるようにする
+========================= */
+div[data-testid="column"] {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    padding: 2px !important;
+}
+
+/* =========================
+   ④ selectbox：はみ出し防止
+========================= */
+div[data-baseweb="select"] {
+    width: 100% !important;
+    min-width: 0 !important;
+}
+
+/* テキスト省略（超重要） */
+div[data-baseweb="select"] span {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* =========================
+   ⑤ input系
+========================= */
+input, textarea {
+    width: 100% !important;
+    min-width: 0 !important;
+}
 /* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
 .app-title {
-    font-size: clamp(32px, 3vw, 60px) !important;
+    font-size:16px !important;
     font-weight: bold !important;
     text-align: center !important;
     margin-bottom: 20px !important;
     color: #000080 !important;
 }
 
-/* ===== 共通フォントサイズ（全体を大きく） ===== */
-html, body, [class*="css"] {
-    font-size: 3vw !important;
-    font-family: "游ゴシック", Arial, sans-serif !important;
+/* =========================
+   ⑥ フォント（固定px推奨）
+========================= */
+html, body {
+    font-size: 14px !important;
 }
-/* すべての文字色を黒にする */
-html, body, div, span, label, p, input, select, textarea, button,
-.stMarkdown, .stTextInput, .stSelectbox, .stRadio, .stCheckbox {
-    color: #000 !important;
+
+/* =========================
+   ⑦ 余白削減（詰める）
+========================= */
+label {
+    margin-bottom: 2px !important;
 }
-/* ===== selectbox の選択肢（参加・不参加）を黒にする ===== */
-div[data-baseweb="select"] * {
-    color: #000 !important;
-}
-div[data-baseweb="select"] > div {
-    color: #000 !important;
-}
-input:disabled {
-    color: #000 !important;
-    -webkit-text-fill-color: #000 !important;  /* Safari / Chrome 系対策 */
+
+.stMarkdown {
+    margin-bottom: 2px !important;
 }
 
 /* ===== big-box（上部の青枠） ===== */
 .big-box {
     padding: 5px 0;
     text-align: center;
-    border-radius: 2vw;
+    border-radius: 5px;
     background: #e8f0fe;
     border: 2px solid #4285f4;
 }
@@ -55,22 +105,6 @@ input:disabled {
     font-weight: bold;
 }
 
-/* ===== フォーム内のラベル（出欠1、参加など） ===== */
-label, .stMarkdown, .stTextInput label, .stSelectbox label {
-    font-size: 4vw !important;
-}
-
-/* ===== 入力欄の文字（text_input, selectbox の中身） ===== */
-input, select, textarea {
-    font-size: 3vw !important;
-    font-weight: bold;
-    }
-
-/* markdown上下の余白をゼロにする */
-hr {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-}
 /* ===== columns の横の隙間（gap）を詰める ===== */
 div[data-testid="column"] {
     padding-top:0.2rem;
@@ -78,16 +112,6 @@ div[data-testid="column"] {
     padding-left: 1rem !important;
     padding-right: 0.2rem !important;
     min-width: 4rem;
-}
-
-/* カラム間の gap をゼロに近づける */
-div[data-testid="stHorizontalBlock"] {
-    gap: 0.2rem !important;
-}
-
-/* フォームを絶対配置の基準にする */
-form {
-    position: relative !important;
 }
 
 </style>
@@ -121,8 +145,8 @@ def load_sheet():
 
 data = load_sheet()
 
-header = data[1]          # ← 2行目（項目名）
-body = data[2:]           # ← 3行目以降（データ）
+header = data[8]          # ← 2行目（項目名）
+body = data[9:]           # ← 3行目以降（データ）
 
 # ======　行番号選択　======
 row_numbers = list(range(1, len(body) + 1))
@@ -136,7 +160,7 @@ with st.container():
 
     # ======　No、卒年次、名前　======
 
-    col1, col2, col3 = st.columns([1, 1, 3])
+    col1, col2 = st.columns(2)
     
     # selectbox は col1 にそのまま置く
     with col1:
@@ -181,18 +205,19 @@ with st.container():
             """,
             unsafe_allow_html=True
         )
-        
-    # #3（名前）
-    with col3:
-        st.markdown(
-            f"""
-            <div class="big-box">
-                <div class="label">{header[2]}</div>
-                <div class="Value">{row_data[2]}</div>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+
+
+    #（名前）
+    
+    st.markdown(
+        f"""
+        <div class="big-box">
+            <div class="label">{header[2]}</div>
+            <div class="Value">{row_data[2]}</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
     
 # ====== 編集フォーム =============================================
 with st.container():
@@ -205,61 +230,49 @@ with st.container():
     
     with st.form("edit_form"): 
     
-        col1, col2 = st.columns(2)
+        col1, col2 = st.columns([2,1,2)
         new_values = []
         new_values.append(row_data[0])
         new_values.append(row_data[1])
         new_values.append(row_data[2])
     
     
-        # --- 列1：項目4,5 / 6,7 / 8,9 ---
+        # --- 列1：項目4,6,8,10 ---
         with col1:
-            cA, cB = st.columns(2)
-            with cA:
-                st.text_input("4/11テニス", value=row_data[3], disabled=True)
-                new_values.append(row_data[3]) 
-            with cB:
-                options = ["✓","ー",""]
-                index=options.index(row_data[4]) if row_data[4] in options else 2
-                new_values.append(
-                    st.selectbox(header[4], options, index=index, key=key_for(4, selected_row))
-                )
-    
-            cA, cB = st.columns(2)
-            with cA:
-                st.text_input("4/11総会", value=row_data[5], disabled=True)
-                new_values.append(row_data[5])
-            with cB:
-                options = ["✓","ー",""]
-                index=options.index(row_data[6]) if row_data[6] in options else 2
-                new_values.append(
-                    st.selectbox(header[6], options, index=index, key=key_for(6, selected_row))
-                )
-                                  
-            cA, cB = st.columns(2)
-            with cA:
-                st.text_input("4/11懇親会", value=row_data[7], disabled=True)
-                new_values.append(row_data[7])
-            with cB:
-                options = ["✓","ー",""]
-                index=options.index(row_data[8]) if row_data[8] in options else 2
-                new_values.append(
-                    st.selectbox(header[8], options, index=index, key=key_for(8, selected_row))
-                )
-     
-            cA, cB = st.columns(2)
-            with cA:
-                st.text_input("4/12テニス", value=row_data[9], disabled=True)
-                new_values.append(row_data[9])
-            with cB:
-                options = ["✓","ー",""]
-                index=options.index(row_data[10]) if row_data[8] in options else 2
-                new_values.append(
-                    st.selectbox(header[10], options, index=index, key=key_for(10, selected_row))
-                )
-     
+            st.text_input("4/11テニス", value=row_data[3], disabled=True)
+            new_values.append(row_data[3]) 
+            st.text_input("4/11総会", value=row_data[5], disabled=True)
+            new_values.append(row_data[5])
+            st.text_input("4/11懇親会", value=row_data[7], disabled=True)
+            new_values.append(row_data[7])
+            st.text_input("4/12テニス", value=row_data[9], disabled=True)
+            new_values.append(row_data[9])
+                 
+        # --- 列2：項目5,7,9,11 ---
+        with col2:    
+            options = ["✓","ー",""]
+            index=options.index(row_data[4]) if row_data[4] in options else 2
+            new_values.append(
+                st.selectbox(header[4], options, index=index, key=key_for(4, selected_row))
+            )
+            options = ["✓","ー",""]
+            index=options.index(row_data[6]) if row_data[6] in options else 2
+            new_values.append(
+                st.selectbox(header[6], options, index=index, key=key_for(6, selected_row))
+            )
+            options = ["✓","ー",""]
+            index=options.index(row_data[8]) if row_data[8] in options else 2
+            new_values.append(
+                st.selectbox(header[8], options, index=index, key=key_for(8, selected_row))
+            )
+            options = ["✓","ー",""]
+            index=options.index(row_data[10]) if row_data[8] in options else 2
+            new_values.append(
+                st.selectbox(header[10], options, index=index, key=key_for(10, selected_row))
+            )
+           
         # --- 列3：項目12〜16 ---
-        with col2:
+        with col3:
             # 年会費
             value = to_comma(row_data[11])
             options = ["2,000", "ー", ""]
@@ -281,18 +294,16 @@ with st.container():
             new_values.append(normalize(st.selectbox(header[13], options, index=index,
                                                      key=key_for(13, selected_row)))
             )
-            # 合計金額（表示のみ）
-            cA, cB = st.columns([1,1])
-            with cA:
-                st.text_input("集金", value=(row_data[14]), disabled=True)
-                new_values.append(row_data[14])
-     #           options = ["〇", "未", "ー",""]
-     #           new_values.append(
-     #               st.selectbox(header[14], options, index=options.index(row_data[14],
-     #                            key_for(14, selected_row)))
-     #                            if row_data[14] in options else 2))
-            with cB:
-                st.text_input("合計金額", value=to_comma(row_data[15]), disabled=True)
+            # 集金（表示のみ）
+            st.text_input("集金", value=(row_data[14]), disabled=True)
+            new_values.append(row_data[14])
+ #           options = ["〇", "未", "ー",""]
+ #           new_values.append(
+ #               st.selectbox(header[14], options, index=options.index(row_data[14],
+ #                            key_for(14, selected_row)))
+ #                            if row_data[14] in options else 2))
+             # 合計金額（表示のみ）
+            st.text_input("合計金額", value=to_comma(row_data[15]), disabled=True)
     
         submitted = st.form_submit_button("確認・集金完了")
         
