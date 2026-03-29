@@ -98,7 +98,7 @@ label, .stMarkdown, .stTextInput label, .stSelectbox label {
 
 /* ===== 入力欄の文字（text_input, selectbox の中身） ===== */
 input, select, textarea {
-    font-size: 3vw !important;
+    font-size: 20px !important;
     font-weight: bold;
     }
 
