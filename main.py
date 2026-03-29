@@ -76,18 +76,18 @@ input:disabled {
 .big-box {
     padding: 5px 0;
     text-align: center;
-    border-radius: 2vw;
+    border-radius: 0.5vw;
     background: #e8f0fe;
     border: 2px solid #4285f4;
 }
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
 .big-box .label {
-    font-size: 3vw;
+    font-size: 16px;
     font-weight: bold;
 }
 .big-box .Value {
-    font-size: 5vw;
+    font-size: 16px;
     font-weight: bold;
 }
 
