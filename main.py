@@ -242,13 +242,13 @@ with st.form("edit_form"):
 
     # --- 列1：項目4,6,8,10 ---
     with col1:
-        st.text_input("4/11", value=row_data[3], disabled=True)
+        st.text_input("", value=row_data[3], disabled=True)
         new_values.append(row_data[3]) 
-        st.text_input("総会", value=row_data[5], disabled=True)
+        st.text_input("", value=row_data[5], disabled=True)
         new_values.append(row_data[5])
-        st.text_input("懇親会", value=row_data[7], disabled=True)
+        st.text_input("", value=row_data[7], disabled=True)
         new_values.append(row_data[7])
-        st.text_input("4/12", value=row_data[9], disabled=True)
+        st.text_input("", value=row_data[9], disabled=True)
         new_values.append(row_data[9])
              
     # --- 列2：項目5,7,9,11 ---
