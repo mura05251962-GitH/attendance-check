@@ -56,7 +56,7 @@ st.markdown("""
     font-size:32px !important;
     font-weight: bold !important;
     text-align: center !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 20px !important;
     color: #000080 !important;
 }
 
@@ -93,17 +93,17 @@ input:disabled {
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
 .big-box .label {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
 }
 .big-box .Value {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
 }
 
 /* ===== フォーム内のラベル（出欠1、参加など） ===== */
 label, .stMarkdown, .stTextInput label, .stSelectbox label {
-    font-size: 12px !important;
+    font-size: 16px !important;
 }
 
 /* ===== 入力欄の文字（text_input, selectbox の中身） ===== */
