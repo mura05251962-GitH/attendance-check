@@ -53,7 +53,7 @@ st.markdown("""
 }
 /* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
 .app-title {
-    font-size:22px !important;
+    font-size:20px !important;
     font-weight: bold !important;
     text-align: center !important;
     margin-bottom: 10px !important;
