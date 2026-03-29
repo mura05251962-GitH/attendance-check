@@ -163,7 +163,7 @@ def normalize(v):
   s = s.replace("\r", "")
   s = s.replace("\t", "")
   return s.strip()
-row_data = [normalize(v) for v in row_data]
+
 # ====== 数値表示に,をいれる ======
 def to_comma(v):
   try:
@@ -192,7 +192,8 @@ with col1:
 row_data = body[selected_row - 1]
 while len(row_data) < 16:
     row_data.append("")
- 
+row_data = [normalize(v) for v in row_data]
+
 # #2（卒年度）
 with col2:
     st.markdown(
