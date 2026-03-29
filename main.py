@@ -53,7 +53,7 @@ st.markdown("""
 }
 /* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
 .app-title {
-    font-size:32px !important;
+    font-size:24px !important;
     font-weight: bold !important;
     text-align: center !important;
     margin-bottom: 20px !important;
@@ -97,7 +97,7 @@ input:disabled {
     font-weight: bold;
 }
 .big-box .Value {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
 }
 
