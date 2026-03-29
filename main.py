@@ -179,69 +179,69 @@ st.markdown("""
 
 with st.form("edit_form"): 
 
-    col1, col2 = st.columns(2)
-    new_values = []
-    new_values.append(row_data[0])
-    new_values.append(row_data[1])
-    new_values.append(row_data[2])
-
-    # --- 列1：項目4,6,8,10 ---
-    with col1:
-        st.text_input("1", value=row_data[3], disabled=True)
-        new_values.append(row_data[3]) 
-        st.text_input("2", value=row_data[5], disabled=True)
-        new_values.append(row_data[5])
-        st.text_input("3", value=row_data[7], disabled=True)
-        new_values.append(row_data[7])
-        st.text_input("4", value=row_data[9], disabled=True)
-        new_values.append(row_data[9])
+   col1, col2 = st.columns(2)
+   new_values = []
+   new_values.append(row_data[0])
+   new_values.append(row_data[1])
+   new_values.append(row_data[2])
+   
+   # --- 列1：項目4,6,8,10 ---
+   with col1:
+      st.text_input("1", value=row_data[3], disabled=True)
+      new_values.append(row_data[3]) 
+      st.text_input("2", value=row_data[5], disabled=True)
+      new_values.append(row_data[5])
+      st.text_input("3", value=row_data[7], disabled=True)
+      new_values.append(row_data[7])
+      st.text_input("4", value=row_data[9], disabled=True)
+      new_values.append(row_data[9])
              
     # --- 列2：項目5,7,9,11 ---
-    with col2:    
-        options = ["✓","ー",""]
-        index=options.index(row_data[4]) if row_data[4] in options else 2
-        new_values.append(
-            st.selectbox(header[4], options, index=index, key=key_for(4, selected_row))
-        )
-        options = ["✓","ー",""]
-        index=options.index(row_data[6]) if row_data[6] in options else 2
-        new_values.append(
-            st.selectbox(header[6], options, index=index, key=key_for(6, selected_row))
-        )
-        options = ["✓","ー",""]
-        index=options.index(row_data[8]) if row_data[8] in options else 2
-        new_values.append(
-            st.selectbox(header[8], options, index=index, key=key_for(8, selected_row))
-        )
-        options = ["✓","ー",""]
-        index=options.index(row_data[10]) if row_data[8] in options else 2
-        new_values.append(
-            st.selectbox(header[10], options, index=index, key=key_for(10, selected_row))
-        )
-   
+   with col2:    
+      options = ["✓","ー",""]
+      index=options.index(row_data[4]) if row_data[4] in options else 2
+      new_values.append(
+         st.selectbox(header[4], options, index=index, key=key_for(4, selected_row))
+      )
+      options = ["✓","ー",""]
+      index=options.index(row_data[6]) if row_data[6] in options else 2
+      new_values.append(
+         st.selectbox(header[6], options, index=index, key=key_for(6, selected_row))
+      )
+      options = ["✓","ー",""]
+      index=options.index(row_data[8]) if row_data[8] in options else 2
+      new_values.append(
+         st.selectbox(header[8], options, index=index, key=key_for(8, selected_row))
+      )
+      options = ["✓","ー",""]
+      index=options.index(row_data[10]) if row_data[8] in options else 2
+      new_values.append(
+         st.selectbox(header[10], options, index=index, key=key_for(10, selected_row))
+      )
+               
     # --- 列3：項目12〜16 ---
-    st.markdown("---") 
-        # 年会費
-        value = to_comma(row_data[11])
-        options = ["2,000", "ー", ""]
-        index = options.index(value) if value in options else 2
-        new_values.append(normalize(st.selectbox(header[11], options, index=index,
-                                                 key=key_for(11, selected_row)))
-         )
-        # カンパ
-        value = to_comma(row_data[12])
-        options = ["1,000","2,000","3,000","ー",""]
-        index = options.index(value) if value in options else 2
-        new_values.append(normalize(st.selectbox(header[12], options, index=index,
-                                                 key=key_for(12, selected_row)))
-        )
-        # 懇親会費
-        value = to_comma(row_data[13])
-        options = ["7,000","ー",""]
-        index = options.index(value) if value in options else 2
-        new_values.append(normalize(st.selectbox(header[13], options, index=index,
-                                                 key=key_for(13, selected_row)))
-        )
+   st.markdown("---") 
+   # 年会費
+   value = to_comma(row_data[11])
+   options = ["2,000", "ー", ""]
+   index = options.index(value) if value in options else 2
+   new_values.append(normalize(st.selectbox(header[11], options, index=index,
+                                           key=key_for(11, selected_row)))
+   )
+   # カンパ
+   value = to_comma(row_data[12])
+   options = ["1,000","2,000","3,000","ー",""]
+   index = options.index(value) if value in options else 2
+   new_values.append(normalize(st.selectbox(header[12], options, index=index,
+                                           key=key_for(12, selected_row)))
+   )
+   # 懇親会費
+   value = to_comma(row_data[13])
+   options = ["7,000","ー",""]
+   index = options.index(value) if value in options else 2
+   new_values.append(normalize(st.selectbox(header[13], options, index=index,
+                                           key=key_for(13, selected_row)))
+   )
         # 集金（表示のみ）
         st.text_input("集金", value=(row_data[14]), disabled=True)
         new_values.append(row_data[14])
@@ -250,10 +250,10 @@ with st.form("edit_form"):
 #              st.selectbox(header[14], options, index=options.index(row_data[14],
 #                           key_for(14, selected_row)))
 #                           if row_data[14] in options else 2))
-         # 合計金額（表示のみ）
-        st.text_input("合計金額", value=to_comma(row_data[15]), disabled=True)
+   # 合計金額（表示のみ）
+   st.text_input("合計金額", value=to_comma(row_data[15]), disabled=True)
        
-    submitted = st.form_submit_button("確認・集金完了")
+   submitted = st.form_submit_button("確認・集金完了")
     
 #     st.markdown("</div>", unsafe_allow_html=True)
 
