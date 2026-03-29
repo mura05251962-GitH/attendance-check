@@ -89,10 +89,11 @@ input:disabled {
     padding: 5px 10px 5px 20px;
     text-align: center;
     gap: 20px;
-    border-radius: 5vw;
+    border-radius: 3vw;
     background: #e8f0fe;
-    border: 2px solid #4285f4;
-    
+    border: 2px solid #4285f4;  
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
 }
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
@@ -120,11 +121,11 @@ input, select, textarea {
     font-weight: bold;
     }
 
-#/* markdown上下の余白をゼロにする */
-#hr {
-#    margin-top: 0 !important;
-#    margin-bottom: 0 !important;
-#}
+/* markdown上下の余白をゼロにする */
+hr {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
 /* ===== columns の横の隙間（gap）を詰める ===== */
 div[data-testid="column"] {
     padding-left: 1rem !important;
