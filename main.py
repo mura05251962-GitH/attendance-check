@@ -149,7 +149,7 @@ form {
 st.markdown('<h1 class="app-title">2026年OGOB会 出欠・集金アプリ</h1>',
             unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns([1, 1, 3])
+col1, col2 = st.columns(2)
 
 # selectbox は col1 にそのまま置く
 with col1:
@@ -196,16 +196,15 @@ with col2:
     )
     
 # #3（名前）
-with col3:
-    st.markdown(
-        f"""
-        <div class="big-box">
-            <div class="label">{header[2]}</div>
-            <div class="value">{row_data[2]}</div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+st.markdown(
+    f"""
+    <div class="big-box">
+        <div class="label">{header[2]}</div>
+        <div class="value">{row_data[2]}</div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
     
 # ====== 編集フォーム =============================================
 st.markdown("---") 
