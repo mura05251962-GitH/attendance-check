@@ -53,10 +53,10 @@ st.markdown("""
 }
 /* ===== タイトルフォントサイズ（3VW=横幅の3%） ===== */
 .app-title {
-    font-size:24px !important;
+    font-size:22px !important;
     font-weight: bold !important;
     text-align: center !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 10px !important;
     color: #000080 !important;
 }
 
@@ -64,6 +64,7 @@ st.markdown("""
 html, body, [class*="css"] {
     font-size: 16px !important;
     font-family: "メイリオ", Arial, sans-serif !important;
+    font-weight: bold;
 }
 /* すべての文字色を黒にする */
 html, body, div, span, label, p, input, select, textarea, button,
