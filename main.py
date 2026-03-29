@@ -85,8 +85,10 @@ input:disabled {
 
 /* ===== big-box（上部の青枠） ===== */
 .big-box {
+    display: flex;
     padding: 5px 0;
     text-align: center;
+    gap: 10px;
     border-radius: 5vw;
     background: #e8f0fe;
     border: 2px solid #4285f4;
@@ -96,7 +98,6 @@ input:disabled {
 .big-box .label {
     font-size: 18px;
     min-width: 60px;
-    gap: 10px;
     font-weight: bold;
     white-space: nowrap;
 }
