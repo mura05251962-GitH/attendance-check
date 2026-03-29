@@ -183,10 +183,8 @@ st.markdown('<h1 class="app-title">2026年OGOB会 出欠・集金アプリ</h1>'
 
  # ======　No、卒年次、名前　======
 
-col1, col2 = st.columns(2)
- 
+
 # selectbox は col1 にそのまま置く
-with col1:
     selected_row = st.selectbox("Noを選択", row_numbers)
     
 row_data = body[selected_row - 1]
@@ -194,17 +192,15 @@ while len(row_data) < 16:
     row_data.append("")
 row_data = [normalize(v) for v in row_data]
 
-# #2（卒年度）
-with col2:
-    st.markdown(
-        f"""
-        <div class="big-box">
-            <div class="label">{header[1]}</div>
-            <div class="Value">{row_data[1]}</div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+st.markdown(
+     f"""
+     <div class="big-box">
+         <div class="label">{header[1]}</div>
+         <div class="Value">{row_data[1]}</div>
+     </div>
+     """,
+     unsafe_allow_html=True
+ )
 
 #（名前）
 st.markdown(
