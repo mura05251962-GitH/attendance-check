@@ -65,7 +65,7 @@ div[data-baseweb="select"] > div {
 }
 
 div[data-baseweb="select"] span {
-    font-size: 14px !important;
+    font-size: 12px !important;
 }
 /* =========================
    ⑤ input系
