@@ -35,7 +35,7 @@ input, textarea {
    ⑥ フォント（固定px推奨）
 ========================= */
 html, body {
-    font-size: 14px !important;
+    font-size: 16px !important;
 }
 
 /* =========================
@@ -60,11 +60,11 @@ label {
 
 /* ===== big-box 内のラベルと値（共通化） ===== */
 .big-box .label {
-    font-size: 3vw;
+    font-size: 2vw;
     font-weight: bold;
 }
 .big-box .Value {
-    font-size: 5vw;
+    font-size: 3vw;
     font-weight: bold;
 }
 
@@ -220,7 +220,7 @@ with st.form("edit_form"):
         )
    
     # --- 列3：項目12〜16 ---
-
+    st.markdown("---") 
         # 年会費
         value = to_comma(row_data[11])
         options = ["2,000", "ー", ""]
