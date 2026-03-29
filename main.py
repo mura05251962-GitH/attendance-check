@@ -242,9 +242,9 @@ with st.form("edit_form"):
    new_values.append(normalize(st.selectbox(header[13], options, index=index,
                                            key=key_for(13, selected_row)))
    )
-        # 集金（表示のみ）
-        st.text_input("集金", value=(row_data[14]), disabled=True)
-        new_values.append(row_data[14])
+   # 集金（表示のみ）
+   st.text_input("集金", value=(row_data[14]), disabled=True)
+   new_values.append(row_data[14])
 #          options = ["〇", "未", "ー",""]
 #          new_values.append(
 #              st.selectbox(header[14], options, index=options.index(row_data[14],
