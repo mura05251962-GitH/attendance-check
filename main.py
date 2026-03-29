@@ -40,33 +40,12 @@ div[data-testid="column"] {
 }
 
 /* =========================
-   ④ selectbox：はみ出し防止
+   ④ selectbox：完全制御
 ========================= */
-div[data-baseweb="select"] {
-    width: 100% !important;
-    min-width: 0 !important;
+div[data-baseweb="select"] * {
+    outline: 1px solid red;
 }
 
-/* テキスト省略（超重要） */
-div[data-baseweb="select"] span {
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-}
-
-div[data-baseweb="select"] {
-    width: 110px !important;
-    min-width: 0 !important;
-}
-
-div[data-baseweb="select"] > div {
-    padding-left: 4px !important;
-    padding-right: 4px !important;
-}
-
-div[data-baseweb="select"] span {
-    font-size: 12px !important;
-}
 /* =========================
    ⑤ input系
 ========================= */
