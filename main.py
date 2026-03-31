@@ -295,8 +295,6 @@ with st.form("edit_form"):
         # 合計金額（表示のみ）
         cA, cB = st.columns([1,1])
         with cA:
-            st.text_input("集金", value=(row_data[14]), disabled=True)
-            value=(row_data[14])
             options = ["〇", "未", "ー",""]
             new_values.append(
                 st.selectbox(header[14], options, index=options.index(row_data[14],
