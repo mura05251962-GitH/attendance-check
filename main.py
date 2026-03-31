@@ -297,8 +297,9 @@ with st.form("edit_form"):
         with cA:
             options = ["〇", "未", "ー",""]
             index=options.index(row_data[14]) if row_data[14] in options else 2
-            new_values.append(st.selectbox(header[14], options, index=index,
-                                           key_for(14, selected_row)))
+            new_values.append(
+                st.selectbox(header[14], options, index=index,key_for(14, selected_row))
+            )
         with cB:
             st.text_input("合計金額", value=to_comma(row_data[15]), disabled=True)
 
