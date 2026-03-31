@@ -309,7 +309,7 @@ with st.form("edit_form"):
 
 # 保存処理
 if submitted:
-    update_range = f"CollectList!B{selected_row+8}:P{selected_row+8}"
+    update_range = f"CollectList!B{selected_row+9}:P{selected_row+9}"
     sheet.values().update(
         spreadsheetId=SPREADSHEET_ID,
         range=update_range,
