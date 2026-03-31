@@ -296,6 +296,7 @@ with st.form("edit_form"):
         cA, cB = st.columns([1,1])
         with cA:
             options = ["〇", "未", "ー",""]
+            index=options.index(row_data[14]) if row_data[14] in options else 2
             new_values.append(st.selectbox(header[14], options, index=index,
                                            key_for(14, selected_row)))
         with cB:
