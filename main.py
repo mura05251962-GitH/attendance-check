@@ -74,8 +74,6 @@ html, body, div, span, label, p, input, select, textarea, button,
 /* ===== selectbox の選択肢（参加・不参加）を黒にする ===== */
 div[data-baseweb="select"] * {
     color: #000 !important;
-    margin-top: 2px !important;
-    margin-bottom: 2px !important;
 }
 div[data-baseweb="select"] > div {
     color: #000 !important;
