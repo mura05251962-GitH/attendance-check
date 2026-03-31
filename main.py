@@ -29,8 +29,8 @@ def load_sheet():
 
 data = load_sheet()
 
-header = data[8]          # ← 2行目（項目名）
-body = data[9:]           # ← 3行目以降（データ）
+header = data[8]          # ← 9行目（項目名）
+body = data[9:]           # ← 10行目以降（データ）
 
 # ======　行番号選択　======
 row_numbers = list(range(1, len(body) + 1))
@@ -309,7 +309,7 @@ with st.form("edit_form"):
 
 # 保存処理
 if submitted:
-    update_range = f"CollectList!B{selected_row+2}:P{selected_row+2}"
+    update_range = f"CollectList!B{selected_row+8}:P{selected_row+8}"
     sheet.values().update(
         spreadsheetId=SPREADSHEET_ID,
         range=update_range,
