@@ -62,7 +62,7 @@ st.markdown("""
 
 /* ===== 共通フォントサイズ（全体を大きく） ===== */
 html, body, [class*="css"] {
-    font-size: 14px !important;
+    font-size: 16px !important;
     font-family: "メイリオ", Arial, sans-serif !important;
     font-weight: bold;
 }
@@ -146,7 +146,7 @@ form {
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<h1 class="app-title">2026年OGOB会 出欠・集金アプリ</h1>',
+st.markdown('<h2 class="app-title">2026年OGOB会 出欠・集金アプリ</h2>',
             unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
