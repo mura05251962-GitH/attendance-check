@@ -213,7 +213,6 @@ st.markdown("""
 <style>
 .stApp {background-color: #fffff0;}
 </style>
-
 """,unsafe_allow_html=True)
 
 with st.form("edit_form"): 
