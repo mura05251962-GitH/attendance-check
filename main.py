@@ -146,7 +146,7 @@ form {
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<h2 class="app-title">2026年OGOB会 出欠・集金アプリ</h2>',
+st.markdown('<h1 class="app-title">2026年OGOB会 出欠・集金アプリ</h1>',
             unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
@@ -208,7 +208,7 @@ st.markdown(
     
 # ====== 編集フォーム =============================================
 #st.markdown("---") 
-st.write("　テニスの出欠確認は、試合参加者：✓、見学者：ー")
+st.write("テニスの出欠は、試合参加：✓、見学：ー")
 st.markdown("""
 <style>
 .stApp {background-color: #fffff0;}
