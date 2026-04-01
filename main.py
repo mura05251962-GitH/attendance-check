@@ -207,11 +207,13 @@ st.markdown(
 )
     
 # ====== 編集フォーム =============================================
-st.markdown("---") 
+#st.markdown("---") 
+st.write("　テニスの出欠確認は、試合参加者：✓、見学者：ー")
 st.markdown("""
 <style>
 .stApp {background-color: #fffff0;}
 </style>
+
 """,unsafe_allow_html=True)
 
 with st.form("edit_form"): 
